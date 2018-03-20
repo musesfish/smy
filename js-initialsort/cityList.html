@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>城市列表页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.indexedlist.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<style>
+			html,body{
+				height:100%;
+				overflow: hidden;
+			}
+			/*字母导航条*/
+			#nameListDiv{
+				position: fixed;
+				top:9px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height:auto!important;
+				padding-top: 35px;
+				padding-bottom: 20px;
+			}
+			#nameListDiv a{
+				max-height:22px!important;
+				line-height: 22px!important;
+			}
+		</style>
+	</head>
+	<body class="hyc-city">
+		<!--顶部悬停框-->
+		<header class="mui-bar mui-bar-nav bar-flex">
+		</header>
+		
+		<!--主体内容-->
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="mui-indexed-list-bar" id="nameListDiv">
+					<!--字母导航区-->
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<!--定位-->
+					<div class="gps-location">
+						<h4>深圳</h4>
+						<span class="explain">GPS定位</span>
+					</div>
+					<!--定位结束-->
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul class="mui-table-view" id="cityListUl">
+						<!--城市数据区-->					
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.indexedlist.js"></script>
+		<script type="text/javascript" src="js/initailSort.js"></script>
+		<script type="text/javascript">
+			(function(){
+				mui.init();
+				//公用函数
+				function $$(id){
+					return document.getElementById(id);
+				}
+				//列表的长度适应屏幕
+				mui.ready(function() {
+					var header = document.querySelector('header.mui-bar');
+					var list = document.getElementById('list');
+					//calc hieght
+					list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+					//create
+					window.indexedList = new mui.IndexedList(list);
+				});
+				//动态生成城市数据
+				var cityList=["北京","厦门","深圳",'广州','重庆','潮州','汕头','汕尾','清远','肇庆',
+				"阿里","澳门","安康",'阿克苏','阿勒泰','达州','大同','鄂尔多斯','葫芦岛','昆明','六安',
+				"佛山","基隆","茂名",'南昌','攀枝花','七台河','日喀','三明','塔城','万宁','西安','营口'];//动态生成的数据
+				cityList.sort(PySort);//将城市按首字母进行排序
+				cityList=FirSort(cityList);//返回格式为{b: Array(1), s: Array(1), x: Array(1)}的数据
+				var names=[];
+				for(var name in cityList){//提取对象属性名
+					names.push(name.toLocaleUpperCase());//["B", "S", "X"]
+				}
+				//拼接导航字母的html
+				var html="";
+				for(var i=0;i<names.length;i++){
+					html+=`<a>${names[i]}</a>`;
+				}
+				$$('nameListDiv').innerHTML=html;
+				//拼接主体内容
+				html="";
+				for(var i=0,city=[];i<names.length;i++){
+					html+=`<li data-group=${names[i]} class="mui-table-view-divider mui-indexed-list-group">${names[i]}</li>`;
+					city=cityList[names[i].toLocaleLowerCase()];
+					for(var j=0;j<city.length;j++){
+						html+=`<li class="mui-table-view-cell mui-indexed-list-item">${city[j]}</li>`;
+					}
+				}
+				$$('cityListUl').innerHTML=html;
+			})();
+		</script>
+	</body>
+
+</html>

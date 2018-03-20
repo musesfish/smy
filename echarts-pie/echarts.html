@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body{text-align: center}
+    svg,canvas{
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+   <h1>使用百度创建圆形和矩形</h1>
+   <div id="box" style="width:600px;height:400px;"></div>
+   <script src="echarts.min.js"></script>
+   <script>
+     //1:指定图形配置参数
+     var option = {
+       title:{text:"销售统计数据"},
+       series:[
+         {name:"饼状销售量",
+           type:"pie",
+           radius:"60%",
+           data:[
+             {value:500,name:"Android"},
+             {value:410,name:"IOS"},
+             {value:480,name:"华为"},
+             {value:510,name:"Other"}
+           ]}
+       ]
+     };
+     //2:初始化实例
+     var myChart = echarts.init(box);
+     //3:使用配置参数显示图片
+     myChart.setOption(option);
+   </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,298 @@
+@charset "UTF-8";
+/*优价选车模块*/
+/*首页*/
+.hyc-yjxc .mui-content .mui-row .mui-col-xs-6 .l-title {
+  text-align: left !important;
+  padding-left: 13px;
+  color: #888; }
+.hyc-yjxc .mui-content .mui-row .mui-col-xs-6 .r-li-h {
+  height: 32px;
+  text-align: right;
+  padding-right: 13px;
+  line-height: 32px; }
+  .hyc-yjxc .mui-content .mui-row .mui-col-xs-6 .r-li-h .more {
+    font-size: 12px;
+    color: #888; }
+  .hyc-yjxc .mui-content .mui-row .mui-col-xs-6 .r-li-h img {
+    width: 12px;
+    height: 12px; }
+.hyc-yjxc .mui-content .mui-slider .mui-slider-indicator {
+  margin-top: 1px;
+  bottom: 5px; }
+  .hyc-yjxc .mui-content .mui-slider .mui-slider-indicator .mui-indicator {
+    height: 2px;
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    width: 18px;
+    border-radius: 0; }
+  .hyc-yjxc .mui-content .mui-slider .mui-slider-indicator .mui-active {
+    background: #fff; }
+.hyc-yjxc .mui-content .hyc-pmd-out {
+  width: 90%;
+  height: 28px;
+  border-radius: 20px;
+  background: white;
+  margin: 10px;
+  line-height: 28px;
+  padding-left: 10px;
+  overflow: hidden; }
+.hyc-yjxc .mui-content .hyc-pmd-in {
+  float: right;
+  width: 76%;
+  position: relative;
+  top: 0; }
+  .hyc-yjxc .mui-content .hyc-pmd-in p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #888; }
+.hyc-yjxc .mui-content .mui-row {
+  background: #fff;
+  border-bottom: 1px solid #F8F8F8; }
+  .hyc-yjxc .mui-content .mui-row .mui-table-view-cell {
+    list-style: none;
+    padding: 8px 0;
+    text-align: center; }
+.hyc-yjxc .mui-content .hyc-flex-5 {
+  display: flex;
+  background: #fff; }
+  .hyc-yjxc .mui-content .hyc-flex-5 a {
+    display: block;
+    width: 20%;
+    text-align: center;
+    padding-top: 12px; }
+    .hyc-yjxc .mui-content .hyc-flex-5 a img {
+      width: 40px;
+      height: 40px; }
+    .hyc-yjxc .mui-content .hyc-flex-5 a p {
+      color: #333;
+      font-size: 12px; }
+.hyc-yjxc .mui-content .mui-table-view .mui-media {
+  padding: 3px; }
+  .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-col-xs-4 {
+    margin: 0;
+    padding: 0 5px 0; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-col-xs-4 img {
+      width: 100%;
+      margin-top: 11px; }
+  .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body {
+    float: right;
+    padding: 5px; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body p {
+      color: #333; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .sec-head {
+      font-size: 13px;
+      line-height: 26px; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .hot-price {
+      font-size: 16px;
+      color: #F23030;
+      line-height: 36px; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .fix-price {
+      padding-top: 6px;
+      color: #888;
+      text-decoration: line-through;
+      float: right;
+      font-size: 12px; }
+    .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .discribe {
+      font-size: 12px;
+      color: #888; }
+      .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .discribe .red-border {
+        border: 1px solid #F23030;
+        color: #F23030;
+        padding: 1px;
+        margin-right: 5px;
+        border-radius: 3px; }
+      .hyc-yjxc .mui-content .mui-table-view .mui-media .mui-media-body .discribe .bk-apply {
+        background-image: linear-gradient(to right, #E3625F, #F3C7A1);
+        font-size: 12px;
+        color: #fff;
+        border-radius: 20px;
+        padding: 2px 9px;
+        float: right;
+        outline: 0;
+        border: 0; }
+.hyc-yjxc .mui-content .tj-row {
+  background: transparent !important;
+  border-bottom: 0 !important; }
+  .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .l-card {
+    margin: 0 1px 2px 0 !important; }
+  .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .r-card {
+    margin: 0 0 2px 1px !important; }
+  .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card {
+    box-shadow: 0 1px 2px transparent !important;
+    margin: 0; }
+    .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .tj-card-header {
+      padding: 2px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .tj-card-header .tj-img1 {
+        width: 22%;
+        float: right;
+        position: relative;
+        top: -3px;
+        right: -2px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .tj-card-header a {
+        display: table; }
+        .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .tj-card-header a .tj-img2 {
+          width: 100%; }
+    .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-content {
+      padding: 0 5px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-content p {
+        padding: 0;
+        color: #333;
+        font-size: 12px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-content p .tj-price {
+        color: #F23030;
+        font-size: 14px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-content p .fix-price {
+        text-decoration: line-through;
+        float: right;
+        color: #888;
+        font-size: 12px; }
+    .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-footer {
+      min-height: 36px;
+      padding: 6px; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-footer .mui-inline .tj-star {
+        font-size: 10px;
+        color: #F23030; }
+      .hyc-yjxc .mui-content .tj-row .mui-col-xs-6 .mui-card .mui-card-footer .tj-score {
+        font-size: 8px;
+        color: #888;
+        margin-left: 6px; }
+
+/*城市定位,品牌列表*/
+.hyc-city .mui-content .mui-indexed-list .mui-indexed-list-bar {
+  background: transparent;
+  margin-top: 32px;
+  box-sizing: border-box; }
+.hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .gps-location {
+  background: #fff;
+  height: 50px;
+  margin-top: 2px;
+  border-top: 1px solid #F8F8F8;
+  padding: 0px 10px;
+  line-height: 50px; }
+  .hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .gps-location .location-icon {
+    width: 16px;
+    position: relative;
+    top: -2px; }
+  .hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .gps-location h4 {
+    display: inline-block;
+    padding-left: 3px;
+    font-size: 16px;
+    font-weight: blod;
+    color: #333; }
+.hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .mui-table-view .mui-table-view-divider {
+  height: 46px;
+  line-height: 46px;
+  font-size: 16px;
+  color: #333; }
+.hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .mui-table-view .mui-table-view-cell {
+  padding-top: 13px;
+  height: 46px; }
+.hyc-city .mui-content .mui-indexed-list .mui-indexed-list-inner .mui-table-view .mui-table-view-cell:after {
+  background-color: #EDEDED;
+  height: 1px; }
+
+.hyc-brand .mui-content .mui-indexed-list .mui-indexed-list-inner .mui-table-view .mui-table-view-cell {
+  padding-left: 72px;
+  background: transparent url(../img/home/brand/common/1_0306215240T52,c_fill,h_72,w_90.jpg) no-repeat 20px center !important;
+  background-size: 38px !important; }
+
+/*经销商列表页*/
+.hyc-agency-list .mui-bar img {
+  width: 39px;
+  margin-top: 5px;
+  margin-right: -5px; }
+.hyc-agency-list .mui-content {
+  margin-bottom: 30px; }
+  .hyc-agency-list .mui-content .popUp #mask {
+    top: 54px; }
+  .hyc-agency-list .mui-content .popUp #pop-up, .hyc-agency-list .mui-content .popUp #pop-up-all, .hyc-agency-list .mui-content .popUp #pop-up-area, .hyc-agency-list .mui-content .popUp #pop-up-car, .hyc-agency-list .mui-content .popUp #pop-up-color {
+    width: 100%;
+    background: #fff;
+    top: 50px; }
+  .hyc-agency-list .mui-content .popUp #pop-up-all, .hyc-agency-list .mui-content .popUp #pop-up-area, .hyc-agency-list .mui-content .popUp #pop-up-car, .hyc-agency-list .mui-content .popUp #pop-up-color, .hyc-agency-list .mui-content .popUp #mask {
+    top: 84px; }
+  .hyc-agency-list .mui-content .row-title {
+    padding-left: 2px;
+    height: 44px;
+    background: #fff;
+    line-height: 44px;
+    text-align: center; }
+    .hyc-agency-list .mui-content .row-title .mui-col-xs-3 img {
+      width: 12px;
+      vertical-align: middle; }
+  .hyc-agency-list .mui-content .agency-list .list-one {
+    margin-top: 5px; }
+    .hyc-agency-list .mui-content .agency-list .list-one .list-one-top {
+      padding: 10px 10px 4px;
+      background: #fff;
+      margin-bottom: 1px; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-fir .mui-col-xs-4 {
+        color: #F23030; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-sec {
+        padding: 10px 0; }
+        .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-sec .mui-col-xs-8 span {
+          background: #5D5D5D;
+          padding: 3px 6px;
+          border-radius: 2px;
+          margin-right: 3px;
+          color: #fff;
+          font-size: 12px; }
+        .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-sec .mui-col-xs-4 {
+          font-size: 12px;
+          text-decoration: line-through;
+          color: #888; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-thir {
+        font-size: 12px;
+        color: #888; }
+        .hyc-agency-list .mui-content .agency-list .list-one .list-one-top .top-thir .mui-col-xs-4 span {
+          color: #F23030;
+          padding-left: 4px; }
+    .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom {
+      padding: 10px 10px 4px;
+      background: #fff; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom .bottom-fir p {
+        font-size: 12px;
+        display: inline-block; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom .bottom-fir img {
+        width: 14px;
+        vertical-align: middle; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom .bottom-sec .mui-col-xs-8 .mui-inline .tj-star {
+        font-size: 10px;
+        color: #F23030; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom .bottom-sec .mui-col-xs-8 .tj-score {
+        font-size: 8px;
+        color: #888;
+        margin-left: 6px; }
+      .hyc-agency-list .mui-content .agency-list .list-one .list-one-bottom .bottom-sec .mui-col-xs-4 {
+        font-size: 12px;
+        color: #888; }
+
+/*品牌车型列表页*/
+.hyc-brand-model .mui-content {
+  margin-bottom: 50px; }
+  .hyc-brand-model .mui-content .model-list {
+    background: #fff;
+    margin-top: 5px; }
+    .hyc-brand-model .mui-content .model-list .model-one {
+      clear: both;
+      height: 80px;
+      background: #fff; }
+      .hyc-brand-model .mui-content .model-list .model-one .mui-col-xs-4 {
+        padding-left: 3px; }
+        .hyc-brand-model .mui-content .model-list .model-one .mui-col-xs-4 img {
+          width: 100%; }
+      .hyc-brand-model .mui-content .model-list .model-one .mui-col-xs-8 {
+        height: 80px;
+        box-sizing: border-box !important;
+        border-bottom: 1px solid #F8F8F8;
+        padding: 8px 15px 5px; }
+        .hyc-brand-model .mui-content .model-list .model-one .mui-col-xs-8 .price {
+          font-size: 12px;
+          color: #F23030; }
+        .hyc-brand-model .mui-content .model-list .model-one .mui-col-xs-8 .discribe {
+          font-size: 12px; }
+
+/*# sourceMappingURL=index.css.map */

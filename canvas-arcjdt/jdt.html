@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div class="time-graph">  
+          <canvas id="time-graph-canvas" width="160" height="160"></canvas>  
+        </div>  
+        
+        <script type="text/javascript">
+        	var usable=50000;//可用额度
+        	var total=100000;//可申请总额度
+        	
+        	var percent=usable/total*100;
+        	var time_canvas = document.getElementById("time-graph-canvas");  
+			this.drawMain(time_canvas, percent, "#E3625F",'#F3C7A1', "#262F38");  
+        	
+        	function drawMain(drawing_elem, percent, forecolor1,forecolor2, bgcolor) {   
+			    var context = drawing_elem.getContext("2d");  
+			    var center_x = drawing_elem.width / 2;  
+			    var center_y = drawing_elem.height / 2;    
+				var rad = (Math.PI/180)*280/100;
+			    var speed = 0;  
+			      
+			    // 绘制背景圆圈  
+			    function backgroundCircle(){  
+			        context.save();  
+			        context.beginPath();  
+			        context.lineWidth = 8; //设置线宽  
+			        var radius = center_x - context.lineWidth;  
+			        context.lineCap = "round";  
+			        context.strokeStyle = bgcolor;  
+			        context.arc(center_x, center_y, radius, (Math.PI/180)*130, (Math.PI/180)*50, false); 
+			        context.stroke();  
+			        context.closePath();  
+			        context.restore();  
+			    }  
+			  
+			    //绘制运动圆环  
+			    function foregroundCircle(n){  
+			        context.save();
+			        var grd=context.createLinearGradient(0,0,180,0);
+					grd.addColorStop(0,forecolor1);
+					grd.addColorStop(1,forecolor2);
+			        context.strokeStyle = grd;  
+			        context.lineWidth = 8;  
+			        context.lineCap = "round";  
+			        var radius = center_x - context.lineWidth;  
+			        context.beginPath();  
+			        //用于绘制圆弧context.arc(x坐标，y坐标，半径，起始角度，终止角度，顺时针/逆时针)
+			        context.arc(center_x, center_y, radius ,(Math.PI/180)*130, (Math.PI/180)*130+n*rad, false);
+			        context.stroke();
+			        context.closePath();  
+			        context.restore();  
+			    }   
+			  
+			    //执行动画  
+			    (function drawFrame(){  
+			        window.requestAnimationFrame(drawFrame);  
+			        context.clearRect(0, 0, drawing_elem.width, drawing_elem.height);  
+			        backgroundCircle();    
+			        if(speed>0) foregroundCircle(speed);
+			        if(speed >= percent) return;  
+			        speed += 1;  
+			    }());  
+			}
+        </script>
+	</body>
+</html>
+

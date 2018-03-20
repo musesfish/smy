@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="pinyin.js"></script>
+    <script>
+        var Select = {
+            del: function(obj, e) {
+                if ((e.keyCode || e.which || e.charCode) == 8) {
+                    var opt = obj.options[obj.selectedIndex];
+                    opt.text = opt.value = opt.value.substring(0, opt.value.length > 0 ? opt.value.length - 1 : 0);
+                }
+                obj.focus();
+            },
+            write: function(obj, e) {
+                if ((e.keyCode || e.which || e.charCode) == 8) return;
+                var opt = obj.options[obj.selectedIndex];
+                opt.selected = "selected";
+                opt.text = opt.value += String.fromCharCode(e.charCode || e.which || e.keyCode);
+                obj.focus();
+            }
+        };
+
+        function test() {
+            alert(document.getElementById("select").value);
+        };
+        onload = function() {
+            var sel = document.getElementById("select");
+            sel.focus();
+        };
+        var kp = function(txt) {
+            var val = txt.value;
+            var sel = document.getElementById("select")
+            var opts = sel.children;
+            for(var i=0;i<opts.length;i++){
+            	var sou = ConvertPinyin(opts[i].innerHTML);
+            	var arr = sou.match(/[A-Z][a-z]+/g);
+            	if(matches(arr, val)){
+            		sel.selectedIndex = i;
+            		break;
+            	}
+            }
+        };
+        var matches = function(source, input) {
+            var reg = "";
+            for (var i = 0; i < source.length; i++) {
+                // 全拼
+                var tmp1 = "",
+                // 首字
+                tmp2 = "",
+                // 全拼+部分字
+                tmp3 = "";
+                for (var j = 0; j <= i; j++) {
+                    var sj = source[j];
+                    tmp1 += sj;
+                    if (j < i) {
+                        tmp3 += sj;
+                        tmp2 += sj.charAt(0);
+                    } else {
+                        if (i == source.length - 1) {
+                            var temp3 = "", temp2 = "";
+                            for (var k = 1; k < sj.length; k++) {
+                                temp3 += tmp3 + sj.substring(0, k) + "|";
+                                temp2 += tmp2 + sj.substring(0, k) + "|";
+                            }
+                            tmp3 = temp3;
+                            tmp2 = temp2;
+                        } else {
+                            if (j > 0) {
+                                tmp3 += sj.charAt(0);
+                            }
+                            tmp2 += sj.charAt(0);
+                        }
+                    }
+                }
+                reg += tmp1 + "|" + tmp2 + "|" + tmp3 + "|";
+            }
+            reg = new RegExp("^(" + reg.replace("\\|{2,}", "|").replace("\\|$", "") + ")$", "i");
+            return reg.test(input);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" onkeyup="kp(this)" />
+    <select name="aaa" id="select" onkeydown="Select.del(this,event)" onkeypress="Select.write(this,event)">
+        <option value="张三">张三</option>
+        <option value="李四">李四</option>
+        <option value="王二麻子">王二麻子</option>
+    </select>
+</body>
+
+</html>
