@@ -1,0 +1,462 @@
+@charset "utf-8";
+@import 'common';
+
+/*页面公用样式*/
+.container-fluid{
+    font-size:$second_size;
+    background: $bg_box;
+    text-align: center;
+    //侧边栏
+    .hyc-aside{
+        padding:0;
+        padding-bottom: 50px;
+        background: $bg_row;
+        //头像
+        &>a{
+            background: #fff;
+            @include myLine(120px,120px);
+            border-radius: 50%;
+            margin:20px auto;
+        }
+        //collapse
+        #accordion{
+            background: transparent url(../img/main/background_@1x.png) no-repeat 0px -128px;
+            background-size: cover;
+            a{
+                display: block;
+                cursor: pointer;
+                position: relative;
+                @include myLine(50px,100%);
+                color:#fff;
+                text-align: left;
+                background: transparent url(../img/main/line_@2x.png) no-repeat center 49px;
+                background-size: contain;
+                img:first-child{
+                    margin:0 6%;
+                }
+                img.last{
+                    position: absolute;
+                    right:13px;
+                    top:13px;
+                }
+            }
+            .com-head{
+                box-shadow: 0px 0px 1px 0px #000;
+                background: $bg_row;
+            }
+            .com-body{
+                background: rgba(79,79,79,.9);
+                .msg-a{
+                    .msg-span{
+                        @include myBtn(23px,40px);
+                        background: $red_color;
+                        float:right;
+                        margin-top:15px;
+                        margin-right:15px;
+                    }
+                }
+            }
+        }
+    }
+    //主体内容
+    .hyc-content{
+        min-width:985px;
+        background: $bg_box;
+        padding:0;
+        .col-head{
+            font-size:$second_size;
+            .col-com{
+                text-align: left!important;
+                border-bottom:1px solid $gray_color;
+                background: $bg_body;
+                padding-left:30px;
+            }
+            //顶部下拉框
+            .col-1{
+                @include myLine(50px,100%);
+                button{
+                    border:0;
+                    outline: 0;
+                    background: transparent;
+                }
+                ul{
+                    top:92%;
+                    left:32px;
+                    li{
+                        padding:3px 0;
+                    }
+                }
+                .rt{
+                    margin-right:30px;
+                }
+            }
+            .col-2{
+                @include myLine(46px,100%);
+                background: $bg_bodys;
+                padding-left:36px;
+                .outerA{
+                    display: inline-block;
+                    height:22px;
+                    line-height: 22px;
+                    font-size:$second_size;
+                    padding:0 40px;
+                }
+                .outerA:not(:last-child){
+                    border-right: 1px solid $gray_color;
+                }
+                .outerA:first-child{
+                    padding-left:0px;
+                }
+                .active{
+                    color:$red_color;
+                }
+                .innerA{
+                    img{
+                        width:15px;
+                        position:relative;
+                        top:-2px;
+                    }
+                }
+            }
+            .col-3{
+                @include myLine(60px,100%);
+                padding-left:48px;
+                span{
+                    border-bottom:2px solid $bg_row;
+                    height:60px;
+                    display: inline-block;
+                    text-indent: -13px;
+                    width:30px;
+                    white-space: nowrap;
+                }
+                .span-six{
+                    text-indent: -25px;
+                }
+                p{
+                    margin-right:60px;
+                    display: inline-block;
+                    input{
+                        width:180px;
+                        height:30px;
+                    }
+                    img{
+                        width:20px;
+                        margin-left:10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .col-span{
+                margin-left:-25px;
+                li{
+                    display: inline-block;
+                    padding:0 30px;
+                    a{
+                        color:$second_color;
+                        border-bottom:2px solid transparent;
+                        width:30px;
+                        white-space: nowrap;
+                        text-indent: -17px;
+                        display: inline-block;
+                    }
+                    .active{
+                        color:$main_color;
+                        border-bottom:2px solid $bg_row;
+                    }
+                }
+                li:nth-child(2){
+                    padding-right:38px;
+                }
+            }
+        }
+        .com-body{
+            min-width:1033px;
+            padding-bottom: 144px;
+            padding:4%;
+            .table-box{
+                margin-top:15px;
+                padding-right:15px;
+                span{
+                    @include myLine(20px,100%);
+                    margin-top:9px;
+                    flex:1 1 auto;
+                    display: inline-block;
+                }
+                p.title{
+                    display: flex;
+                    @include myLine(38px,100%);
+                    color:#fff!important; 
+                    background: #5D5D5D!important;
+                    span{
+                        border-right:1px solid #6E6E6E!important;
+                    }
+                }
+                ul.content{
+                    li{
+                        padding:0 5px;
+                        font-size:$min_size!important;
+                        color:$second_color;
+                        background: #fff;
+                        @include myLine(38px,100%);
+                        display: flex;
+                        span{
+                            border-right:1px solid #fff;
+                        }
+                        span:last-child{
+                            border:0;
+                        }
+                    }
+                    li:nth-child(even){
+                        background: $bg_bodys;
+                    }
+                    .spanAs{
+                        a{
+                            font-size:$min_size!important;
+                            @include myBtn(23px,40px);
+                            border-radius:10px;
+                        }
+                        a:first-child{
+                            background: $btn_green;
+                        }
+                        a:nth-child(2){
+                            background: $btn_cyan;
+                        }
+                        a:nth-child(3){
+                            background: $btn_gray;
+                        }
+                        a:nth-child(4){
+                            background: $btn_red;
+                        }
+                    }
+                }
+                div.bottom{
+                    font-size:$main_size;
+                    height:144px;
+                    background: #fff;
+                    color:$second_color;
+                    &>div{
+                        display: flex;
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        margin:80px auto;
+                        @include myLine(30px,600px);
+                        .total{
+                            width:60px;
+                            height:30px;
+                            position: relative;
+                            line-height: 10px;
+                        }
+                        ul{
+                            width:340px;
+                            li{
+                                cursor: pointer;
+                                display: inline-block;
+                                @include myBtn(28px,28px);
+                                border-radius:5px;
+                                border:1px solid $gray_color;
+                                color:$main_color;
+                                margin:0 3px;
+                            }
+                            .li-disabled{
+                                color:$gray_color;
+                            }
+                            .li-active{
+                                color:#fff;
+                                background: #E85B48;
+                            }
+                            .ellipsis{
+                                border:0;
+                            }
+                        }
+                        select{
+                            cursor: pointer;
+                            width:90px;
+                            padding-left:15px;
+                            border-radius:5px;
+                            border:1px solid $gray_color;
+                        }
+                        .goto{
+                            width:22px;
+                            line-height: 10px;
+                        }
+                        input{
+                            width:47px;
+                            border-radius:5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//模态框通用样式
+.modal-content{
+    width:880px;
+    margin-top:20%;
+    margin-left:-22%;
+    background: #fff;
+    .header{
+        text-align: left!important;
+        padding-left:20px;
+        background: $bg_bodys;
+        @include myLine(40px,100%);
+    }
+    .footer{
+        height:60px;
+        padding-right: 30px;
+        background: $bg_bodys;
+        a{
+            @include myBtn(30px,90px);
+            cursor: pointer;
+            margin:15px 15px;
+            float: right;
+        }
+        .modalCyan{
+            background: $modal_cyan;
+        }
+        .modalGray{
+            background: $modal_gray;
+        }
+    }
+}
+/*设置页面通用样式*/
+body{
+	font:$second_size arial;
+	color:$main_color;
+	margin:0;
+	padding:0;
+	background:$bg_box;
+}
+div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dd,dt,pre{
+	margin:0;
+	padding:0;
+	list-style:none;
+	box-sizing: border-box;
+}
+img{
+	vertical-align:middle;
+}
+/*浮动让父元素失去高度*/
+.float:after{
+	content:"";
+	display:table;
+	clear:both;
+}
+/*父元素的第一个子元素外边距溢出*/
+.table:before{
+	content:"";
+	display:table;
+}
+.lf{
+	float:left; 
+}
+.rt{
+	float:right;
+}
+.block{
+    display: block!important;
+}
+.inline-block{
+    display: inline-block;
+}
+.clear{
+	clear:both;
+}
+//自定义样式
+.hyc-table{
+    display: table;
+    width:100%;
+}
+.hyc-table-cell{
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+/*//autocomplete="off"*/
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+//input的placeholder
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:$seconds_color;
+    font-size:$main_size;
+}
+::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:$seconds_color;
+    font-size:$main_size;
+}
+::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:$seconds_color;
+    font-size:$main_size;
+}
+//表单样式
+input:focus,input:active:focus,input.active:focus,input.focus,input:active.focus,input.active.focus
+,input {
+    outline: 0;
+    padding: 3px 10px;
+    border-color:$gray_color;
+    border-width: 1px;
+    border-style: solid;
+}
+a{
+    cursor: pointer;
+}
+a:link{
+    font-size:$second_size;
+    color:$main_color;
+    text-decoration:none;
+    display: inline-block;
+}
+a:visited{
+    text-decoration: none;
+    color:$main_color;
+}
+a:hover{
+    text-decoration: none;
+    color:$red_color;
+}
+a:active{
+    text-decoration: none;
+    color:$main_color;
+}
+//点击出现蓝框
+.btn:focus,.btn:active:focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn.active.focus {    
+    outline: none;    
+    border-color: transparent;    
+    box-shadow:none;
+}
+select:focus,a:focus{
+    outline:none;
+}
+.hyc-apply-enter .hyc-content,.modal-content,#wait,#frozen,.order-apply-body{
+    /*滚动条样式*/
+    ::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 7px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+    ::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: #5D5D5D;
+    }
+    ::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 0;
+        background: rgba(0,0,0,0.1);
+    }
+}
+//2行省略号
+.ellipsis-2{
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+//1行省略号
+.ellipsis-1{ 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

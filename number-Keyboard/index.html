@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<title>模拟数字键盘</title>
+		<style type="text/css">
+			table#number_input {
+				background-color: white;
+				position: fixed;
+				top: 80px;
+				width: 70%;
+				left: 15%;
+				text-align: center;
+			}
+			
+			table#number_input td {
+				border: 1px solid gainsboro;
+				border-right: 0;
+				width: 10%;
+				height: 40px;
+			}
+			
+			table#number_input td:last-child {
+				border-right: 1px solid gainsboro;
+			}
+			
+			table#keyboard {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				text-align: center;
+				width: 100%;
+				height: 160px;
+				background-color: white;
+			}
+			
+			table#keyboard td {
+				border: 1px solid gainsboro;
+				border-right: 0;
+				border-bottom: 0;
+				width: 33%;
+			}
+			
+			table#keyboard td:enabled {
+				color: red;
+			}
+			
+			table#keyboard td:last-child {
+				border-right: 1px solid gainsboro;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">模拟数字键盘</h1>
+		</header>
+		<div class="mui-content">
+			<table id="number_input" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td class="input-item"></td>
+						<td class="input-item"></td>
+						<td class="input-item"></td>
+						<td class="input-item"></td>
+						<td class="input-item"></td>
+						<td class="input-item"></td>
+					</tr>
+				</tbody>
+			</table>
+			<table id="keyboard" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td class="keyboard-number">1</td>
+						<td class="keyboard-number">2</td>
+						<td class="keyboard-number">3</td>
+					</tr>
+					<tr>
+						<td class="keyboard-number">4</td>
+						<td class="keyboard-number">5</td>
+						<td class="keyboard-number">6</td>
+					</tr>
+					<tr>
+						<td class="keyboard-number">7</td>
+						<td class="keyboard-number">8</td>
+						<td class="keyboard-number">9</td>
+					</tr>
+					<tr>
+						<td class="keboard-action" data-action="reset">reset</td>
+						<td class="keyboard-number">0</td>
+						<td class="keboard-action" data-action="cancel">cancel</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.ready(function() {
+				// 数字索引
+				var activeIndex = 0;
+				// 密码结果
+				var resultValue = "";
+				// 所有输入框
+				var inputList = mui(".input-item");
+				// 所有数字键
+				var numberList = mui(".keyboard-number");
+				// 数字键盘点击事件
+				mui("#keyboard").on("tap", ".keyboard-number", function() {
+					if(activeIndex == 6) {
+						return;
+					}
+					var num = this.innerText;
+					addNumber(num);
+				});
+				mui("#keyboard").on("tap", ".keboard-action", function() {
+					var value = this.getAttribute("data-action");
+					switch(value) {
+						case "cancel":
+							if(activeIndex == 0) {
+								return;
+							}
+							cancelNumber();
+							break;
+						case "reset":
+							resetInput();
+							break;
+						default:
+							break;
+					}
+				});
+				// 添加数字
+				function addNumber(num) {
+					inputList[activeIndex].innerText = "*";
+					resultValue += num;
+					activeIndex++;
+					// 检测密码长度
+					if(activeIndex == 6) {
+						// 假定123456是正确密码
+						if(resultValue != "123456") {
+							wrongPassword();
+						} else {
+							mui.toast("密码正确，然后跳转到下一个页面");
+						}
+					}
+				}
+				// 撤销数字
+				function cancelNumber() {
+					activeIndex--;
+					inputList[activeIndex].innerText = "";
+					resultValue = resultValue.substring(0, resultValue.length - 1);
+				}
+				// 密码框置空
+				function resetInput() {
+					activeIndex = 0;
+					resultValue = "";
+					mui(".input-item").each(function(index, element) {
+						element.innerText = "";
+					});
+				}
+				// 密码错误
+				function wrongPassword() {
+					mui.confirm("密码错误", "验证结果", ["再来一次", "密码忘了"], function(event) {
+						var index = event.index;
+						if(index == 0) {
+							mui.toast("请再次输入");
+						} else {
+							mui.toast("下一步跳转到忘记密码的页面");
+						}
+						resetInput();
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>
