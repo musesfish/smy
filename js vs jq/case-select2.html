@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Javascript显示隐藏</title>
+<script>
+window.onload=function(){
+		var oUl=document.getElementById("ul");
+		var oLi=oUl.getElementsByTagName("li");
+		var oDiv=document.getElementById("div");
+		var oA=oUl.getElementsByTagName("a");
+		var flag;
+		
+		for(i=6;i<oLi.length-1;i++){
+			oLi[i].style.display="none";
+		}
+		oDiv.onclick=function(){
+			if(flag){
+				flag=false;
+				for(i=6;i<oLi.length-1;i++){
+					oLi[i].style.display="none";
+				}
+				oDiv.innerHTML="<b>*</b> 显示全部品牌";
+				addClass(false);
+				
+			}else{
+				flag=true;
+				for(i=6;i<oLi.length-1;i++){
+					oLi[i].style.display="block";
+				}
+				oDiv.innerHTML="<b style='color:blue;'>*</b> 精简显示品牌";
+				addClass(true);
+			}
+		}
+		function addClass(bl){
+			for(i=0;i<oA.length;i++){
+				oA.index=i;
+				if((oA[i].innerHTML=="佳能")|(oA[i].innerHTML=="尼康")|(oA[i].innerHTML=="奥林巴斯")){
+					if(bl){oA[i].className="promoted";}	
+					else oA[i].className="";
+				}
+			}
+		}							    
+}
+</script>
+<style>
+.promoted{
+	color:red;	
+}
+.SubCategoryBox{
+	font-size:12px;
+	text-align:center;
+}
+ul{
+	list-style:none;
+	width:900px;	
+	height:100px;;
+	margin:22px auto;
+	border:1px solid green;
+}
+li{
+	width:300px;
+	float:left;
+	margin-top:5px;
+}
+a{
+	text-decoration:none;
+	color:blue;	
+	cursor:pointer;	
+}
+a:hover{
+	color:green;	
+}
+h3{
+	border-bottom:1px solid green;
+	width:300px;	
+	margin:12px auto;
+}
+#div{
+	border:1px solid green;padding:4px;width:120px;margin:-5px auto;cursor:pointer;color:blue;
+}
+#div:hover{color:green;}
+b{color:red;}
+</style>
+</head>
+<body>
+<div class="SubCategoryBox">
+<h3>Javascript显示隐藏</h3>
+	<ul id="ul">
+		<li ><a href="#">佳能</a><i>(30440) </i></li>
+		<li ><a href="#">索尼</a><i>(27220) </i></li>
+		<li ><a href="#">三星</a><i>(20808) </i></li>
+		<li ><a href="#">尼康</a><i>(17821) </i></li>
+		<li ><a href="#">松下</a><i>(12289) </i></li>
+		<li ><a href="#">卡西欧</a><i>(8242) </i></li>
+		<li ><a href="#">富士</a><i>(14894) </i></li>
+        <li ><a href="#">柯达</a><i>(9520) </i></li>
+		<li ><a href="#">宾得</a><i>(2195) </i></li>
+		<li ><a href="#">理光</a><i>(4114) </i></li>
+		<li ><a href="#">奥林巴斯</a><i>(12205) </i></li>
+		<li ><a href="#">明基</a><i>(1466) </i></li>
+		<li ><a href="#">爱国者</a><i>(3091) </i></li>
+		<li ><a href="#">其它品牌相机</a><i>(7275) </i></li>
+	</ul>
+	<div id="div"><b id="b">*</b> 显示全部品牌</div>
+</div>
+</body>
+</html>
