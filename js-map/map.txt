@@ -1,0 +1,17 @@
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAABjfudy2JHun7akhM9qSqPxQ_Zu-7BHeTikSrrThuN_kCyr6v3xS2zdq46jLJxIIm3VuRdZkpY0AsbQ"
+      type="text/javascript"></script>
+//1
+	var map= new GMap2(document.getElementById("mapdiv"));
+	设置地图中心点和缩放级别
+	map.setCenter(new GLatLng(31.262704744996252, 121.50432586669922), 13); 
+//2
+	var map=new GMap2(document.getElementById("allmap"));
+	var geocoder = new GClientGeocoder();//地址解析类
+	var address="深圳";
+	geocoder.getLatLng(address,function(point) {      
+		if (!point){  
+			alert(address + " not found");
+		}else{        
+			map.setCenter(point, 13); // 初始化地图,设置中心点坐标和地图级别
+		}
+	});

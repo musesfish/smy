@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title></title>
+	<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAABjfudy2JHun7akhM9qSqPxQ_Zu-7BHeTikSrrThuN_kCyr6v3xS2zdq46jLJxIIm3VuRdZkpY0AsbQ"
+      type="text/javascript"></script>
+</head>
+<body>
+    <div id="mapdiv" style="width:800;height:400"></div>
+    <script type="text/javascript">
+		var map=new GMap2(document.getElementById("mapdiv"));
+		var geocoder = new GClientGeocoder();//地址解析类
+		var address="深圳";
+		geocoder.getLatLng(address,function(point) {      
+			if (!point){  
+				alert(address + " not found");
+			}else{        
+				map.setCenter(point, 13); // 初始化地图,设置中心点坐标和地图级别
+			}
+		});
+	</script> 
+</body>
+</html>
