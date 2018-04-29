@@ -1,0 +1,428 @@
+<html>
+<head>
+<title>积分</title>
+<style>
+*{
+  margin:0px;
+  padding:0px;
+}
+.input{
+   border:2px solid white;
+   background-color:pink;
+}
+.input1{
+   border:0px;
+   background-color:pink;
+}
+#div1{
+   float:left;
+   position:relative;
+   left:30%;
+   border:3px double pink;
+   padding:5px;
+}
+form{
+   font-size:12px;
+   text-align:left;
+   width:450px;
+   background-color:pink;
+   padding:15px;
+   margin-left:5px;
+   margin-bottom:10px;
+}
+p{
+   text-align:center;
+   margin:5px;
+}
+</style>
+<script type="text/javascript">
+
+ var cwidth=520;
+ var cheight=250;
+ var dicex=120;
+ var dicey=60;
+ var dicewidth=100;
+ var diceheight=100;
+ var dx;
+ var dy;
+
+ var dotrad=6;
+ var ctx;
+ 
+ var firstturn=true;
+ var point;
+ var i;
+ var ww;
+ var j;
+ var k;
+ 
+ function init(){
+    ctx=document.getElementById("canvas").getContext('2d');
+        ctx.lineWidth=3;
+         ctx.strokeStyle="pink";
+	ctx.strokeRect(20,20,450,200);
+          ww=0;j=10;k=10;
+     	document.getElementById("2").style.visibility="hidden";
+        document.getElementById("3").style.visibility="hidden";
+        alert("游戏分三轮，积分累计，由积分评出三个等级，即高手，中手，低手");
+}
+
+ function throwdice0(){
+         document.getElementById("2").style.visibility="hidden";
+        document.getElementById("3").style.visibility="hidden";
+ document.getElementById("1").style.visibility="visible";
+	  firstturn=true;
+          ww=0; j=10;k=10;
+	 document.f.w.value=ww;
+	 document.f.stage.value="重新挑战！";
+     document.f.pv.value="";
+     document.f.outcome.value="重新挑战！"; 
+             document.f.rule.value="第一轮的第一局：骰子点数和为8，则为你赢，可获100积分，为4，则你输，将损失10积分；第二局：你有3次机会，只要掷出点数和第一局结束时一样点数和，你就赢，可获150积分，若掷出点数和4，则你输，将损失20积分！积分超过100，点击掷骰子，即可进入第二轮游戏！"	
+}
+ function throwdice1(){
+         if(ww<100){
+         
+	var sum;
+	var ch=1+Math.floor(Math.random()*6);
+	sum=ch;
+	dx=dicex;
+	dy=dicey;
+	drawface(ch);
+	
+	dx=dicex+160;
+	ch=1+Math.floor(Math.random()*6);
+	sum+=ch;
+	drawface(ch);
+
+	if(firstturn){
+                
+		switch(sum){
+			case 8:
+			point=sum;
+			document.f.pv.value=point;
+ww+=100;
+document.f.w.value=ww;			document.f.stage.value="积分超过100，即可进入第二轮游戏！";
+			document.f.outcome.value="在第一局你便完胜!";firstturn=true;
+			break;
+			
+			case 4:
+			point=sum;
+			document.f.pv.value=point;ww-=10;
+document.f.w.value=ww;			document.f.stage.value="没有复活机会，重新挑战吧！";
+			document.f.outcome.value="sorry，在第一局你便输了!";firstturn=true; 
+			break;
+			
+			default:
+			point=sum;
+			document.f.pv.value=point;
+document.f.w.value=ww;			 
+			document.f.stage.value="第二局开始：你有3次机会掷出点数和"+point+"，你就赢，掷出点数和4，则你输！";
+			document.f.outcome.value="尚未决出胜负，继续奋斗！";
+i=3; 			
+firstturn=false;
+		}
+	}
+	else{
+             if(i==1){
+       document.f.outcome.value="已经全力以赴，虽败犹荣！";
+       document.f.stage.value= "失败是难免的，开始新一轮的游戏吧。";ww-=20;
+document.f.pv.value=sum; 
+document.f.w.value=ww;
+firstturn=true;
+}
+else{
+		   
+	        switch(sum){
+				 case point:
+				 point=sum;
+			     document.f.pv.value=point;ww+=150;
+document.f.w.value=ww;				 document.f.stage.value="你的恒心为你取得最终的胜利！";
+				 document.f.outcome.value="你赢了！";                firstturn=true; 
+				 break;
+				 
+				 case 4:
+				 
+			     document.f.pv.value=4;ww-=20;
+document.f.w.value=ww;				 document.f.outcome.value="很遗憾，你输了!";
+				 document.f.stage.value="重新挑战吧.";
+				  
+				 firstturn=true; 
+				 
+				 default:
+				  
+			     document.f.pv.value=sum; 
+document.f.w.value=ww;			    i--; document.f.stage.value="别放弃，你还有"+i+"次机会胜出，只要掷出点数和"+point+"！";firstturn=false; 
+			}
+			
+			
+	}
+}
+}
+
+else{
+document.getElementById("1").style.visibility="hidden";
+document.getElementById("2").style.visibility="visible";
+ 
+document.f.stage.value="恭喜进入第二轮";
+document.f.pv.value="在此输入你的幸运数";
+document.f.w.value=ww;
+document.f.rule.value="第二轮规则：有10次机会，骰子和为你填入的数，则你赢，可获200积分，点击掷骰子，顺利晋级最后一轮；输则从第一轮开始挑战，积分清空；";
+document.f.outcome.value="恭喜进入第二轮"; 
+ }	
+}
+
+
+function throwdice2(){
+
+   var pvs=document.f.pv.value;
+  if((!isNaN(pvs)) && pvs>1 && pvs<13){
+        var sum;
+	var ch=1+Math.floor(Math.random()*6);
+	sum=ch;
+	dx=dicex;
+	dy=dicey;
+	drawface(ch);
+	
+	dx=dicex+160;
+	ch=1+Math.floor(Math.random()*6);
+	sum+=ch;
+	drawface(ch);
+        
+      if(sum==pvs){
+          
+         ww+=200;
+         document.f.w.value=ww;
+         document.f.stage.value="恭喜进入最后一轮！";
+         document.f.outcome.value="";
+         document.f.pv.value="";
+         document.f.rule.value="第三轮规矩：你有10次机会，两颗骰子数目一样则赢，可获积分300，积分不同，你所获等级也不相同；不一样则输，积分清空，从第一轮挑战"
+         document.getElementById("2").style.visibility="hidden";
+         document.getElementById("3").style.visibility="visible";
+}
+       else {
+       
+        if(j==1){
+       document.f.outcome.value="你输了";ww=0;firstturn=true; j=10;
+       document.f.w.value=ww;
+       document.f.pv.value="";
+       document.f.stage.value="从第一轮开始挑战吧！";
+       document.f.rule.value="第一轮的第一局：骰子点数和为8，则为你赢，可获100积分，为4，则你输，将损失10积分；第二局：你有三次机会，只要掷出点数和第一局结束时一样点数和，你就赢，可获150积分，若掷出点数和4，则你输，将损失20积分！积分超过100，点击掷骰子，即可进入第二轮游戏！";
+       document.getElementById("2").style.visibility="hidden";
+       document.getElementById("1").style.visibility="visible";}
+
+        else {
+         j--;
+         document.f.stage.value="你还有"+j+"次机会";
+         
+         document.f.outcome.value="胜负未分！"; 
+         
+}
+     } 
+}
+  else alert("请填写正确的幸运数！");
+}
+
+
+function throwdice3(){
+        var sum;
+	var ch=1+Math.floor(Math.random()*6);
+	dx=dicex;
+	dy=dicey;
+	drawface(ch);
+	
+	dx=dicex+160;
+	ch1=1+Math.floor(Math.random()*6);
+	drawface(ch1);
+
+       if(ch==ch1){
+         ww+=300;
+         document.f.w.value=ww;
+         document.f.stage.value="想继续玩，请点击清空积分！";
+		 if(ww<650 || ww==650){document.f.outcome.value="你赢了,你是低手!";}
+         else if(ww>650 && ww<700){document.f.outcome.value="你赢了，你是中手!";}
+		 else if(ww>700 || ww==700){document.f.outcome.value="你赢了，你是高手!";}
+         document.f.pv.value="一样";
+         document.f.rule.value="第一轮的第一局：骰子点数和为8，则为你赢，可获100积分，为4，则你输，将损失10积分；第二局：你有三次机会，只要掷出点数和第一局结束时一样点数和，你就赢，可获150积分，若掷出点数和4，则你输，将损失20积分！积分超过100，即可进入第二轮游戏！";
+          document.getElementById("2").style.visibility="hidden";
+        document.getElementById("3").style.visibility="hidden";
+ document.getElementById("1").style.visibility="hidden";
+         }
+            else {
+          if(k==1){
+       document.f.outcome.value="你输了";ww=0;firstturn=true; k=10;
+       document.f.w.value=ww;
+       document.f.pv.value="不一样";
+       document.f.stage.value="想继续玩，请点击清空积分！";
+        document.f.rule.value="第三轮规矩：你有10次机会，两颗骰子数目一样则赢，可获积分300，积分不同，你所获等级也不相同；不一样则输，积分清空，从第一轮挑战"
+      
+      document.f.stage.value="想继续玩，请点击清空积分！";
+         document.getElementById("2").style.visibility="hidden";
+        document.getElementById("3").style.visibility="hidden";
+ document.getElementById("1").style.visibility="hidden";
+}
+
+        else {
+         k--;
+         document.f.stage.value="你还有"+k+"次机会";
+         document.f.pv.value="不一样";
+         document.f.outcome.value="胜负未分！"; 
+         
+}
+      
+      
+         
+}
+}
+
+
+
+function drawface(n){
+    ctx=document.getElementById("canvas").getContext('2d');
+         
+       ctx.lineWidth=5;
+	ctx.clearRect(dx,dy,dicewidth,diceheight);
+	ctx.strokeRect(dx,dy,dicewidth,diceheight);
+	
+	var dotx;
+	var doty;
+	ctx.fillStyle="#009966";
+	
+	switch(n){
+		case 1:
+		draw1();
+		break;
+		case 2:
+		draw2();
+		break;
+		case 3:
+		draw2();
+		draw1();
+		break;
+		case 4:
+		draw4();
+		break;
+		case 5:
+		draw4();
+		draw1();
+		break;
+		case 6:
+		draw4();
+		draw2mid();
+		break;
+	}
+}
+function draw1(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+.5*dicewidth;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+	ctx.fill();
+}
+function draw2(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+function draw4(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+function draw2mid(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+
+</script>
+</head>
+
+<body onLoad="init()">
+<div id="div1">
+<p>骰子游戏</p> 
+<hr width=100% color="pink" ></hr>
+<canvas id="canvas" width="480" height="250">
+Your browser doesn't support the HTML5 element canvas.
+</canvas> 
+
+<br/>
+<p>
+<button onClick="throwdice1();" id="1">掷骰子</button>
+<button onClick="throwdice2();" id="2">掷骰子</button>
+<button onClick="throwdice3();" id="3">掷骰子</button>
+<button onClick="throwdice0();">清空积分</button>
+</p>
+
+ 
+
+<form name="f" class="form">
+
+<br/>
+
+挑战提示: 
+<input name="stage" type="text" value="欢迎挑战，第一局开始！" size="66" class="input1"></input>
+<br/> 
+
+骰子点数和: 
+<input name="pv" type="text" value=" " size="23" class="input1"> <br/> 
+ 
+积分：<input name="w" value="0" size="23" class="input1"/>
+<br/> 
+ 
+结局:<input name="outcome" value=" " size="23" class="input1"/>
+<br/> <br/> 
+
+游戏规则: <br/> <textarea name="rule" cols="55" rows="6" class="input">第一轮的第一局：骰子点数和为8，则为你赢，可获100积分，为4，则你输，将损失10积分；第二局：你有三次机会，只要掷出点数和第一局结束时一样点数和，你就赢，可获150积分，若掷出点数和4，则你输，将损失20积分！积分超过100，点击掷骰子，即可进入第二轮游戏！</textarea>
+</form>
+</div> 
+ 
+</body>
+</html>
+
+
+

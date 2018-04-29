@@ -1,0 +1,120 @@
+#contaier {
+  height: 388px ;
+}
+#topa {
+  clear: both;
+}
+.tu1 {
+  /*display: none; */
+  position: relative;
+  z-index: 200;
+  top: 42px;
+}
+.tu2 {
+  /* display: none; */
+  /* padding: inherit; */
+  z-index: 100;
+  top: 56px;
+  margin-left: -381px;
+  position: relative;
+}
+.tu3 {
+  /* display: none; */
+  position: relative;
+  z-index: 200;
+  margin-right: 0;
+  margin-left: 691px;
+  margin-top: -104px;
+  top: 27px;
+}
+.tu4 {
+  /* display: none; */
+  position: relative;
+  margin-top: -100px;
+  z-index: 0;
+  margin-left: 91px;
+}
+.tu5 {
+  /* display: none; */
+  position: relative;
+  z-index: 101;
+  margin-top: -98px;
+  margin-left: 668px;
+  margin-right: 0;
+}
+.tu6 {
+  position: relative;
+  margin-top: -276px;
+  z-index: 300;
+  margin-left: 65px;
+}
+.tu7 {
+  position: relative;
+  margin-top: -312px;
+  margin-left: 149px;
+}
+.tu8 {
+  position: relative;
+  margin-top: -279px;
+  margin-left: 700px;
+}
+.tu9 {
+  position: relative;
+  margin-top: -291px;
+  margin-left: 469px;
+}
+.tu10 {
+  position: relative;
+  margin-top: -331px;
+  z-index: 300;
+  margin-left: 157px;
+}
+#lis {
+  width: 80px;
+  background-color: #251D50;
+  align-content: center;
+  margin: -500px 0 0 47px;
+}
+#lis > li {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin: 15px 0 0 20px;
+}
+.sda {
+  font-size: 60px;
+  color: #fff;
+  width: 80px;
+  height: 150px;
+  align-content: center;
+  position: relative;
+  margin-top: -469px;
+  float: left;
+  margin-left: 96px;
+}
+.tua {
+  position: relative;
+  margin-top: -216px;
+  z-index: 500;
+}
+.tub {
+  position: relative;
+  margin-top: -286px;
+  z-index: 450;
+}
+.tuc {
+  position: relative;
+  margin-top: -361px;
+  left: 390px;
+  z-index: 300;
+}
+#tu {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  top: 5px;
+  left: 100px;
+}

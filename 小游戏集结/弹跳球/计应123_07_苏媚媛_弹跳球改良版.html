@@ -1,0 +1,392 @@
+ 
+<html>
+<head>
+ 
+<title>弹跳球</title>
+<style>
+*{
+  margin:0px;
+  padding:0px;
+}
+p{
+  text-align:center;
+  font-size:16px;
+  color:black;
+  margin-top:5px;
+  margin-bottom:3px;
+}
+
+#div1{
+   float:left;
+   position:relative;
+   left:35%;
+   border:3px double pink;
+   padding-left:10px;
+   padding-bottom:20px;
+   margin-top:30px;
+}
+
+#f{
+   font-size:12px;
+   width:350px;
+   background-color:pink;
+   padding:20px;
+   text-align:left;
+   border:2px dotted pink;
+}
+input:valid{background:pink;}
+input:invalid{background:white;}
+</style>
+
+<script typt="text/javascript">
+var ctx;
+var ballrad=10;
+var boxheight=250;
+var boxwidth=350;
+var boxx=20;
+var boxy=30;
+var ballx=60;
+var bally=60;
+var boxboundx=boxwidth+boxx-ballrad;
+var boxboundy=boxheight+boxy-ballrad;
+var inboxboundx=boxx+ballrad;
+var inboxboundy=boxy+ballrad;
+var ballvx=4;
+var ballvy=8;
+var cwidth=400;
+var cheight=300;
+var i; 
+var j;
+
+
+var tid;
+var tid1;
+var a;
+var b;
+var c;
+var d;
+var e;
+ 
+ 
+var grad; 
+var color;
+var hue=[
+[255,0,0],
+[255,255,0],
+[0,255,0],
+[0,255,255],
+[0,0,255],
+[255,0,255]
+];
+
+function init(){
+	i=0;
+        j=0;
+        
+	a=true;
+	b=true;
+	c=true;
+	d=true;
+ 	e=true;
+	 
+	ctx=document.getElementById('canvas').getContext('2d');   
+	ctx.lineWidth=5;
+        ctx.strokeStyle="pink";
+	ctx.strokeRect(boxx,boxy,boxwidth,boxheight);
+        moveball();
+        tid=setInterval(moveball,100);
+		 
+        grad=ctx.createLinearGradient(boxx,boxy,boxx+boxwidth,boxy+boxheight);
+	for(h=0;h<hue.length;h++){	
+	      color='rgb('+hue[h][0]+','+hue[h][1]+','+hue[h][2]+')';
+	      grad.addColorStop(h*1/6,color);
+	} 
+}
+function moveball(){
+        ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+	ctx.beginPath();
+	ctx.fillStyle="white";
+	ctx.arc(30,40,ballrad,0,Math.PI*2,true);
+	ctx.arc(360,40,ballrad,0,Math.PI*2,true);
+	ctx.arc(30,270,ballrad,0,Math.PI*2,true);
+	ctx.arc(360,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+	        if(a){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(30,40,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+		}
+		if(b){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(360,40,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+		}
+		if(c){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(30,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+		}
+		if(d){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(360,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+		}
+		
+	 moveandcheck();
+	 ctx.beginPath();
+	 ctx.fillStyle="red";
+	 ctx.arc(ballx,bally,ballrad,0,Math.PI*2,true);
+	 ctx.fill();
+	 if(i==4){
+	            a=false;
+	            b=false;
+	            c=false;
+	            d=false;
+				e=false;
+				
+	        clearInterval(tid);
+            document.getElementById("1").value="第二轮：击中出现笑脸的彩色球即胜出！";
+ 
+            tid1=setInterval(moveball1,150);
+            ballx=70;
+	        bally=80;
+             moveball1();	
+}
+}
+function moveandcheck(){
+    var nballx=ballx+ballvx;
+    var nbally=bally+ballvy;
+	if(a){
+	    if(nballx>20 && nballx<40 && nbally<50 && nbally>30){ 
+	       i++;
+		 a=false;
+		 moveball();
+		 
+	}}
+	if(b){
+          if(nballx>350 && nballx<370 && nbally<50 && nbally>30){ 
+	    i++;
+		 b=false;
+		 moveball();
+	}}
+	if(c){
+	  if(nbally>260 && nbally<280 && nballx<40 && nballx>20){ 
+	  i++; 
+		 c=false;
+		 moveball();
+	}}
+	if(d){
+		  if(nbally>260 && nbally<280 && nballx<370 && nballx>350){
+         i++;
+		 d=false;
+		 moveball();
+	}}
+	if(nballx>boxboundx){
+	   ballvx=-ballvx;
+	   nballx=boxboundx;
+	}
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx=-ballvx;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy=-ballvy;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy=-ballvy;
+	}
+     
+	ballx=nballx;
+	bally=nbally;
+    
+}
+function moveball1(){
+	
+		
+		
+         ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+      
+	    if(a){
+				ctx.fillStyle=grad;
+           ctx.lineWidth=3;        
+           ctx.fillRect(boxx+boxwidth-ballrad,boxy,ballrad,boxheight);
+		}
+		if(b){
+				 ctx.fillStyle=grad;
+           ctx.lineWidth=3; 
+           ctx.fillRect(boxx,boxy,ballrad,boxheight);
+		}
+		if(c){
+			 ctx.fillStyle=grad;
+           ctx.lineWidth=3;
+           ctx.fillRect(boxx,boxy+boxheight-ballrad,boxwidth,ballrad);
+		}
+		if(d){
+				 ctx.fillStyle=grad;
+           ctx.lineWidth=3;
+           ctx.fillRect(boxx,boxy,boxwidth,ballrad);
+		}
+	
+if(i==5){
+		clearInterval(tid1);
+		ctx.lineWidth=3;
+        ctx.beginPath();
+	    ctx.strokeStyle="pink";
+	    ctx.arc(190,150,40,0,Math.PI*2,true);
+		ctx.stroke();
+
+		ctx.lineWidth=1;
+        ctx.beginPath();
+	    ctx.strokeStyle="black";
+	    ctx.arc(175,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+
+        ctx.beginPath();			
+	    ctx.strokeStyle="black";
+	    ctx.arc(205,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+				
+        ctx.beginPath();			
+	    ctx.fillStyle="red";
+	    ctx.arc(190,165,8,0,Math.PI*1,false);
+		ctx.fill();
+							
+		ctx.beginPath();
+	    ctx.fillStyle="purple";		
+		ctx.arc(190,150,2,0,Math.PI*2,true);
+	    ctx.fill();
+		
+		 alert("你赢了!");
+		}
+
+if(j==3){
+		clearInterval(tid1);
+		ctx.lineWidth=3;
+        ctx.beginPath();
+	    ctx.strokeStyle="pink";
+	    ctx.arc(190,150,40,0,Math.PI*2,true);
+		ctx.stroke();
+
+		ctx.lineWidth=1;
+        ctx.beginPath();
+	    ctx.strokeStyle="black";
+	    ctx.arc(175,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+
+        ctx.beginPath();			
+	    ctx.strokeStyle="black";
+	    ctx.arc(205,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+				
+        ctx.beginPath();			
+	    ctx.fillStyle="red";
+	    ctx.arc(190,165,8,0,Math.PI*1,true);
+		ctx.fill();
+							
+		ctx.beginPath();
+	    ctx.fillStyle="purple";		
+		ctx.arc(190,150,2,0,Math.PI*2,true);
+	    ctx.fill();
+		
+		 alert("你输了!");
+		}
+	    moveandcheck1();
+		 
+	 ctx.beginPath();
+	 ctx.fillStyle="red";
+	 ctx.arc(ballx,bally,ballrad,0,Math.PI*2,true);
+	 ctx.fill();
+	 
+	 ctx.beginPath();	
+	 ctx.fillStyle=grad;
+	 ctx.arc(30,40,ballrad,0,Math.PI*2,true);
+	 ctx.arc(360,40,ballrad,0,Math.PI*2,true);
+	 ctx.arc(30,270,ballrad,0,Math.PI*2,true);
+	 ctx.arc(360,270,ballrad,0,Math.PI*2,true);
+	 ctx.fill();	
+		
+		
+	}
+ 
+function moveandcheck1(){
+    var nballx=ballx+ballvx;
+    var nbally=bally+ballvy;
+	if(a==true && b==true && c==true && d==true){
+    if(nballx>350 && nballx<370 && nbally<50 && nbally>30){ 
+	     i++;	 
+		 moveball1();
+	}
+	if(nballx>20 && nballx<40 && nbally<50 && nbally>30){ 
+	      j++;moveball1();
+	}
+	if(nbally>260 && nbally<280 && nballx<40 && nballx>20){ 
+	      j++;moveball1();
+	}
+	if(nbally>260 && nbally<280 && nballx<370 && nballx>350){
+          j++;moveball1();
+	}}
+	if(nballx>boxboundx){
+	   ballvx=-ballvx;
+	   nballx=boxboundx;
+	    a=true;
+        }
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx=-ballvx;
+	  b=true;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy=-ballvy;
+         c=true;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy=-ballvy;
+         d=true;
+	}
+	
+    
+	ballx=nballx;
+	bally=nbally;
+        
+}
+
+function change(){
+    ballvx=Number(f.hv.value);
+    ballvy=Number(f.vv.value);
+        return false;
+}
+</script>
+</head>
+
+<body onLoad="init()">
+<div id="div1">
+
+<p>弹跳球游戏</p>
+<hr width=98% color="pink">
+
+<canvas id="canvas"  width="400"    
+    height="300">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+
+<form name="f" id="f" onSubmit="return change();">
+水平速度<input name="hv" id="hv" value="8" type="number" min="-10" max="10" />
+ &nbsp&nbsp
+垂直速度<input name="vv" id="vv" value="8" type="number" min="-10" max="10" />
+<br /><br />
+规则：<input name="1" id="1" size="50" type="text" style="border:1px;background=pink;" value="第一轮：移动红球，撞击粉红球" />
+<br /><br />
+<input type="submit" value="改变红球" />
+</form>
+ 
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="MobileOptimized" content="320">
+<title>刮刮乐</title>
+<script src="jquery-1.10.2.js"></script>
+<style>
+	body{
+		margin:0 auto;background:url("s_bd.jpg");	}
+	.margin{margin:0 auto;}
+	.box{text-align:center; width:100%; }
+	.box img{width:300px; height:120px;}
+	.box .canvasbg{background:url("s_stamp.png") no-repeat ; height:160px; width:300px; background-size:100% 100%;}
+	.box .tip{ background:url("s_tip_bd.png") no-repeat ; height:100px; width:300px; background-size:100% 100%;}
+	.box .tip .font{ padding:7% 5% 2% 20%; text-align:left} 
+	a{color:#FFF;font-family:"\5fae\8f6f\96c5\9ed1"}
+	.zj{background:url("zj.png") no-repeat ;}
+</style>
+<script>
+	window.onload = function(){
+		init();
+	}
+	var imageWidth = "280";
+	var imageheight = "140";
+	function init(){
+		//定义绘画宽 高
+	
+		//定义Canvas对象
+		var Canavas = document.getElementById("CanvasLe");
+		var Context2D = Canavas.getContext("2d");
+		//var img = new Image();
+		//img.src ="zj.png";
+		
+		var bool =true;
+		Context2D.fillStyle='#cccccc';	//设置覆盖层的颜色
+		Context2D.fillRect(0,0,imageWidth,imageheight);	//设置覆盖的区域
+		
+		//触发触屏滑动事件
+		Canavas.addEventListener('touchmove', function(event) {
+				 // 如果这个元素的位置内只有一个手指的话
+				if (event.targetTouches.length == 1) {
+			　　　　 event.preventDefault();// 阻止浏览器默认事件，重要 
+					var touch = event.targetTouches[0];
+					// 把元素放在手指所在的位置
+					var canvasOffset = $(Canavas).offset();
+					var canvasX = Math.floor(touch.pageX - canvasOffset.left);
+					var canvasY = Math.floor(touch.pageY - canvasOffset.top);
+				    //$("#touchCoordinate").text("x:"+ canvasX +"  y:"+canvasY);
+					  lottery(touch.pageX,touch.pageY,Context2D);
+					}
+			}, false);
+		//增加Canvas鼠标滑动事件
+		Canavas.onmousemove = function(e) {
+			var canvasOffset = $(Canavas).offset();
+			var canvasX = Math.floor(e.pageX - canvasOffset.left);
+			var canvasY = Math.floor(e.pageY - canvasOffset.top);
+			canvasY += parseInt(imageheight);
+			lottery(canvasX,canvasY,Context2D);
+		}
+	}
+	//刮刮函数
+	function lottery(x,y,c){
+		c.clearRect(x,y-imageheight,20,20);
+	}
+	
+</script>
+</head>
+<body>
+	<div class="box">
+    	<img src="s_title.png" />
+        <div class="margin canvasbg ">
+             <div class="zj">
+        	<canvas id="CanvasLe" width="280" height="140" style="margin-top:10px;"></canvas>
+            </div>
+        </div>
+        <div class=" margin tip">
+        	<div class="font">
+            	<a>想提高中奖率？</a><br/>
+            	<a>就来刮刮乐</a>
+            </div>
+        </div>
+        <!--<div id="touchCoordinate"></div>-->
+    </div>
+</body>
+</html>

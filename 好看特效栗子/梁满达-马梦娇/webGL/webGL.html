@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>WebGL TEST</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script>
+            window.onload = function () {
+                var canvas = document.getElementById("canvas");
+                canvas.width = 500;
+                canvas.height = 300;
+                // 获取context对象
+                var gl = canvas.getContext('webgl') || c.getContext('experimental-webgl');
+                /*
+                 这个函数将画面清空，回到一个全新的状态。
+                 参数是要清空的对象，或者是WebGL中定义的常量。
+                 这一次，只是清空一下画面上的颜色，所以使用COLOR_BUFFER_BIT这个常量，
+                 这个常量是为了使用canvas里面指定的颜色来清空画面而定义的。
+                 */
+                gl.clear(gl.COLOR_BUFFER_BIT);
+                /*
+                 如果要清空画面所使用的颜色的话，就必须得另外定义了。这个函数是clearColor。clearColor函数的参数有四个，就是单纯的RGBA
+                 */
+                gl.clearColor(0.0, 0.0, 0.0, 1.0);
+            }
+        </script>
+    </body>
+</html>

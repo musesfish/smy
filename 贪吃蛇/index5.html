@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div_start {width:270px; height:129px; background:url(img/logo.gif) no-repeat; margin:20px auto; position:relative;}
+#div_btn {width:118px; height:118px; background:url(img/logoa.jpg) 0 -5px no-repeat; position:absolute; left:76px; top:10px;}
+#div_stage {width:1015px; height:342px; background:url(img/stagebg.jpg) no-repeat; margin:10px auto; position:relative;}
+#main {width:570px; height:240px; position:absolute; left:200px; top:50px;}
+#main div {width:30px; height:30px; position:absolute;}
+
+#main .l {
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	transform:rotate(0deg); 
+	/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0,
+            M22=1,
+            SizingMethod='auto expand');
+
+
+   /*
+    * To make the transform-origin be the middle of
+    * the object.    Note: These numbers
+    * are approximations.  For more accurate results,
+    * use Internet Explorer with this tool.
+    */
+
+
+}
+#main .r {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	transform:rotate(180deg);
+/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1,
+            M12=1.2246063538223773e-16,
+            M21=-1.2246063538223773e-16,
+            M22=-1,
+            SizingMethod='auto expand');
+
+}
+#main .t {
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	transform:rotate(90deg);
+/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1.836909530733566e-16,
+            M12=-1,
+            M21=1,
+            M22=-1.836909530733566e-16,
+            SizingMethod='auto expand');
+
+
+}
+#main .b {
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+	transform:rotate(270deg);
+ /* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123031769111886e-17, M12=1, M21=-1, M22=6.123031769111886e-17, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=6.123031769111886e-17,
+            M12=1,
+            M21=-1,
+            M22=6.123031769111886e-17,
+            SizingMethod='auto expand');
+
+
+   /*
+    * To make the transform-origin be the middle of
+    * the object.    Note: These numbers
+    * are approximations.  For more accurate results,
+    * use Internet Explorer with this tool.
+    */
+}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('main');
+	
+	//1.蛇
+	var R=8;
+	var C=19;
+	
+	var aSnake=[];	//蛇数组
+	for(var i=0;i<5;i++)
+	{
+		var oNewDiv=document.createElement('div');
+		
+		oNewDiv.style.background='url(img/snake'+i+'.png)';
+		
+		oDiv.appendChild(oNewDiv);
+		
+		//r-行		c-列		div-本身		d-方向
+		aSnake[i]={r: 0, c: 5+i, div: oNewDiv, d: 'l', type: 'snake'};
+		
+		setPos(aSnake[i]);
+	}
+	
+	//设置元素的坐标
+	function setPos(obj)
+	{
+		obj.div.style.left=obj.c*30+'px';
+		obj.div.style.top=obj.r*30+'px';
+		
+		if(obj.type=='eat')
+		{
+			obj.div.className='';
+		}
+		else
+		{
+			obj.div.className=obj.d;
+		}
+	}
+	
+	//蛇移动
+	var dir='l';
+	
+	var timer=setInterval(function (){
+		//移动蛇身子
+		for(i=aSnake.length-1;i>0;i--)
+		{
+			aSnake[i].r=aSnake[i-1].r;
+			aSnake[i].c=aSnake[i-1].c;
+			aSnake[i].d=aSnake[i-1].d;
+		}
+		
+		//移动蛇头
+		switch(dir)
+		{
+			case 'l':
+				aSnake[0].c--;
+				break;
+			case 'r':
+				aSnake[0].c++;
+				break;
+			case 't':
+				aSnake[0].r--;
+				break;
+			case 'b':
+				aSnake[0].r++;
+				break;
+		}
+		
+		//蛇有没有撞墙
+		if(aSnake[0].c<0 || aSnake[0].r<0 || aSnake[0].c>=C || aSnake[0].r>=R)
+		{
+			alert('a');
+			clearInterval(timer);
+			return;
+		}
+		
+		//蛇有没有撞在吃的上
+		for(var i=1;i<aEat.length;i++)
+		{
+			if(aSnake[0].r==aEat[i].r && aSnake[0].c==aEat[i].c)
+			{
+				alert('b');
+				clearInterval(timer);
+				return;
+			}
+		}
+		
+		//蛇有没有撞在自己身上
+		for(var i=1;i<aSnake.length;i++)
+		{
+			if(aSnake[0].r==aSnake[i].r && aSnake[0].c==aSnake[i].c)
+			{
+				alert('c');
+				clearInterval(timer);
+				return;
+			}
+		}
+		
+		//看看有没有吃到东西
+		if(aSnake[0].r==aEat[0].r && aSnake[0].c==aEat[0].c)
+		{
+			aSnake.splice(aSnake.length-3, 0, aEat[0]);
+			aEat.shift();
+			
+			if(aEat.length==0)
+			{
+				//吃完了
+				createEat();
+			}
+		}
+		
+		//设置一次位置
+		for(var i=0;i<aSnake.length;i++)
+		{
+			setPos(aSnake[i]);
+		}
+	}, 150);
+	
+	//键盘控制蛇的方向
+	document.onkeydown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		switch(oEvent.keyCode)
+		{
+			case 37:		//←
+				dir='l';
+				aSnake[0].d='l';
+				break;
+			case 38:		//↑
+				dir='t';
+				aSnake[0].d='t';
+				break;
+			case 39:		//→
+				dir='r';
+				aSnake[0].d='r';
+				break;
+			case 40:		//↓
+				dir='b';
+				aSnake[0].d='b';
+				break;
+		}
+	};
+	
+	//2.放置吃的
+	var aEat=[];
+	var nowRow=0;		//吃到第几行
+	function createEat()
+	{
+		while(aEat.length<4)
+		{
+			var r=parseInt(Math.random()*R);
+			var c=parseInt(Math.random()*C);
+			
+			var found=false;
+			
+			for(var i=0;i<aSnake.length;i++)
+			{
+				if(r==aSnake[i].r && c==aSnake[i].c)
+				{
+					found=true;
+				}
+			}
+			for(var i=0;i<aEat.length;i++)
+			{
+				if(r==aEat[i].r && c==aEat[i].c)
+				{
+					found=true;
+				}
+			}
+			
+			if(!found)
+			{
+				var oNewDiv=document.createElement('div');
+				
+				oNewDiv.style.background='url(img/iconBg.jpg) -'+30*aEat.length+'px -'+30*nowRow+'px';
+				
+				oDiv.appendChild(oNewDiv);
+				
+				aEat.push({r: r, c: c, div: oNewDiv, type: 'eat'});
+			}
+		}
+		
+		for(var i=0;i<aEat.length;i++)
+		{
+			setPos(aEat[i]);
+		}
+		
+		nowRow++;
+	}
+	
+	createEat();
+};
+</script>
+</head>
+
+<body>
+<div id="div_start">
+	<div id="div_btn"></div>
+</div>
+<div id="div_stage">
+	<div id="main">
+    </div>
+</div>
+</body>
+</html>

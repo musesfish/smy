@@ -1,0 +1,159 @@
+/*100 440 285*/
+#part5 {
+    padding-top: 100px;
+    background: white;
+
+    width: 100%;
+    height: 715px;
+    overflow: hidden;
+    transition: all .5s linear;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#part5 > .part5_main {
+    width: 930px;
+    height: 75px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+
+#part5 > .part5_main > .photos {
+    width: 100%;
+    height: 515px;
+    background-color: rgba(135, 206, 250, 1);
+    opacity: 0;
+    transition: all 2s linear 11s;
+    position: absolute;
+    top: 90px;
+    left: 0;
+}
+
+#part5 > .part5_main > .photos > div {
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#part5 > .part5_main > .photos > :nth-child(1) {
+    width: 368px;
+    position: relative;
+}
+
+#part5 > .part5_main > .photos > :nth-child(2) {
+    width: 230px;
+}
+
+#part5 > .part5_main > .photos > :nth-child(3) {
+    width: 290px;
+}
+
+#part5 > .part5_main > .photos img {
+    float: left;
+}
+
+#part5 > .part5_main > .photos img + img {
+    margin-top: 10px;
+}
+
+/*#part5 > .part5_main > header > * {*/
+/*float: left;*/
+/*}*/
+
+#part5 > .part5_bg {
+    width: 100%;
+    height: 315px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#part5 > .part5_bg > img {
+    width: 100%;
+    position: absolute;
+}
+
+#part5 > .part5_bg > .bg_color {
+    background-color: rgba(135, 206, 250, 1);
+    height: 297px;
+    margin-top: 18px;
+}
+
+#part5 .part5_detail {
+    color: rgba(135, 206, 250, 1);
+    display: inline-block;
+    font-size: 2rem;
+    font-family: 'Microsoft yahei';
+    text-align: center;
+    margin-left: 20px;
+    width: 540px;
+}
+
+#part5 .part5_detail.en {
+    font-size: 1.4rem;
+    margin-top: 5px;
+}
+
+#part5 > .part5_bg_new {
+    width: 1050px;
+    height: 715px;
+    background: rgba(135, 206, 250, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 3s linear 7s;
+}
+
+#part5 > .part5_bg_new.active {
+    width: 930px;
+    height: 515px;
+    top: 120px;
+    left: 60px;
+    border-radius: 5px;
+}
+
+.part5_title {
+    position: absolute;
+    top: 320px;
+    left: 50%;
+    opacity: 0;
+    transition: all 2s linear;
+    transform: translateX(-50%) translateY(-50%) scale(1.2);
+}
+
+.part5_span {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Microsoft yahei';
+    display: inline-block;
+    width: auto;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 4s linear 6s;
+    text-align: center;
+    line-height: 38px;
+}
+
+#part5 > .part5_main > .photos .last_span {
+    display: block;
+    width: 25px;
+    height: auto;
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    left: 78%;
+    top: 48%;
+}
+
+#part5 > .part5_main > .photos .last_span.sec {
+    padding-top: 100px;
+    left: 68%;
+}

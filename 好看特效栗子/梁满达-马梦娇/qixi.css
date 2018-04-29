@@ -1,0 +1,479 @@
+/*通用*/
+.lf {
+    float: left;
+}
+
+.rt {
+    float: right;
+}
+
+.clear:before,
+.clear:after {
+    display: table;
+    content: " ";
+}
+
+.clear:after {
+    clear: both;
+}
+
+/*第二章*/
+#sec2 {
+    background-color: #007fff;
+    /*min-height:500px;*/
+    padding: 40px 0;
+    /*margin-top:100px;*/
+}
+
+#sec2 > img.top {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+}
+
+#sec2 > img.huapen {
+    position: absolute;
+    top: -80px;
+    left: 467px;
+}
+
+#timu2 {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    width: 69px;
+    height: 332px;
+    background: url(images/dierzhang/timu2.png) no-repeat;
+    color: #33beee;
+    font-size: 29px;
+    box-sizing: border-box;
+    padding: 20px 18px;
+}
+
+#sec2 div.text {
+    margin-top: 30px;
+}
+
+#sec2 div.text p {
+    color: #33beee;
+    width: 750px;
+    margin: 0 auto;
+    line-height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#sec2 div.pic {
+    width: 809px;
+    margin: 20px auto;
+}
+
+#sec2 div.pic-m {
+    width: 809px;
+    background-color: #fff;
+    margin: 10px 0;
+    height: 527px;
+    position: relative;
+}
+
+#sec2 div.pic-m > p {
+    color: #444444;
+    width: 20px;
+    position: absolute;
+    top: 50px;
+    right: 200px;
+    font-size: 18px;
+}
+
+#sec2 div.pic-m > div {
+    position: absolute;
+    bottom: 0px;
+    right: 150px;
+    height: 250px;
+    border: 1px solid #444;
+}
+
+/*第三章*/
+/*#timu3 {*/
+/*position: absolute;*/
+/*top: 15px;*/
+/*left: 35px;*/
+/*width: 69px;*/
+/*height: 334px;*/
+/*background: url(images/disanzhang/timu3.png) no-repeat;*/
+/*color: #fff;*/
+/*font-size: 29px;*/
+/*box-sizing: border-box;*/
+/*padding: 20px 18px;*/
+/*}*/
+
+/*#sec3 > img.bottom {*/
+/*position: absolute;*/
+/*top: 0px;*/
+/*left: 0px;*/
+/*}*/
+
+/*#sec3 div.text {*/
+/*position: absolute;*/
+/*top: 450px;*/
+/*left: 372px;*/
+/*}*/
+
+/*#sec3 div.text > p {*/
+/*color: #fff;*/
+/*width: 360px;*/
+/*margin: 0 auto;*/
+/*line-height: 25px;*/
+/*text-align: center;*/
+/*font-size: 20px;*/
+
+/*}*/
+
+/*#iconList {*/
+/*list-style: none;*/
+/*position: absolute;*/
+/*bottom: 0px;*/
+/*left: 45px;*/
+/*}*/
+
+/*#iconList > li {*/
+/*float: left;*/
+/*}*/
+
+/*#iconList > li.mid {*/
+/*margin: 0 90px;*/
+/*}*/
+
+#timu3 {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    width: 69px;
+    height: 334px;
+    background: url(images/disanzhang/timu3.png) no-repeat;
+    color: #fff;
+    font-size: 29px;
+    box-sizing: border-box;
+    padding: 20px 18px;
+    z-index: 1000;
+}
+
+#sec3 > img.bottom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#sec3 div.text {
+    position: absolute;
+    z-index: 1000;
+    font-family: 'Microsoft yahei';
+    top: 450px;
+    left: 372px;
+}
+
+#sec3 div.text > p {
+    color: #fff;
+    width: 360px;
+    margin: 0 auto;
+    line-height: 25px;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+#iconList {
+    list-style: none;
+    position: absolute;
+    bottom: 0px;
+    left: 45px;
+    z-index: 100;
+}
+
+#iconList > li {
+    float: left;
+}
+
+#iconList > li > img:hover {
+    box-shadow: 0 0 10px #33beee;
+    /*transform: scale(1.1);*/
+    cursor: pointer;
+}
+
+#iconList > li.mid {
+    margin: 0 90px;
+}
+
+/*大图淡入淡出*/
+#mpic {
+    position: relative;
+}
+
+#mpic > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+#mpic > img.show {
+    opacity: 1;
+    z-index: 10;
+}
+
+/*第四章*/
+#sec4 {
+    /*margin-top: 200px;*/
+    background: white;
+}
+
+#timu4 {
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    width: 69px;
+    height: 334px;
+    background: url(images/disizhang/timu4.png) no-repeat;
+    color: #fff;
+    font-size: 29px;
+    box-sizing: border-box;
+    padding: 20px 18px;
+}
+
+#sec4 div.pic-top {
+    width: 810px;
+    background-color: #87CEFA;
+    /*background-color: #a0dab2;*/
+    margin: 20px 140px;
+    height: 675px;
+    position: relative;
+    border-radius: 3px;
+    /*box-shadow: 0 0 3px 1px #ddd;*/
+}
+
+/*#sec4 div.pic-top > p {*/
+/*color: #84D1D1;*/
+/*width: 18px;*/
+/*}*/
+
+/*#sec4 div.pic-top > div {*/
+/*border: 1px solid #84D1D1;*/
+/*height: 197px;*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*left: 107px;*/
+
+/*}*/
+
+#sec4 div.pic-top > p {
+    position: absolute;
+    width: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: inline-block;
+    opacity: 0;
+    transition: all 2s linear 6.5s;
+}
+
+#sec4 div.pic-top > p.p4 {
+    top: 40px;
+    left: 100px;
+}
+
+#sec4 div.pic-top > p.p5 {
+    top: 40px;
+    left: 155px;
+}
+
+#sec4 div.pic-top > p.p6 {
+    bottom: 40px;
+    right: 135px;
+}
+
+#sec4 div.pic-top .right_top {
+    position: absolute;
+    box-shadow: 0 0 5px 2px #bbb;
+    display: inline-block;
+    width: 457px;
+    height: 313px;
+    /*top: 40px;*/
+    /*right: 20px;*/
+    z-index: 100;
+}
+
+#sec4 div.pic-top img {
+    position: absolute;
+    box-shadow: 0 0 5px 2px #bbb;
+}
+
+#cover {
+    position: absolute;
+    width: 457px;
+    height: 313px;
+    z-index: 100;
+}
+
+#cover > div {
+    width: 152.33333334px;
+    height: 104.4px;
+    float: left;
+    background-color: #87CEFA;
+    transition: all .5s linear;
+}
+
+/*#sec4 div.pic-top .right_top img {*/
+/*float: left;*/
+/*position: relative;*/
+/*box-shadow: none;*/
+/*}*/
+
+#sec4 div.pic-top .left_bottom {
+    /*bottom: 20px;*/
+    /*left: 20px;*/
+    opacity: 0;
+}
+
+/*#sec4 div.pic-top img:last-child {*/
+/*position: absolute;*/
+/*top: -50px;*/
+/*left: 30px;*/
+/*}*/
+
+#sec4 > img {
+    /*width:810px;*/
+    margin: 0 auto;
+    margin-left: 119px;
+    position: absolute;
+    z-index: 100;
+}
+
+/*#sec4 > div:last-child {*/
+/*width: 860px;*/
+/*height: 238px;*/
+/*background-color: #DAF3F3;*/
+/*position: absolute;*/
+/*bottom: 35px;*/
+/*left: 94px;*/
+/*z-index: 0;*/
+/*}*/
+
+/*#sec4 > div:last-child > p:first-child {*/
+/*margin-top: 100px;*/
+/*}*/
+
+/*#sec4 > div:last-child > p {*/
+/*width: 450px;*/
+/*color: 87CEFA;*/
+/*font-size: 20px;*/
+/*margin: 0 auto;*/
+/*line-height: 30px;*/
+/*text-align: center;*/
+
+/*}*/
+
+#sec2, #sec3, #sec4 {
+    width: 100%;
+    height: 715px;
+    overflow: hidden;
+    transition: all .5s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#sec2 {
+    z-index: 400;
+    background: white;
+}
+
+#sec3 {
+    z-index: 300;
+    background: white;
+}
+
+#sec4 {
+    z-index: 200;
+}
+
+#game {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 250px;
+    top: 60px;
+    box-shadow: 0 0 10px #ddd;
+    opacity: 0;
+    transition: all 2s linear;
+}
+
+#game > div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: absolute;
+    transition: all .7s linear;
+}
+
+#game > div:hover {
+    cursor: pointer;
+}
+
+#game > div > img {
+    float: left;
+}
+
+#sec2 > .part2_detail {
+    position: absolute;
+    width: 25px;
+    color: #33beee;
+    font-weight: bold;
+    font-size: 25px;
+    display: inline-block;
+    /*opacity: 0;*/
+    transition: all 2s linear 1s;
+    opacity: 0;
+    top: 30px;
+    right: 80px;
+}
+
+#sec2 > .part2_detail.p2 {
+    top: 200px;
+    right: 130px;
+    transition: all 2s linear 1s;
+}
+
+#sec2 > .part2_detail.p3 {
+    /*color: red;*/
+    top: 60px;
+    left: 150px;
+    transition: all 2s linear 1s;
+}
+
+#game > p {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+    font-size: 4rem;
+    line-height: 100%;
+    text-align: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-45%) scale(0);
+    background: url("images/dierzhang/heart.png") no-repeat;
+    background-size: contain;
+    opacity: 1;
+    transition: all 1s linear;
+}
+
+#game > p.active {
+    transform: translateX(-50%) translateY(-45%) scale(0.95);
+    opacity: 0.7;
+}

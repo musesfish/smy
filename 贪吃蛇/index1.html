@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div_start {width:270px; height:129px; background:url(img/logo.gif) no-repeat; margin:20px auto; position:relative;}
+#div_btn {width:118px; height:118px; background:url(img/logoa.jpg) 0 -5px no-repeat; position:absolute; left:76px; top:10px;}
+#div_stage {width:1015px; height:342px; background:url(img/stagebg.jpg) no-repeat; margin:10px auto; position:relative;}
+#main {width:570px; height:240px; position:absolute; left:200px; top:50px;}
+#main div {float:left; width:30px; height:30px;}
+
+#main .snake1{background:url(img/snake1.png) 0 0 no-repeat;}
+#main .snake2{background:url(img/snake2.png) 0 0 no-repeat;}
+#main .snake3{background:url(img/snake3.png) 0 0 no-repeat;}
+#main .snake4{background:url(img/snake4.png) 0 0 no-repeat;}
+#main .snake5{background:url(img/snake5.png) 0 0 no-repeat;}
+
+#main .l {-webkit-transform:rotate(0deg);}
+#main .r {-webkit-transform:rotate(180deg);}
+#main .t {-webkit-transform:rotate(90deg);}
+#main .b {-webkit-transform:rotate(270deg);}
+
+</style>
+<script>
+function rnd(n, m)
+{
+	return n+parseInt(Math.random()*(m-n));
+}
+
+window.onload=function ()
+{
+	var oDivBtn=document.getElementById('div_btn');
+	oDivBtn.onclick=function ()
+	{
+		var i=0;
+		var timer=setInterval(function (){
+			oDivBtn.style.backgroundPosition='0 -'+(i*138+5)+'px';
+			i++;
+		}, 100);
+	};
+	
+	//绘制蛇
+	function refresh()
+	{
+		for(var r=0;r<R;r++)
+		{
+			for(var c=0;c<C;c++)
+			{
+				aDiv[r][c].style.background='none';
+			}
+		}
+		
+		for(var i=0;i<aSnake.length;i++)
+		{
+			if(aSnake[i].s<10000)
+			{
+				var r=parseInt(aSnake[i].s/10);
+				var c=aSnake[i].s%10;
+				//块
+				aDiv[aSnake[i].r][aSnake[i].c].style.background='url(img/iconBg.jpg) '+-35*c+'px '+-34*r+'px';
+				aDiv[aSnake[i].r][aSnake[i].c].className='l';
+			}
+			else
+			{
+				var n=aSnake[i].s%10000;
+				//蛇
+				aDiv[aSnake[i].r][aSnake[i].c].style.background='url(img/snake'+n+'.png) no-repeat no-repeat';
+				aDiv[aSnake[i].r][aSnake[i].c].className=aSnake[i].d;
+			}
+		}
+		for(var i=0;i<aEat.length;i++)
+		{
+			var r=parseInt(aEat[i].s/10);
+			var c=aEat[i].s%10;
+			//块
+			aDiv[aEat[i].r][aEat[i].c].style.background='url(img/iconBg.jpg) '+-35*c+'px '+-34*r+'px';
+			aDiv[aEat[i].r][aEat[i].c].className='l';
+		}
+	}
+	
+	//生成Div
+	var oDiv=document.getElementById('main');
+	var aDiv=[];
+	var R=8;
+	var C=19;
+	for(var i=0;i<R;i++)
+	{
+		aDiv[i]=[];
+		for(var j=0;j<C;j++)
+		{
+			aDiv[i][j]=document.createElement('div');
+			
+			oDiv.appendChild(aDiv[i][j]);
+		}
+	}
+	
+	//蛇的状态
+	/*
+	状态：
+	蛇：	头->尾
+		10000->10004
+	块：
+		0-3
+		10-13
+		20-23
+	*/
+	var snake_dir='l';
+	var aSnake=[
+		{r: 0, c: 5, s: 10000, d: 'l'},
+		{r: 0, c: 6, s: 10001, d: 'l'},
+		{r: 0, c: 7, s: 10002, d: 'l'},
+		{r: 0, c: 8, s: 10003, d: 'l'},
+		{r: 0, c: 9, s: 10004, d: 'l'},
+	];
+	
+	//方向键——控制方向
+	document.onkeydown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		switch(oEvent.keyCode)
+		{
+			case 37:		//←
+				aSnake[0].d=snake_dir='l';
+				break;
+			case 38:		//↑
+				aSnake[0].d=snake_dir='t';
+				break;
+			case 39:		//→
+				aSnake[0].d=snake_dir='r';
+				break;
+			case 40:		//↓
+				aSnake[0].d=snake_dir='b';
+				break;
+		}
+	};
+	
+	//定时器——蛇移动
+	setInterval(function (){
+		//蛇头原始位置
+		var old_r=aSnake[0].r;
+		var old_c=aSnake[0].c;
+		
+		//检测有无吃到东西
+		var n=-1;
+		for(var i=0;i<aEat.length;i++)
+		{
+			if(aEat[i].r==old_r && aEat[i].c==old_c)
+			{
+				n=i;
+				break;
+			}
+		}
+		
+		if(n==-1)
+		{
+			//正常移动
+			//蛇的后边
+			for(var i=aSnake.length-1;i>0;i--)
+			{
+				aSnake[i].r=aSnake[i-1].r;
+				aSnake[i].c=aSnake[i-1].c;
+				aSnake[i].d=aSnake[i-1].d;
+			}
+			
+			//蛇头移动
+			switch(snake_dir)
+			{
+				case 'l':
+					aSnake[0].c=old_c-1;
+					break;
+				case 'r':
+					aSnake[0].c=old_c+1;
+					break;
+				case 't':
+					aSnake[0].r=old_r-1;
+					break;
+				case 'b':
+					aSnake[0].r=old_r+1;
+					break;
+			}
+		}
+		else
+		{
+			//吃到了——添加一节
+			//添加一节
+			aSnake.splice(2, 0, {r: aSnake[1].r, c: aSnake[1].c, d: aSnake[1].d, s: aEat[n].s});
+			//蛇头+蛇头后面一个——向前
+			aSnake[1].r=aSnake[0].r;
+			aSnake[1].c=aSnake[0].c;
+			aSnake[1].d=aSnake[0].d;
+			switch(snake_dir)
+			{
+				case 'l':
+					aSnake[0].c=old_c-1;
+					break;
+				case 'r':
+					aSnake[0].c=old_c+1;
+					break;
+				case 't':
+					aSnake[0].r=old_r-1;
+					break;
+				case 'b':
+					aSnake[0].r=old_r+1;
+					break;
+			}
+			//后面不动
+			
+			//删除一个吃的
+			aEat.splice(n, 1);
+			
+			//吃完了
+			if(aEat.length==0)
+			{
+				createEat();
+			}
+		}
+		
+		refresh();
+	}, 100);
+	
+	//随机生成吃的东西
+	var nowRow=-1;
+	var aEat=[];
+	
+	function createEat()
+	{
+		nowRow++;
+		
+		while(aEat.length<4)
+		{
+			var r=rnd(0, R);
+			var c=rnd(0, C);
+			
+			var found=false;
+			
+			for(var i=0;i<aSnake.length;i++)
+			{
+				if(aSnake[i].r==r && aSnake[i].c==c)
+				{
+					found=true;
+					break;
+				}
+			}
+			
+			if(!found)
+			{
+				//可以加
+				aEat.push({r: r, c: c, s: nowRow*10+aEat.length});
+			}
+		}
+	}
+	
+	createEat();
+	
+	//刷新显示
+	refresh();
+};
+</script>
+</head>
+
+<body>
+<div id="div_start">
+	<div id="div_btn"></div>
+</div>
+<div id="div_stage">
+	<div id="main">
+    </div>
+</div>
+</body>
+</html>

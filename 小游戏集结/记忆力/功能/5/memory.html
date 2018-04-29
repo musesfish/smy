@@ -1,0 +1,237 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用图像记忆游戏</title>
+<bgsound src="music/1.mp3" loop="-1">
+<style>
+*{
+  margin:0px;
+  padding:0px;
+}
+#canvas{
+     background-image:url(img/bg.jpg);
+     background-repeat:repeat-x;
+}
+
+div{
+   float:left;
+   position:relative;
+   left:10%;
+   border:3px double gray;
+   padding:20px;
+   margin:20px;
+}
+</style> 
+<script type="text/javascript">
+         var ctx;
+	 var firstpick=true;
+	 var firstcard=-1;
+	 var secondcard;
+	 var backcolor="black";
+	 var tablecolorx="#ffffff";
+	 var tablecolor="#6699cc";
+	 var deck=[];
+         var firstsy=50;
+         var firstsx=30;
+	 var margin=30;
+	 var cardwidth=100;
+	 var cardheight=100;
+	 var matched;
+	 var starttime;
+	 var count=0;
+	 var pairs=[
+	  ["img/1a.jpg","img/2a.jpg"],
+	  ["img/1b.jpg","img/2b.jpg"],
+	  ["img/1c.jpg","img/2c.jpg"],
+	  ["img/1d.jpg","img/2d.jpg"],
+	  ["img/1g.jpg","img/2g.jpg"],
+	  ["img/1h.jpg","img/2h.jpg"],
+	  ["img/1e.jpg","img/2e.jpg"]
+	 ]
+     var poker = new Image();
+     poker.src="img/pai.jpg";  
+	 
+function Card(sx,sy,swidth,sheight,img,info,imga){
+	this.sx=sx;
+	this.sy=sy;
+	this.swidth=swidth;
+	this.sheight=sheight;
+        this.img=img;
+	this.imga=imga;
+	this.info=info;
+	this.draw=drawback;
+}
+
+function makedeck(){
+        var i;
+	var acard;
+	var bcard;
+	var pica;
+	var picb;
+	var cx=firstsx;
+	var cy=firstsy;
+	for(i=0;i<pairs.length;i++){
+		pica=new Image();
+		pica.src=pairs[i][0];
+		acard=new Card(cx,cy,cardwidth,cardheight,pica,i,poker);
+		deck.push(acard);
+		picb=new Image();
+		picb.src=pairs[i][1];
+		bcard=new Card(cx,cy+cardheight+margin,cardwidth,cardheight,picb,i,poker);
+		deck.push(bcard);
+		cx=cx+cardwidth+margin;
+		acard.draw();
+		bcard.draw();
+	}
+}
+
+function shuffle(){
+   var i;
+   var k;
+   var holderinfo;
+   var holderimg;
+   var dl=deck.length;
+   var nt;
+   for(nt=0;nt<3*dl;nt++){
+	   i=Math.floor(Math.random()*dl);
+	   k=Math.floor(Math.random()*dl);
+	   holderinfo=deck[i].info;
+	   holderimg=deck[i].img;
+	   deck[i].info=deck[k].info;
+	   deck[i].img=deck[k].img;
+	   deck[k].info=holderinfo;
+	   deck[k].img=holderimg;
+   }
+}
+
+function drawback(){
+ ctx.drawImage(this.imga,this.sx,this.sy,this.swidth,this.sheight);
+}
+
+function choose(ev){
+ var mt;
+ var now=new Date();
+ var mt=Number(now.getTime());
+ var seconds=Math.floor(.5+(mt-starttime)/1000);
+
+if(seconds>=30){
+ctx.clearRect(30,33,920,250);
+ctx.fillStyle=tablecolor;
+ctx.fillRect(30,45,920,235);
+ctx.fillStyle=backcolor;	
+out="你所花时间为 "+String(seconds)+" 秒。超过标准过关时间。";
+ctx.fillText(out,18,45);
+ctx.fillText("刷新页面再试一次。",18,300);
+
+}
+
+else{
+         var out;
+	 var mx;
+	 var my;
+	 var pick1;
+	 var pick2;
+	 if(ev.layerX||ev.layerX==0){
+		 mx=ev.layerX;
+		 my=ev.layerY;
+	 }
+	 else if(ev.offsetX||ev.offsetX==0){
+	     mx=ev.offsetX;
+		 my=ev.offsetY;
+	 }
+	 var i;
+     for(i=0;i<deck.length;i++){
+	   var card=deck[i];
+            if(card.sx>=0)
+		 if((mx>card.sx)&&(mx<card.sx+card.swidth)&&(my>card.sy)&&(my<card.sy+card.sheight)){
+			    if((firstpick)||(i!=firstcard))
+				break;
+		 }
+}
+		 if(i<deck.length){
+		        if(firstpick){
+					firstcard=i;
+					firstpick=false;
+					ctx.drawImage(card.img,card.sx,card.sy,card.swidth,card.sheight);
+			     }
+			    else{
+					  secondcard=i;
+					  ctx.drawImage(card.img,card.sx,card.sy,card.swidth,card.sheight);
+			          if(deck[i].info==deck[firstcard].info){
+						  matched=true;
+						  count++;
+						 ctx.fillStyle=tablecolorx;
+						  
+						  ctx.fillRect(10,340,700,100);
+						  ctx.fillStyle=backcolor;
+						  ctx.fillText("目前匹配数为:"+String(count),18,360);
+				          if(count>=.5*deck.length){
+							  var now=new Date();
+							  var nt=Number(now.getTime());
+							  var seconds=Math.floor(.5+(nt-starttime)/1000);
+						
+						  ctx.fillStyle=backcolor;	
+						  	 out="你所花时间为 "+String(seconds)+" 秒。";
+							 ctx.fillText(out,18,45);
+							 ctx.fillText("已成功通过第一关。",18,300);
+		                                         ctx.fillStyle="white";
+                                                         ctx.fillRect(18,340,700,30);
+                                                   setTimeout(init1,1000);
+
+					 }
+				          }
+			         else{
+						  matched=false;
+				          }
+			          
+			       firstpick=true;
+			       setTimeout(flipback,100);
+		         }
+	 }
+}}
+
+function flipback(){
+	var card;
+	if(!matched){
+		deck[firstcard].draw();
+		deck[secondcard].draw();
+	}
+    else{
+		ctx.fillStyle=tablecolor;
+		ctx.fillRect(deck[secondcard].sx,deck[secondcard].sy,deck[secondcard].swidth,deck[secondcard].sheight);
+		ctx.fillRect(deck[firstcard].sx,deck[firstcard].sy,deck[firstcard].swidth,deck[firstcard].sheight);
+		deck[firstcard].sx=-1;
+		deck[secondcard].sx=-1;
+	}
+}
+
+function init(){
+	ctx=document.getElementById('canvas').getContext('2d');
+	canvas1=document.getElementById('canvas');
+	canvas1.addEventListener('click',choose,false);
+	makedeck();
+	shuffle();
+	ctx.font="bold 12pt sans-serif";
+        ctx.fillStyle=backcolor;
+        ctx.fillText("第一关：",20,20);
+	ctx.fillText("点击翻开两张牌做一个匹配。",320,20);
+	ctx.fillText("匹配数目前为:",18,360);
+        starttime=new Date();
+	starttime=Number(starttime.getTime());
+}
+function init1(){
+       ctx.clearRect(0,0,950,400);
+}
+</script>
+</head>
+
+<body onload="init();">
+<div>
+<canvas id="canvas" width="950" height="400">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+</div>
+<embed align="left" width="180" height="50" src="music/1.mp3" autostart="true" style="background-color:#6699cc;clear:left;margin-left:150px;"/>
+</body>
+</html>
+

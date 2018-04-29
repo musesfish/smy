@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {background:black;}
+#c1 {background:white;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	//PS套索
+	gd.beginPath();		//开始选取
+	
+	gd.moveTo(350, 63);	//起点
+	gd.lineTo(688, 310);//连一条线
+	gd.lineTo(329, 367);//连一条线
+	gd.lineTo(144, 212);//连一条线
+	
+	gd.closePath();		//结束选取（闭合选区）
+	
+	gd.fillStyle='red';
+	gd.lineWidth=10;
+	gd.strokeStyle='green';
+	
+	gd.stroke();		//线段、边框
+	gd.fill();
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

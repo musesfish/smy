@@ -1,0 +1,107 @@
+/*Ðý×ª*/
+@keyframes page_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes wobble {
+    0% {
+        transform: none;
+    }
+    15% {
+        transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+
+    30% {
+        transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+
+    45% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+
+    60% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+@keyframes page_shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    4% {
+        transform: rotate(5deg);
+    }
+    12.5% {
+        transform: rotate(-5deg);
+    }
+    21% {
+        transform: rotate(5deg);
+    }
+    29% {
+        transform: rotate(-5deg);
+    }
+    37.5% {
+        transform: rotate(5deg);
+    }
+    46% {
+        transform: rotate(-5deg);
+    }
+    50%, 100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes page_jump {
+    0% {
+        transform: translateY(0px);
+    }
+    17% {
+        transform: translateY(-30px);
+    }
+    33% {
+        transform: translateY(30px);
+    }
+    49% {
+        transform: translateY(-100px);
+    }
+    66% {
+        transform: translateY(0px);
+    }
+    83% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+#circle-img li img.i1{
+     animation:page_shake 2s linear infinite;}
+#circle-img li img.i2{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i3{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i4{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i1{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i5{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i6{
+    animation:page_shake 2s linear infinite;}
+#circle-img li img.i7{
+    animation:page_shake 2s linear infinite;}
+
+
+
+
+

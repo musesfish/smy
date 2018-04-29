@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七夕</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"  href="css/zoom.css" media="all" />
+    <!--动态树的生成-->
+    <link type="text/css" rel="stylesheet" href="renxi/default.css">
+    <script type="text/javascript" src="renxi/jquery.min.js"></script>
+    <script type="text/javascript" src="renxi/jscex.min.js"></script>
+    <script type="text/javascript" src="renxi/jscex-parser.js"></script>
+    <script type="text/javascript" src="renxi/jscex-jit.js"></script>
+    <script type="text/javascript" src="renxi/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="renxi/jscex-async.min.js"></script>
+    <script type="text/javascript" src="renxi/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="renxi/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="renxi/love.js" charset="utf-8"></script>
+<!--动态树结束-->
+
+</head>
+<body>
+<!--第一部分菱角图片-->
+<div class="one">
+<div class="container">
+    <span class="xing"><img src="images/xing.png" alt=""/></span>
+    <ul class="gallery">
+       <li><a href="images/a-1.jpg"><img src="images/a18.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a1.png" alt=""/></a></li>
+       <li><a href="images/a-2.jpg"><img src="images/a19.png" alt=""/></a></li>
+       <li><a href="images/a-3.jpg"><img src="images/a14.png" alt=""/></a></li>
+       <li><a href="images/a-4.jpg"><img src="images/a27.png" alt=""/></a></li>
+       <li><a href="images/a-5.jpg"><img src="images/a8.png" alt=""/></a></li>
+       <li><a href="images/a-1.jpg"><img src="images/a23.png" alt=""/></a></li>
+       <li><a href="images/a-2.jpg"><img src="images/a30.png" alt=""/></a></li>
+       <li><a href="images/a-3.jpg"><img src="images/a9.png" alt=""/></a></li>
+       <li><a href="images/a-5.jpg"><img src="images/a29.png" alt=""/></a></li>
+       <li><a href="images/a-1.jpg"><img src="images/a12.png" alt=""/></a></li>
+       <li><a href="images/a-2.jpg"><img src="images/a7.png" alt=""/></a></li>
+       <li><a href="images/a-3.jpg"><img src="images/a9.png" alt=""/></a></li>
+       <li><a href="images/a-4.jpg"><img src="images/a29.png" alt=""/></a></li>
+       <li><a href="images/a-5.jpg"><img src="images/a12.png" alt=""/></a></li>
+       <li><a href="images/d2.png"><img src="images/a7.png" alt=""/></a></li>
+       <li><a href="images/a-1.jpg"><img src="images/a33.png" alt=""/></a></li>
+       <li><a href="images/a-5.jpg"><img src="images/a22.png" alt=""/></a></li>
+       <li><a href="images/a-4.jpg"><img src="images/a13.png" alt=""/></a></li>
+       <li><a href="images/a-3.jpg"><img src="images/a31.png" alt=""/></a></li>
+       <li><a href="images/a-2.jpg"><img src="images/a5.png" alt=""/></a></li>
+       <li><a href="images/a-1.jpg"><img src="images/a17.png" alt=""/></a></li>
+       <li><a href="images/d3.png"><img src="images/a20.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a21.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a24.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a16.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a32.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a13.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a27.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a8.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a23.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a30.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a9.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a5.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a5.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a22.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a13.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a31.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a5.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a17.png" alt=""/></a></li>
+       <li><a href="images/d1.png"><img src="images/a20.png" alt=""/></a></li>
+   </ul>
+    <div class="clear"></div>
+    <p><img src="images/love.png" alt=""/>
+    <p style="clear: both"></p>
+    <div id="m-love">
+         <span><img src="images/m1.png"></span>
+         <span><img src="images/m2.png"></span>
+         <span><img src="images/m3.png"></span>
+         <span><img src="images/m4.png"></span>
+         <span><img src="images/m5.png"></span>
+         <span><img src="images/m6.png"></span>
+         <span><img src="images/m8.png"></span>
+
+</div>
+    </p>
+</div>
+</div>
+<!--第一部分菱角图片结束-->
+
+<!--第二部分菱角图片-->
+<div id="nav">
+   <ul id="nav_ul">
+      <li><img src="images/e1.png" alt=""/></li>
+      <li><img src="images/e2.png" alt=""/></li>
+      <li><img src="images/e3.png" alt=""/></li>
+   </ul>
+    <div class="li_div">
+        <p>我要你知道，这世界上有一个人是永远等着你的，不管是在什么时候，不管你是在什么地方，反正你知道，总有这样一个人。爱情是美好的， 爱一个人是发自内心的， 是一种很真挚的情感。 爱对了人 是一种幸运， 你会想要和他一起进步 一起成长， 爱自己 也爱对方， 更爱我们的生活， 就这样 手牵手一直...</p>
+        <p>我要你知道，这世界上有一个人是永远等着你的，不管是在什么时候，不管你是在什么地方，反正你知道，总有这样一个人。爱情是美好的， 爱一个人是发自内心的， 是一种很真挚的情感。 爱对了人 是一种幸运， 你会想要和他一起进步 一起成长， 爱自己 也爱对方， 更爱我们的生活， 就这样 手牵手一直...</p>
+        <p>我要你知道，这世界上有一个人是永远等着你的，不管是在什么时候，不管你是在什么地方，反正你知道，总有这样一个人。爱情是美好的， 爱一个人是发自内心的， 是一种很真挚的情感。 爱对了人 是一种幸运， 你会想要和他一起进步 一起成长， 爱自己 也爱对方， 更爱我们的生活， 就这样 手牵手一直...</p>
+    </div>
+</div>
+<!--第二部分菱角图片结束-->
+<!--第三部分开始-->
+<div id="three">
+    <div class="t-main">
+        <div class="view">
+            <img src="images/c1.png">
+            <div class="hover my-small" data-target="images/b1.jpg">
+                <h3>七夕</h3>
+                <p>两个人的世界里，总要一个闹着、一个笑着、一个吵着、一个哄着。</p>
+            </div>
+        </div>
+        <div class="view">
+            <img src="images/c2.png">
+            <div class="hover my-small" data-target="images/b2.jpg">
+                <h3>七夕</h3>
+                <p>每天把你拉出来晒晒太阳，心情就不会缺钙</p>
+            </div>
+        </div>
+        <div class="view">
+            <img src="images/c3.png">
+            <div class="hover my-small" data-target="images/b3.jpg">
+                <h3>七夕</h3>
+                <p>蓝天上，手指划过的痕迹，暖了阳光，暖了眼眸</p>
+            </div>
+        </div>
+        <div class="view">
+            <img src="images/c4.png">
+            <div class="hover my-small" data-target="images/b1.jpg">
+                <h3>七夕</h3>
+                <p>一杯温水，不随外界变幻而更改，不因岁月迁徙而转移。</p>
+            </div>
+        </div>
+        <div class="view">
+            <img src="images/c5.png">
+            <div class="hover my-small" data-target="images/b2.jpg">
+                <h3>七夕</h3>
+                <p>你笑一次我可以高兴好几次，可看你哭一次，我就难过了好几年。</p>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+<br/><br/>
+        <img src="images/b1.jpg" class="my-big">
+    </div>
+
+</div>
+
+
+<!--第三部分结束-->
+
+
+<!--第四部分开始-->
+<div id="four">
+    <p id="f-top"><img src="images/sx.png" alt=""/></p>
+    <ul class="f-photo">
+        <li>
+            <img src="images/d1.png" alt=""/>
+            <div id="min_pic1">
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+            </div>
+        </li>
+        <li><img src="images/d2.png" alt=""/>
+            <div id="min_pic2">
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+            </div>
+        </li>
+        <li>
+            <img src="images/d4.png" alt=""/>
+            <div id="min_pic3">
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+            </div>
+
+        </li>
+        <li>
+            <img src="images/d3.png" alt=""/>
+            <div id="min_pic4">
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+                <img src="images/gx.png" alt=""/>
+            </div>
+        </li>
+    </ul>
+    <div id="trans_big">
+        <div id="trans">
+            <p> 青春的年华里，每个人都 拥有两只笔，</p>
+            <p>一只叫做记忆，在青春那卷泛黄的日记本上记录时光</p>
+            <p>留下的残骸；一只叫做爱情，这只笔的本意是想在青春的书页上</p>
+            <p>留下一笔墨绿，可是却被清风吹翻了页码，</p>
+            <p>写下一段无言的结局。</p>
+            <p>我不是多余的.....</p>
+        </div>
+    </div>
+
+    <div id="bull">
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+        <span><img src="images/154%20px.png" alt=""></span>
+    </div>
+</div>
+
+<!--第四部分结束-->
+<!--第五部分开始-->
+<div id="f-pic">
+
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/6-1.gif" /></div>
+            <div><img src="images/6-2.jpg" /></div>
+        </div>
+    </div>
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/5-1.gif" /></div>
+            <div><img src="images/5-2.jpg" /></div>
+        </div>
+    </div>
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/3-1.gif" /></div>
+            <div><img src="images/3-2.jpg" /></div>
+        </div>
+    </div>
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/4-1.gif" /></div>
+            <div><img src="images/4-2.jpg" /></div>
+        </div>
+    </div>
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/1-1.gif" /></div>
+            <div><img src="images/1-2.jpg" /></div>
+        </div>
+    </div>
+    <div class="img">
+        <div class="inner">
+            <div><img src="images/2-1.gif" /></div>
+            <div><img src="images/2-2.jpg" /></div>
+        </div>
+    </div>
+
+</div>
+
+<!--第五部分结束-->
+
+<!--第六部分开始-->
+<div id="times" style="position: relative">
+    
+    <div id="main">
+        <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(Chrome)或者火狐(Firefox)浏览器，或者其他游览器的最新版本。</div>
+        <div id="wrap">
+            <div id="text">
+                <div id="code"> <font color="#FF0000"> <span class="say">亲爱的小宝宝，我爱你，虽然你看不见我对你的告白</span><br>
+                    <span class="say"> </span><br>
+                    <span class="say"> 我知道我不会甜言蜜语，但是我会用行动证明一切</span><br>
+                    <span class="say"> </span><br>
+                    <span class="say">你说我啰嗦，有些东西因为越在乎所以越失去</span><br>
+                    <span class="say">因为我太爱你了，所以我失去你了</span><br>
+                    <span class="say">因为我太啰嗦了，所以你离开了我</span><br>
+                    <span class="say">虽然你看不见我的告白，但是我还是要把这些心里话说出来</span><br>
+                    <span class="say"> </span><br>
+                    <span class="say"><span class="space"></span> -- 爱你的仁希--</span> </font>
+                    </p>
+                </div>
+            </div>
+            <div id="clock-box"> <span class="STYLE1"></span><font color="#33CC00">亲爱的小宝宝，我喜欢你</font> <span class="STYLE1">已经是……</span>
+                <div id="clock"></div>
+            </div>
+            <canvas id="canvas" width="1100" height="680"></canvas>
+        </div>
+    </div>
+</div>
+
+<!--第六部分结束-->
+
+<!--、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、-->
+<script>
+    (function(){
+        var canvas = $('#canvas');
+
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;        }
+
+        var width = canvas.width();
+        var height = canvas.height();
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]]
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function(e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0;
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function(e){
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        var moveAnimate = eval(Jscex.compile("async", function () {
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) {
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+            foot.draw();
+            tree.snapshot("p2", 500, 0, 610, 680);
+
+            // 会有闪烁不得意这样做, (＞﹏＜)
+            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            canvas.css("background", "#FAD4DF");
+            $await(Jscex.Async.sleep(300));
+            canvas.css("background", "none");
+        }));
+
+        var jumpAnimate = eval(Jscex.compile("async", function () {
+            var ctx = tree.ctx;
+            while (true) {
+                tree.ctx.clearRect(0, 0, width, height);
+                tree.jump();
+                foot.draw();
+                $await(Jscex.Async.sleep(25));
+            }
+        }));
+
+
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+            $await(moveAnimate());
+
+            textAnimate().start();
+
+            $await(jumpAnimate());
+        }));
+
+        runAsync().start();
+    })();
+</script>
+
+
+
+<div id="footer">
+<div id="ss">
+    <img src="images/ss_03.png" alt=""/>
+</div>
+</div>
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>

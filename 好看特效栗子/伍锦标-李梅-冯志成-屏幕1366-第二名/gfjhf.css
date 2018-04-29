@@ -1,0 +1,429 @@
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+ body{
+    background-size: 130%;
+ }
+    .ae{
+        top: 35%;
+        left: -53%;
+        width: 94%;
+        height: 178%;
+    }
+    .ae{
+        top: 35%;
+        position: absolute;
+        left: -67%;
+        /* transition: all 70s linear; */
+        animation: aes 100s linear;
+        width: 143%;
+        background: url(shuc/tou_yun/yl.png);
+        height: 168%;
+    }
+    @keyframes aes {
+        0%{
+            top:-11%;
+        }
+        50%{
+            top:20%;
+        }
+        100%{
+            top:-11%
+        }
+    }
+    .aqa{
+        position: absolute;
+        top: 0%;
+        transition: all .3s linear;
+        animation: paipai 10s linear;
+    }
+    @keyframes paipai {
+        0%{
+            top:-69%
+        }
+        100%{
+            top:0%
+        }
+    }
+    .aq{
+        width: 158%;
+        transform: rotatey(565deg);
+        left: -78%;
+        display: inline-block;
+        position: relative;
+        /* transition: all 15s linear; */
+        background: url(shuc/tou_yun/y1.png)no-repeat;
+        height: 100%;
+        background-size: 82%;
+        top: 52%;
+    }
+    .aw{
+        left: -49%;
+        position: absolute;
+        background: url(shuc/tou_yun/y3.png)no-repeat;
+        background-size: 93%;
+        width: 100%;
+        height: 100%;
+        top: 71%;
+    }
+    @keyframes jdfg {
+        0%{
+            top:0%;
+        }
+        40%{
+            left: 33%;
+        }
+        70%{
+            top:-27%;
+            left:30%;
+        }
+        100%{
+            top:0%;
+        }
+    }
+
+    .ar{
+        position: absolute;
+        transform: rotatey(155deg);
+        left: -48%;
+        top: 76%;
+        background: url(shuc/tou_yun/y3.png) no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    @keyframes fassa {
+        0%{
+            left: 62%;
+        }
+        50%{
+            left: 58%;
+        }
+        100%{
+            left: 62%;
+        }
+    }
+    .az{
+        left: -62%;
+        position: absolute;
+        top: 59%;
+        background: url(shuc/tou_yun/y1.png) no-repeat;
+        height: 66%;
+        background-size: 101%;
+        width: 130%;
+    }
+    @keyframes sd1aa {
+        0%{
+            top: 0%;
+            left: 80%;
+        }
+        50%{
+            left: 84%;
+            top: -35%;
+        }
+        100%{
+            top: 0%;
+            left: 80%;
+        }
+    }
+    .top1>li>div.m1,.top1>li>div.m2,.top1>li>div.m3,.top1>li>div.m4,.top1>li>div.m5{
+        height: 80px;
+        position: absolute;
+        border-left: 1px solid #35436B;
+        /* background: #fff; */
+        display: inline-block;
+        top: 0%;
+        width:9%;
+    }
+    .top1>li>div.m5{
+        transition: all 25s linear;
+        animation: sd1aa 15s infinite;
+    }
+    .top1>li>div.m1{
+        transition: all 15s linear;
+        animation: sgs1 15s infinite;
+    }
+    .top1>li>div.m3{
+        transition: all 70s linear;
+        animation: aes 100s linear;
+    }
+
+    @keyframes sgs1{
+        0% {
+            left: 20%;
+        }
+        30% {
+            top: -21%;
+        }
+        60% {
+            left: 15%;
+        }
+        100% {
+            left: 20%;
+        }
+    }
+    .top1>li>div.m2{
+        height: 89%;
+        transition: all 25s linear;
+        animation: jdfg 15s infinite;
+        top:-27%;
+        left: 30%;
+    }
+    .top1>li>div.m4{
+        transition: all 25s linear;
+        animation: fassa 15s infinite;
+    }
+    #ssaas5>li>a{
+        width: 22%;
+    }
+    #ssaas5>li{
+        margin: 4% 0 0 22px;
+        height: 20%;
+    }
+    #ssaas4{
+        width: 12.5%;
+        top: 215%;
+        height: 123%;
+        left: -1%;
+    }
+    .rights{
+        margin: 25% 0 0 0;
+    }
+}
+@media screen and (min-width: 991px){
+    #slgjdggsa{
+        /*display: none;*/
+    }
+    .imgsa_8{
+        width: 17%;
+        top: 15%;
+    }
+
+    #ssaas4{
+        width: 8.5%;
+        height: 129%;
+        position: absolute;
+        top: 213%;
+    }
+
+    .imgsa_7{
+        left: 33%;
+        /*top: 1%;*/
+    }
+    @keyframes fds{
+        0% {
+            width: 34%;
+            height: 0%;
+        }
+        100% {
+            width: 34%;
+            height: 137%;
+        }
+    }
+    .ps{
+        left: 8%;
+    }
+}
+@media screen and (max-width: 767px){
+    .ae{
+        width: 267%;
+    }
+    #carousel>a{
+        display: none;
+    }
+    #contaier, #contaier1{
+        width: 100%;
+        height: 100%;
+        top: 26%;
+        left: -3%;
+    }
+    h1{
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .container_a{
+        top: 22%;
+        left:-4%;
+        width: 130%;
+        height: 100%;
+    }
+    #contaier_pq, #contaier_qp, #contaier_wo, #contaier_ow{
+        /*clear: both;*/
+        width: 42%;
+        height: 19%;
+        float: left;
+    }
+    #wqwq{
+        overflow: visible;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+   .container_tu,.container_tu1,.container_tu2,.container_tu3,.container_a > p{
+        display: none;
+    }
+    #d2{
+        left: 18%;
+    }
+    #d1{
+        height: 17.5%;
+        width: 10.5%;
+        top: -24%;
+        left: 54%;
+    }
+    .ps{
+        width: 39%;
+        font-size: 3.5em;
+        left: 44%;
+        top: -8%;
+    }
+    #d33{
+        top: 6%;
+        left: 103%;
+    }
+    #d22{
+        top: 6%;
+        left: 29%;
+        transition: all .3s linear;
+        animation: sffda 7s linear ;
+    }
+    @keyframes sffda {
+        0% {
+            top: 45%;
+        }
+        100% {
+            left: 29%;
+            top: 6%;
+        }
+    }
+    #d11{
+        left: -46%;
+    }
+    #ssaas5{
+        height: 36%;
+    }
+    #ssaas4{
+ background: none;
+    }
+    #topaasqw{
+        top: 7%;
+    }
+    body{
+        overflow: hidden;
+    }
+    .rights>li{
+        right: -22%;
+        float: left;
+        margin: 9px 0 0 6%;
+        width: 8%;
+    }
+    .rights{
+        margin: 78% 0 0 0;
+    }
+    #ssaas0{
+        top: 33%;
+    }
+    #topaas{
+        width: 39.41%;
+        height: 35.75%;
+        margin: 107px 0 0 40.5%;
+    }
+    #ssaas5>li{
+        height: 63%;
+        width: 37%;
+        float: left;
+    }
+    #ssaas4{
+        width: 100%;
+        left: 6%;
+    height: 103%;
+ }
+    #d11,#d22,#d33{
+        height: 26.5%;
+        width: 27.5%;
+    }
+    #k1, #k2, #k3{
+        width: 70%;
+        height: 59%;
+        margin: 52% 0 0 22%;
+    }
+    #slgjdggsa{
+        display: none;
+    }
+    #top{
+        width: 48.77%;
+        height: 40.7%;
+        margin: 47% 0 0 38%;;
+    }
+    #d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8,#d9{
+        width: 30.5%;
+        height: 17.5%;
+    }
+    #r1,#r2,#r3,#r4,#r5,#r6,#r7,#r8,#r9{
+        width: 41%;
+        height: 27%;
+        margin: 60% 0 0 43%;
+    }
+
+}
+@media screen and (max-width: 1024px){
+    .ae{
+        width: 189%;
+    }
+body{background-size: 322%;}
+    .top1>li>div.k3{width: 11%}
+    {
+        top: 35%;
+        left: -39%;
+        width: 75%;
+        height:178%;
+    }
+    .top1>li>div.k1, .top1>li>div.k2, .top1>li>div.k3, .top1>li>div.k4, .top1>li>div.k5{
+        height: 59%;
+    }
+}
+body{
+    background-size: 116%;
+    overflow: hidden;
+}
+#needle_e7 {
+    width: 16%;
+    margin-top: 18%;
+    left: 75%;
+    z-index: 500;
+    transition: all 5s linear;
+    animation: qss 3s infinite;
+    position: absolute;
+    /* background: url("shuc/cast/00000.png"); */
+}
+
+#needle_e7:hover #needle_e7-1{
+    display: block;
+}
+#needle_e7-1{
+    width: 16%;
+    margin-top:22%;
+    left:77%;
+    z-index: 500;
+    transition: all 5s linear;
+    animation: qss1 3s infinite;
+    position: absolute;
+    transform: rotate(3deg);
+    opacity: 0;
+}
+@keyframes qss1 {
+    0%{opacity: 0;}
+    70%{opacity: 0;}
+    100%{
+        opacity: 0.6;
+    }
+}
+@keyframes qss {
+    0% {
+        margin-top:5%;
+        left:84%;
+    }
+    100% {
+        margin-top:18%;
+        left:75%;
+        transform: rotate(30deg);
+    }
+}

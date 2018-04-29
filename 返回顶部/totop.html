@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>totop</title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		$(function(){
+			var totop=$(".totop");
+			totop.click(function(){
+				var timer=setInterval(function(){
+					$(window).scrollTop($(window).scrollTop()-50);
+					if($(window).scrollTop()==0){
+						clearInterval(timer);
+					}
+				},20)
+			});
+			$(window).scroll(function(){
+				if($(window).scrollTop()<150){
+					totop.hide(500);
+				}else{
+					totop.show(500);
+				}
+			});
+		})
+	</script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			height:5000px;
+		}
+		html{
+			background: url(about:blank) fixed;
+		}
+		.totop{
+			width:53px;
+			height:56px;
+			background: transparent url(img/top.gif) no-repeat;
+			position: fixed;
+			bottom: 50px;
+			right:50px;
+			_position:absolute;
+			_top:expression(document.documentElement.clientHeight-this.offsetHeight-50+document.documentElement.scrollTop);
+			_right:50px;
+			cursor: pointer;
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="totop"></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>cannonball</title>
+<style>
+form{
+	width:330px;
+	margin:20px;
+	background-color:brown;
+	padding:20px;	
+}
+</style>
+
+<script type="text/javascript">
+var ctx;
+var cwidth=600;
+var cheight=400;
+var tid;
+var horvelocity;
+var verticalve11;
+var verticalvel2;
+var gravity=2;
+var iballx=20;
+var ibally=300;
+
+function init(){
+ctx=document.getElementById('canvas').getContext('2d');
+drawball();
+}
+function change(){
+	var dx=horvelocity;
+	verticalvel2=verticalve11+gravity;
+	var dy=(verticalve11+verticalvel2)*.5;
+	iballx=iballx+dx;
+	ibally=ibally+dy;
+	verticalve11=verticalvel2;
+	
+	 if((iballx>=300)&&(iballx<=380)&&(ibally>=100)&&(ibally<=300)){
+	 clearInterval(tid);
+      }
+     if(ibally>=300){
+	 clearInterval(tid);  
+     }
+	
+	drawball();
+}
+function drawball(){
+	ctx.clearRect(0,0,cwidth,cheight);
+
+    ctx.fillStyle="rgb(0,5,90)";
+    ctx.fillRect(300,100,80,200);
+
+    ctx.fillStyle="rgb(10,250,0)";
+    ctx.fillRect(0,300,600,30);
+
+    ctx.fillStyle="rgb(250,0,0)";
+    ctx.beginPath();
+    ctx.arc(iballx,ibally,10,0,Math.PI*2,true);
+    ctx.fill();
+}
+function fire(){
+	iballx=20;
+     ibally=300;
+    horvelocity=Number(document.f.hv.value);
+	verticalve11=Number(document.f.vv.value);
+	clearInterval(tid);
+	tid=setInterval(change,100);
+	return false;
+}
+</script>
+</head>
+
+<body onLoad="init();">
+<canvas id="canvas" width="600" height="400">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+<br />
+<form name="f" id="f" onSubmit="return fire();">
+Set velocities and fire cannonball.<br />
+Horizontal displacement <input name="hv" id="hv" value="17" type="number" min="-100" max="100" />
+<br />
+Initial vertical displacement <input name="vv" id="vv" value="-27" type="number" min-"-100" max="100" />
+<input type="submit" value="FIRE" />
+</form>
+
+</body>
+</html>

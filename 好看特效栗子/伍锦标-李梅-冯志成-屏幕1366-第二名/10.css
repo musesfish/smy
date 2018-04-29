@@ -1,0 +1,884 @@
+#contaier, #contaier1 {
+    width: 400%;
+    height: 100%;
+    /*background: #00FF57;*/
+    position: relative;
+    /* left: -2400px;*/
+    transition: all .3s linear;
+
+}
+
+.lefts {
+    left: -800px;
+}
+
+h1, h6, div, .sda {
+    color: #b4e3ff;
+}
+
+.ps {
+    width: 6%;
+    font-size: 4.5em;
+    position: absolute;
+    left: 6%;
+    top: 32%;
+    float: left;
+    margin: 0 0 1%;
+}
+
+p {
+    color: #5d6f93;
+}
+
+#wqwq {
+    width: 59.31%;
+    height: 100%;
+    overflow: hidden;
+    /*background: #873A8B;*/
+    /* position: absolute; */
+    margin-left: 19%;
+    /* margin-top: -2%; */
+    /* left: 232px; */
+    /* display: none; */
+    /* z-index: 1000;*/
+}
+
+.container {
+    width: 24.95%;
+    height: 100%;
+    padding: 0;
+    /*background: #f0ad4e;*/
+    position: relative;
+    /* top: -50px; */
+    /* overflow: hidden; */
+}
+
+#contaier_pq, #contaier_qp, #contaier_wo, #contaier_ow {
+    float: left;
+}
+
+.container_a {
+    width: 50%;
+    height: 100%;
+    /* background: #cccccc; */
+    float: left;
+    padding: 10% 0 0 0;
+    /* margin-left: 10%; */
+    text-align: right;
+    align-items: flex-end;
+    /* margin-top: 1%; */
+    /*background: #BD33C7;*/
+    left: 9%;
+    position: absolute;
+}
+
+.container_tu {
+    width: 49.95%;
+    height: 100%;
+    padding: 0;
+    /*background: #f0ad4e;*/
+    position: absolute;
+    /* overflow: hidden; */
+    /* float: left; */
+    left: 59%;
+}
+
+.container_tu3 {
+    margin-top:1%;
+    position: relative;
+}
+
+.container_tu2 {
+    height: 100%;
+    width: 47%;
+    float: left;
+}
+
+#needle_1 {
+    width: 80%;
+    position: relative;
+    top: 5%;
+    left: 0;
+}
+
+#needle_3, #needle_4, #needle_5, #needle_6, #needle_7, #needle_8 {
+    width: 6%;
+    position: relative;
+    transition: all .3s linear;
+}
+
+#needle_2 {
+    width: 3%;
+    top: 33%;
+    left: -42%;
+    animation: q1 5s infinite;
+    position: relative;
+    transition: all .3s linear;
+}
+
+@keyframes q1 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_3 {
+    top: 40%;
+    left: -48.3%;
+    animation: q2 5s infinite;
+}
+
+@keyframes q2 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_4 {
+    top: 36.5%;
+    left: -52.5%;
+    animation: q3 5s infinite;
+}
+
+@keyframes q3 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_5 {
+    top: -20%;
+    left: 38%;
+    animation: q4 5s infinite;
+}
+
+@keyframes q4 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_6 {
+    top: -21.5%;
+    left: 29.8%;
+    animation: q5 5s infinite;
+}
+
+@keyframes q5 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_7 {
+    top: -25%;
+    left: 24.5%;
+    animation: q6 5s infinite;
+}
+
+@keyframes q6 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+#needle_8 {
+    top: -23%;
+    left: 15.5%;
+    animation: q7 5s infinite;
+    transform: rotate(35deg);
+}
+
+@keyframes q7 {
+    0% {
+        transform: rotate(2deg);
+    }
+    50% {
+        transform: rotate(-3deg);
+
+    }
+    100% {
+        transform: rotate(2deg);
+    }
+}
+
+/*/!*************�������*****************!/*/
+#needle_e2, #needle_e3, #needle_e4, #needle_e5, #needle_e6, #needle_e7 {
+    width: 46%;
+    position: absolute;
+}
+
+#needle_e7 {
+    width: 16%;
+    margin-top: 18%;
+    left: 75%;
+    z-index: 500;
+     transition: all .3s linear;
+     animation: qss 3s infinite;
+    position: absolute;
+    /* background: url("shuc/cast/00000.png"); */
+}
+
+#needle_e7:hover #needle_e7-1{
+    display: block;
+}
+#needle_e7-1{
+    width: 16%;
+    margin-top:7%;
+    left:83%;
+    z-index: 500;
+    /* transition: all .3s linear; */
+    animation: qss 3s infinite;
+    position: absolute;
+}
+@keyframes qss1 {
+    0% {
+        top: 172px;
+        left: 150px;
+        z-index: 0;
+
+    }
+    50%{
+    }
+    100% {
+        top: 172px;
+        left: 150px;
+        /*display: block;*/
+        z-index:300;
+        transform: rotate(5deg);
+    }
+}
+.container_tu1 {
+    position: relative;
+    top: -7px;
+    left: -46px;
+}
+
+@keyframes qss {
+    0% {
+       margin-top:7%;
+        left:83%;
+
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    100% {
+        margin-top: 18%;
+        left: 75%;
+        transform: rotate(30deg);
+    }
+}
+
+#needle_e2 {
+    z-index: 100;
+    margin-top: 8%;
+    left: 58%;
+}
+
+#needle_e3 {
+    z-index: 200;
+    margin-top: 9%;
+    left: 57%;
+}
+
+#needle_e4 {
+    z-index: 200;
+    margin-top: 12%;
+    left: 60%;
+}
+
+#needle_e5 {
+    z-index: 100;
+    margin-top: 15%;
+    left: 56%;
+}
+
+#needle_e6 {
+    margin-top: 12%;
+    left: 59%;
+    z-index: 0;
+}
+
+/*****************Ͷ�����**************/
+#needle_e8, #needle_e9 {
+    width: 30%;
+    position: absolute;
+}
+
+#needle_e9 {
+    left: 72%;
+    width: 14%;
+    top: 49%;
+}
+
+.container_tu2:hover #needle_e8 {
+    display: block;
+    /* left: 482px; */
+    transition: all 3s linear;
+    top: 28%;
+    /*background-size: 109%;*/
+    animation: sfd1 3s infinite;
+
+}
+
+#needle_e8 {
+    height: 32%;
+    background: url("shuc/zz/w.png") no-repeat 1% 1%;
+    background-size: 52%;
+    /* transition: all 7s linear; */
+    animation: sfd1 7s linear;
+    /* display: none; */
+    transform: rotate(180deg);
+    position: relative;
+    left:131%;
+}
+
+@keyframes sfd1 {
+    0% {
+        background-size: 0;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+/*********************֩�����*************/
+.container_a > p {
+    width: 100%;
+    height: 31%;
+    overflow: hidden;
+    /*background: pink;*/
+    position: absolute;
+    margin: 0 0 1%;
+/* left: 20%;*/
+}
+
+#needle_e11, #needle_e12 {
+width: 20%;
+position: absolute;
+}
+
+#needle_e10 {
+    width: 9%;
+    position: absolute;
+    margin-top: 8%;
+    left: 60%;
+    z-index: 100;
+    transition: all .3s linear;
+    animation: sdgjio 20s infinite;
+}
+
+@keyframes sdgjio {
+0% {
+    left:640px;
+}
+50% {
+    left:522px;
+}
+100% {
+    left:640px;
+}
+}
+
+#needle_e11 {
+    margin-top: 15%;
+    left: 63%;
+    width: 27%;
+}
+
+#needle_e12 {
+    left: 63.79%;
+    width: 26%;
+    margin-top: 17.5%;
+}
+
+/*******************���޽���***********************/
+#topa {
+    clear: both;
+}
+
+.tu1 {
+    /*display: none; */
+    position: relative;
+    z-index: 200;
+    top: 42px;
+}
+
+.tu2 {
+    /* display: none; */
+    /* padding: inherit; */
+    z-index: 100;
+    top: 56px;
+    margin-left: -381px;
+    position: relative;
+}
+
+.tu3 {
+    /* display: none; */
+    position: relative;
+    z-index: 200;
+    margin-right: 0;
+    margin-left: 691px;
+    margin-top: -104px;
+    top: 27px;
+}
+
+.tu4 {
+    /* display: none; */
+    position: relative;
+    margin-top: -100px;
+    z-index: 0;
+    margin-left: 91px;
+}
+
+.tu5 {
+    /* display: none; */
+    position: relative;
+    z-index: 101;
+    margin-top: -98px;
+    margin-left: 668px;
+    margin-right: 0;
+
+}
+
+.tu6 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    z-index: 300;
+    background: url("shuc/ss-01.png") no-repeat 0 0;
+    background-size: 100%;
+    background-position:  0 0;
+    margin: 0;
+    transition: all 10s linear;
+    animation: faae 4s linear;
+}
+@keyframes faae {
+
+    0%{
+        top: 67%;
+        opacity:0;
+        background-position:  0 -289%;
+    }
+    100%{
+        top: 0%;
+        opacity:1;
+        background-position:  0 0;
+    }
+}
+
+.tu61 {
+    position: relative;
+    margin-top: -276px;
+    z-index: 300;
+    margin-left: 65px;
+    left: -64px;
+    width: 102%;
+    top: 210px;
+    height: 182px;
+}
+
+.tu7 {
+    position: relative;
+    margin-top: -312px;
+    margin-left: 149px;
+}
+
+.tu8 {
+    position: relative;
+    margin-top: -279px;
+    margin-left: 700px;
+}
+
+.tu9 {
+    position: relative;
+    margin-top: -291px;
+    margin-left: 469px;
+}
+
+.tu10 {
+    position: relative;
+    margin-top: -331px;
+    z-index: 300;
+    margin-left: 157px;
+}
+
+#lis, #lis2, #lis3 {
+    width: 80px;
+    background-color: #251D50;
+    align-content: center;
+    margin: -500px 0 0 54px;
+    position: relative;
+    top: 38px;
+}
+
+#lis1 {
+    width: 80px;
+    background-color: #251D50;
+    align-content: center;
+    margin: -500px 0 0 54px;
+    position: relative;
+    top: 180px;
+    left: -15px;
+}
+
+#lis > li, #lis1 > li, #lis2 > li, #lis3 > li {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 15px 0 0 20px;
+}
+
+.sda {
+    font-size: 60px;
+    color: #b4e3ff;
+    width: 80px;
+    height: 150px;
+    align-content: center;
+    position: relative;
+    margin-top: -425px;
+    float: left;
+    margin-left: 96px;
+}
+
+.sda1 {
+    font-size: 60px;
+    color: #b4e3ff;
+    width: 80px;
+    height: 150px;
+    align-content: center;
+    position: relative;
+    margin-top: -425px;
+    float: left;
+    margin-left: 96px;
+    top: 136px;
+    left: -15px;
+}
+
+.tua {
+    position: relative;
+    margin-top: -216px;
+    z-index: 500;
+    margin-left: 8px;
+}
+
+.tub {
+    position: absolute;
+    z-index: 450;
+    width: 100%;
+    top: 53%;
+    /* left: 11px; */
+    height: 73%;
+    background: url("shuc/c-01.png") no-repeat;
+    background-size: 100% 100%;
+    animation: sef 3s linear;
+    /* display: none;*/
+}
+@keyframes sef {
+    0%{
+       top:68%;
+    }
+    100%{
+   top:53%;
+    }
+}
+
+.tub1 {
+    position: relative;
+    margin-top: -286px;
+    z-index: 450;
+    /* top: 181px; */
+    width: 98%;
+    top: 248px;
+    left: 8px;
+    height: 100px;
+}
+
+.tuc {
+    position: absolute;
+    /* margin-top: -361px; */
+    left: 32%;
+    z-index: 300;
+    top: 0%;
+    background: url(shuc/tou_yun/nlzn-01.png) no-repeat;
+    height: 118%;
+    /* display: none; */
+    width: 100%;
+    transition: all 3s linear;
+    /*animation: opdf 5s linear;*/
+    transform-origin:0 9% ;
+}
+@keyframes opdf {
+    0%{
+        transform: rotatey(90deg);
+    }
+    100%{
+        transform: rotatey(0deg);
+    }
+}
+
+.tuc1 {
+    position: relative;
+    margin-top: -361px;
+    left: 390px;
+    z-index: 300;
+    top: 210px;
+}
+
+#tu, {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    /* left: 100px;*/
+}
+
+#tu3 {
+    height: 48px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    /* left: 100px; */
+}
+
+#tu2 {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    top: -52px;
+    /* left: 100px; */
+    width: 100%;
+}
+.rights{
+    width: 99%;
+    position: absolute;
+    margin: 13% 0 0 0;
+    /* left: 1%; */
+    float: right;
+    padding: 0 0 0 18%;
+}
+.rights>li{
+    /* border: 2px solid #5d6f93; */
+    border-radius: 50%;
+    /* height: 90%; */
+    width: 2%;
+    text-align: center;
+    /* line-height: 87%; */
+    position: relative;
+    margin-top: 1%;
+    /* display: inline-block; */
+    right: -94%;
+    background: #5d6f93;
+}
+.rights>li>img{
+    width:85%;
+}
+.ae{
+    top: 35%;
+    position: absolute;
+    left: -72%;
+    /* transition: all 70s linear; */
+    animation: aes 100s linear;
+    width: 134%;
+    background: url(shuc/tou_yun/yl.png);
+    height: 142%;
+}
+@keyframes aes {
+    0%{
+        top:-11%;
+    }
+    50%{
+        top:20%;
+    }
+    100%{
+        top:-11%
+    }
+}
+.aqa{
+    position: absolute;
+    top: 0%;
+transition: all .3s linear;
+animation: paipai 10s linear;
+}
+@keyframes paipai {
+    0%{
+        top:-69%
+    }
+    100%{
+        top:0%
+    }
+}
+.aq{
+    width: 158%;
+    transform: rotatey(565deg);
+    left: -78%;
+    display: inline-block;
+    position: relative;
+    /* transition: all 15s linear; */
+    background: url(shuc/tou_yun/y1.png)no-repeat;
+    height: 100%;
+    background-size: 82%;
+    top: 52%;
+}
+.aw{
+    left: -49%;
+    position: absolute;
+    background: url(shuc/tou_yun/y3.png)no-repeat;
+    background-size: 93%;
+    width: 100%;
+    height: 100%;
+    top: 71%;
+}
+@keyframes jdfg {
+    0%{
+        top:0%;
+    }
+    40%{
+        left: 33%;
+    }
+    70%{
+        top:-27%;
+        left:30%;
+    }
+    100%{
+        top:0%;
+    }
+}
+
+.ar{
+    position: absolute;
+    transform: rotatey(155deg);
+    left: -48%;
+    top: 76%;
+    background: url(shuc/tou_yun/y3.png) no-repeat;
+    width: 100%;
+    height: 100%;
+}
+@keyframes fassa {
+    0%{
+        left: 62%;
+    }
+    50%{
+        left: 58%;
+    }
+    100%{
+        left: 62%;
+    }
+}
+.az{
+    left: -62%;
+    position: absolute;
+    top: 59%;
+    background: url(shuc/tou_yun/y1.png) no-repeat;
+    height: 66%;
+    background-size: 101%;
+    width: 130%;
+}
+@keyframes sd1aa {
+    0%{
+        top: 0%;
+        left: 80%;
+    }
+    50%{
+        left: 84%;
+        top: -35%;
+    }
+    100%{
+        top: 0%;
+        left: 80%;
+    }
+}
+.top1>li>div.m1,.top1>li>div.m2,.top1>li>div.m3,.top1>li>div.m4,.top1>li>div.m5{
+    height: 80px;
+    position: absolute;
+    border-left: 1px solid #35436B;
+    /* background: #fff; */
+    display: inline-block;
+    top: 0%;
+    width: 6%;
+}
+.top1>li>div.m5{
+    transition: all 25s linear;
+    animation: sd1aa 15s infinite;
+}
+.top1>li>div.m1{
+    transition: all 15s linear;
+    animation: sgs1 15s infinite;
+}
+.top1>li>div.m3{
+    transition: all 70s linear;
+    animation: aes 100s linear;
+}
+
+@keyframes sgs1{
+    0% {
+left: 20%;
+}
+30% {
+top: -21%;
+}
+60% {
+left: 15%;
+}
+100% {
+left: 20%;
+}
+}
+.top1>li>div.m2{
+    height: 89%;
+    transition: all 25s linear;
+    animation: jdfg 15s infinite;
+    top:-27%;
+    left: 30%;
+ }
+.top1>li>div.m4{
+    transition: all 25s linear;
+    animation: fassa 15s infinite;
+}

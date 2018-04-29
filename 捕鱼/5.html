@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {background:black;}
+#c1 {background:white;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	var oImg=new Image();
+	
+	oImg.onload=function ()
+	{
+		var i=0;
+		//drawImage(图片, x, y)
+		setInterval(function (){
+			gd.clearRect(0,0,800,600);
+			
+			gd.drawImage(
+				oImg,
+				0, i*60, 60, 60,
+				172,179,140,140
+			);
+			
+			i++;
+			
+			if(i==10)i=0;
+		}, 70);
+	};
+	oImg.src='coinAni2.png';
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

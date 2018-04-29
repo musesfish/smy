@@ -1,0 +1,289 @@
+.container-fluid{
+	padding: 0;
+}
+  body{
+	  width: 100%;
+	  position:relative;
+	  background: url("shuc/tou_yun/pai%20(2).png") no-repeat;
+	  background-size: 100%;
+	  padding: 0;
+	  margin: 0;
+	  /*height: 100%;*/
+   }
+#ssaas{
+	/*position:absolute;*/
+	height:385px;
+	background:red;
+	 /*display: none;*/
+
+}
+#ssaas1{
+	/* display: none; */
+	height: 195%;
+	position: absolute;
+	width: 100%;
+	/* float: left; */
+	/*background: green;*/
+}
+#ssaas4{
+	background: url("shuc/tou_yun/hgfgh.png");
+	width: 6.5%;
+	height: 129%;
+	position: absolute;
+	top: 213%;
+	background-size:150% ;
+
+}
+
+#ssaas0{
+    position: absolute;
+    /* height: 0%; */
+	/* display: none; */
+	width: 100%;
+	/* background: yellow; */
+	/* margin-top: 32%; */
+	height: 194.8%;
+}
+#ssaas3{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 195%;
+	/*background: red;*/
+}
+#ssaas2{
+	position: relative;
+	height: 195%;
+	/* display: none; */
+	width: 100%;
+	/* background: #7639BD; */
+	/* top: 40%;*/
+}
+#ssaas:target{
+    display:block;
+}
+#ssaas1:target{
+    display:block;
+}
+#ssaas0:target{
+    display:block;
+}
+#ssaas2:target{
+    display:block;
+}
+   a{
+   color:#b2e3ff;
+   }
+#top{
+	    width: 23.77%;
+    height: 86.7%;
+    border-radius: 50%;
+    position: relative;
+    transition: all .3s linear;
+    animation: a 20000s linear;
+    margin: 28px 0 0 37%;
+    /* background: url(imge/11111.png); */
+    background-size: 100% 100%;
+    /* border: 1px solid red; */
+    float: left;
+	font-size: .2em;
+}
+	 @keyframes a{
+	 0%{
+	 transform:rotate(0deg);
+	 }
+	 100%{
+	 transform:rotate(-36000deg);
+	 }
+	 }
+	 #d1{
+		 height: 10.5%;
+		 width: 10.5%;
+		 position: absolute;
+		 top: -11%;
+		 left: 54%;
+		  transition: all .3s linear;
+		  animation: b 20000s linear;
+		 color: #b2e3ff;
+		 /* background: pink;*/
+         }
+         @keyframes b{
+         0%{
+         transform:rotate(0deg);
+         }
+         100%{
+         transform:rotate(36000deg);
+         }
+         }
+          #d2{
+			  height: 10.5%;
+			  width: 15.5%;
+			  position: absolute;
+			  top: -8%;
+			  left: 25%;
+			  transition: all .3s linear;
+			   animation: b 20000s linear;
+			  color: #b2e3ff;
+			  /* background: pink; */
+			  font-size: .4em;
+         }
+          @keyframes c{
+         0%{
+         transform:rotate(0deg);
+         }
+         100%{
+         transform:rotate(36000deg);
+         }
+         }
+         #d3{
+			 height: 10.5%;
+			 width: 15.5%;
+			 position: absolute;
+			 top: 3%;
+			 left: 82%;
+			 transition: all .3s linear;
+			 animation: d 20000s linear;
+			 color: #b2e3ff;
+			 /* background: pink;*/
+			 font-size: .6em;
+                 }
+                  @keyframes d{
+                 0%{
+                 transform:rotate(0deg);
+                 }
+                 100%{
+                 transform:rotate(36000deg);
+                 }
+                 }
+                  #d4{
+					  height: 10.5%;
+					  width: 16.5%;
+					  position: absolute;
+					  top: 23%;
+					  left: -6%;
+					  transition: all .3s linear;
+					  animation: e 20000s linear;
+					  color: #b2e3ff;
+					  /* background: pink; */
+					  font-size: .8em;
+                 }
+                  @keyframes e{
+                 0%{
+                 transform:rotate(0deg);
+                 }
+                 100%{
+                 transform:rotate(36000deg);
+                 }
+                 }
+                  #d5{
+					  height: 10.5%;
+					  width: 16.5%;
+					  position: absolute;
+					  top: 92%;
+					  left: 17%;
+					  transition: all .3s linear;
+					  animation: f 20000s linear;
+					  color: #b2e3ff;
+					  /*background: pink;*/
+					  font-size: 1em;
+                 }
+                  @keyframes f{
+                 0%{
+                 transform:rotate(0deg);
+                 }
+                 100%{
+                 transform:rotate(36000deg);
+                 }
+                 }
+                  #d6{
+					  height: 10.5%;
+					  width: 10.5%;
+					  position: absolute;
+					  top: 86%;
+					  left: 79%;
+					  transition: all .3s linear;
+					  animation: g 20000s linear;
+					  color: #b2e3ff;
+					  /* background: pink; */
+					  font-size: 1.02em;
+                 }
+                  @keyframes g{
+                 0%{
+                 transform:rotate(0deg);
+                 }
+                 100%{
+                 transform:rotate(36000deg);
+                 }
+                 }
+                  #d7{
+					  height: 10.5%;
+					  width: 12.5%;
+					  position: absolute;
+					  top: 101%;
+					  left: 47%;
+					  transition: all .3s linear;
+					  animation: r 20000s linear;
+					  color: #b2e3ff;
+					  /* background: pink;*/
+					  font-size: 1em;
+                                 }
+    @keyframes r{
+    0%{
+     transform:rotate(0deg);
+     }
+     100%{
+     transform:rotate(36000deg);
+      }
+      }
+    #d8{
+	 height: 10.5%;
+	width: 13%;
+	 position: absolute;
+	top: 62%;
+	left: -8%;
+	transition: all .3s linear;
+	animation: s 20000s linear;
+	color: #b2e3ff;
+	font-size: .7em;
+    }
+     @keyframes s{
+     0%{
+    transform:rotate(0deg);
+     }
+     100%{
+     transform:rotate(36000deg);
+    }
+   }
+    #d9{
+	height: 10.5%;
+	 width: 13.5%;
+	position: absolute;
+	 top: 43%;
+	 left: 100%;
+	 transition: all .3s linear;
+	animation: t 20000s linear;
+	 color: #b2e3ff;
+	 /* background: pink;*/  
+	 /*width:100%;*/
+	 font-size: 1em;
+	}
+	 @keyframes t{
+     0%{
+    transform:rotate(0deg);
+     }
+     100%{
+     transform:rotate(36000deg);
+    }
+   }
+.quest{
+	height: 100px;
+	line-height: 100px;
+}
+.quest1{
+	position: relative;
+	top: 80px;
+}
+.quest>img{
+	vertical-align: bottom;
+}
+	

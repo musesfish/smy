@@ -1,0 +1,410 @@
+/*==================================================
+  Author: Russ Maschmeyer & Jessica Hische
+==================================================*/
+
+body {
+    background-attachment: scroll;
+}
+
+#container {
+    width: 100%;
+    overflow: hidden;
+}
+
+#swirl1, #swirl2 {
+    display: none;
+}
+
+.panel {
+    border-top: 1px solid #bb9e40;
+    border-bottom: 1px solid #bb9e40;
+    margin: 40px 0;
+    position: relative;
+}
+
+.text, .caption, .credit {
+    padding: 10px 5%;
+}
+
+.story {
+    background: url('http://c15117992.r92.cf2.rackcdn.com/story-border-bottom.png') no-repeat center bottom,
+    url('http://c15117992.r92.cf2.rackcdn.com/story-border-top.png') no-repeat center top;
+    margin: 50px 0;
+    padding: 10px 0;
+}
+
+.caption {
+    text-shadow: 0 1px 0 black;
+}
+
+.timeline {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.timeline li:last-child {
+    margin-top: 50px;
+}
+
+.timeline p {
+    padding: 0 10%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline h1 {
+    padding: 0;
+    margin: 0;
+}
+
+a.credit {
+    font-weight:700;
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 0;
+    margin: 0;
+    opacity: .4;
+}
+
+.dropcap {
+    top: 0px;
+    margin-top: -5px;
+}
+
+#swirl1, #swirl2, #ornament1, #ornament2, #invite-ornament{display:none;}
+
+#invitation {
+    border: none;
+}
+
+#title {																/* 1 Jessica Hische */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/1.png') center no-repeat;
+    border: none;
+}
+
+#intro {}																/* 2 text */
+
+#intro-her {															/* 3 Chris Neal */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/3.jpg') no-repeat center;
+}
+#intro-her .caption {
+    margin-left: 50%;
+    margin-top: 42%;
+    width: 40%;
+}
+
+#about-her {}															/* 4 text */
+
+#intro-him {															/* 5 Frank Stockton */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/5.jpg') no-repeat center;
+}
+#intro-him .caption {
+    position: absolute;
+    bottom: 10px;
+    width: 60%;
+}
+
+#about-him {}															/* 6 text */
+
+#discovery {															/* 7 Nick Felton */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/7.jpg') no-repeat center;
+}
+
+#first-meet {}															/* 8 text */
+
+#star-crossed {															/* 9 Sam Weber */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/9.jpg') no-repeat center;
+}
+#star-crossed .caption {}
+
+#the-road {}															/* 10 text */
+
+#waiting {																/* 11 Josh Cochran */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/11.jpg') no-repeat center;
+}
+
+#waiting .caption { text-align: center; }
+#waiting .wait {}
+#waiting a.credit { color: black; }
+
+#first-date {}															/* 12 text */
+
+#closed {																/* 13 Gilbert Ford */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/13.jpg') no-repeat center;
+}
+
+#closed .caption { text-align: center; }
+
+#more-dates {}															/* 14 text */
+
+#falling-in-love {														/* 15 Jason Kernevich */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/15.jpg') no-repeat center;
+}
+
+#falling-in-love .caption { text-align: center; }
+
+#new-adventures {}														/* 16 text */
+
+#high-seas {															/* 17 Chris Buzelli */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/17.jpg') no-repeat center;
+}
+
+#changes {}																/* 18 text */
+
+#new-lives {															/* 19 Grady McFerrin */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/19.jpg') no-repeat center;
+}
+
+#new-lives a.credit { color: black; }
+
+#moving-in {}															/* 20 text */
+
+#big-move {																/* 21 Alex Eben Meyer */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/21.jpg') no-repeat center;
+}
+
+#epiphany {}															/* 22 text */
+
+#jessica {																/* 23 Neil Swaab */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/23.jpg') no-repeat center;
+}
+
+#jessica a.credit { color: black; }
+
+#the-ring {}															/* 24 text */
+
+#broke {																/* 25 Jennifer Daniel */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/25.jpg') no-repeat center;
+}
+
+#broke .caption { text-align: center; }
+
+#the-plan {}															/* 26 text */
+
+#it-happened {															/* 27 Jessica Hische */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/27.png') no-repeat center;
+    border: none;
+}
+
+#set-up {																/* 28 text */
+
+}
+
+#park {																	/* 29 Gina + Matt */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/29.jpg') no-repeat center;
+}
+
+#park a.credit { color: black; }
+
+#yes {}																	/* 30 text */
+
+#restaurant {															/* 31 James Gulliver Hancock */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/31.jpg') no-repeat center;
+}
+
+#restaurant a.credit { color: black; }
+
+#waiting-inside {}														/* 32 text */
+
+#friends {																/* 33 Jillian Tamaki */
+    background: url('http://c15117992.r92.cf2.rackcdn.com/33.jpg') no-repeat center;
+}
+
+#invitation {
+}
+
+#invitation .c{
+    background-color:#fff;
+    margin:50px auto;
+    max-width: 500px;
+    overflow: hidden;
+    padding:5px 7% 15px;
+    border: #bb9e40 solid 5px;
+}
+
+
+#invitation .c .caption {
+    color:#000;
+    text-align: center;
+    text-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#password{
+    display:block;
+    overflow: hidden;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+input#field{
+    margin: 0;
+    padding: 10px 0;
+    -webkit-appearance: none;
+    width: 100%;
+    border: none;
+    background-color: #BC9D51;
+    outline: none;
+    box-shadow: inset 0px 0px 10px #856B3A;
+    text-align: center;
+}
+
+input#s{
+    padding: 10px 2%;
+    background-color: #222;
+    display:block;
+    margin: 10px 0 20px;
+    -webkit-appearance: none;
+    width: 100%;
+
+    border: none;
+    font-family: 'Sentinel SSm A', 'Sentinel SSm B';
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 20px #000;
+}
+
+p.pass-inst {
+    border-top: 1px solid #BC9D51;
+    border-bottom: 1px solid #BC9D51;
+}
+
+p.pass-inst#donate{
+    padding: 10px 0;
+    color:#000;
+    text-align: center;
+    text-shadow: none;
+}
+
+#invitation .d {
+}
+
+#ornament1, #ornament2 {
+    display: none;
+}
+
+.story-letterinvite {
+    max-width: 688px;
+}
+
+.story-passinvite {
+    max-width: 488px;
+}
+
+.letter-content{
+    padding: 20px 10%;
+}
+
+.letter-content ul li{
+    padding: 0;
+}
+
+/* About Page */
+
+.artist-wrap {
+    padding: 0 3%;
+}
+
+.artist-bio {
+    float: left;
+    margin-right: 4%;
+    width: 26%;
+    overflow: hidden;
+}
+
+.artist p, .artist h1, .artist p.artist-link {
+    float: right;
+    width: 70%;
+    margin: .6em 0;
+}
+
+.artist h1 {
+    margin-bottom: 4px;
+}
+
+div.artist-bio img{
+    max-width: 100%;
+}
+
+
+/* Pixel ratio of 1.5. Background-size is 1/1.5 = 66.67% (of a 150px image) */
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+    body { background-size: 66.67%; }
+
+}
+
+/* Pixel ratio of 2. Background-size is 1/2 = 50% (of a 200px image) */
+@media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    body { background-size: 50%; }
+
+}
+
+@media only screen and (max-width: 1024px) { /* iPad landscape */
+    #invitation .c .caption, .story { font-size: 24pt; }
+    .caption { font-size: 20pt; }
+    .timeline p { font-size: 16pt; }
+    .timeline h1 { font-size: 18pt; }
+    a.credit { font-size: 12pt; }
+    .dropcap { font-size: 142pt; margin-top: 0px; line-height: 100pt; }
+    p.pass-inst { font-size: 16px; }
+    .story-letterinvite, .story-passinvite { padding: 46px 12px; }
+}
+
+@media only screen and (max-width: 768px) { /* iPad portrait */
+    #invitation .c .caption, .story { font-size: 18pt; }
+    .caption { font-size: 18pt; }
+    .timeline p { padding: 0 15%; font-size: 13pt; }
+    .timeline h1 { font-size: 13pt; }
+    a.credit { font-size: 11pt; }
+    .dropcap { font-size: 112pt; line-height: 80pt; margin-top: 4px; }
+    p.pass-inst { font-size: 14px; }
+}
+
+@media only screen and (max-width: 480px) { /* iPhone landscape */
+    #invitation .c .caption, .story { font-size: 16pt; }
+    .caption { font-size: 12pt; }
+    .timeline p { font-size: 12pt; }
+    .timeline h1 { font-size: 14pt; }
+    a.credit { font-size: 11pt; }
+    .dropcap { font-size: 98pt; }
+    p.pass-inst { font-size: 14px; }
+    .story-letterinvite, .story-passinvite { padding: 46px 0; }
+
+    /* About page */
+
+    .artist-wrap { padding: 0 3%; }
+
+    .artist-bio {
+        float: none;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .artist p, .artist h1, .artist p.artist-link {
+        float: none;
+        width: 100%;
+    }
+
+    .artist p.artist-link {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 320px) { /* iPhone portrait */
+    #invitation .c .caption, .story { font-size: 12pt; }
+    .caption { font-size: 8pt; line-height: 1.25em; }
+    .timeline p { font-size: 9pt; }
+    .timeline h1 { font-size: 10pt; }
+    a.credit { font-size: 9pt; }
+    .dropcap { font-size: 68pt; line-height: 48pt; }
+    p.pass-inst { font-size: 12px; }
+}

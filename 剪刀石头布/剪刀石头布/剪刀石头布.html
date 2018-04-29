@@ -1,0 +1,268 @@
+<html>
+<head>
+    <title>剪刀石头布</title>
+    <style>
+	body{
+		background-image:url(img/bg1.jpg);
+		background-repeat:no-repeat;
+		}
+	canvas{
+		position:absolute;
+		left:400px;
+		background-color:#09C;
+		}
+    form {
+        color: blue;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size:16px;
+		position:absolute;
+		left:500px;
+		top:450px;
+        }
+    input {
+        text-align:right;
+        font:inherit;
+        color:inherit;
+    }
+    
+    </style>
+    <script type="text/javascript">
+	var img1=new Image();
+	var img2=new Image();
+	var img3=new Image();
+	img1.src="img/11.jpg";
+	img2.src="img/22.jpg";
+	img3.src="img/33.jpg";
+	var i=0,j=0,k=0;
+    var cwidth = 600; 
+    var cheight = 400;
+    var ctx;        
+    var everything = []; 
+    var rockbx = 50;    
+    var rockby = 300;
+    var paperbx = 150;    
+    var paperby = 300;
+    var scissorsbx = 250; 
+    var scissorsby = 300;
+    var canvas1;
+    var newscore;   
+    var size = 15;   
+    var result;    
+    var choices = ["img/s.jpg","img/b.jpg","img/j.jpg"];
+    var compimg = new Image();
+	var compimg1 = new Image();
+    var beats = [
+          ["平局: 你们都出了石头.","你赢了: 困住了石头.","你输了: 被石头击碎."], 
+          ["你输了:被布困住了.","平局: 你们都是布.","你赢了: 剪碎了布."], 
+          ["你赢了:击碎了剪刀.","你输了: 被剪刀剪碎了.","平局:你们都出了剪刀."]]; 
+    var points = [
+          [0,1,-1], 
+          [-1,0,1],
+          [1,-1,0]];
+    var music = [
+          [0,1,2],
+          [2,0,1],
+          [1,2,0]];
+	var img=[
+	      ["img/t.jpg","img/x.jpg","img/n.jpg"],
+          ["img/n.jpg","img/t.jpg","img/x.jpg"],
+          ["img/x.jpg","img/n.jpg","img/t.jpg"]];
+	var hh=new Image();	  
+	  
+    var musicelements;
+    var musicch;
+    var rockb = new Throw(rockbx,rockby,8,50,50,"rgb(250,0,0)","img/s.jpg");
+    var paperb = new Throw(paperbx,paperby,8,50,50,"rgb(0,200,200)","img/b.jpg");
+    var scib = new Throw(scissorsbx,scissorsby,8,50,50,"rgb(0,0,200)","img/j.jpg");
+   everything.push(rockb);
+   everything.push(paperb);
+   everything.push(scib);
+
+function init(){
+   
+  ctx = document.getElementById('canvas').getContext('2d');
+  canvas1 = document.getElementById('canvas');
+  canvas1.addEventListener('click',choose,false);
+  drawall(); 
+  ctx.font="bold 16pt Georgia";
+  ctx.fillStyle = "blue";
+  musicelements = document.getElementsByTagName("audio");
+}   
+function Throw(sx,sy, smargin,swidth,sheight,rectcolor,picture) {
+  
+  this.sx = sx;      
+  this.sy = sy;       
+  this.swidth = swidth;        
+  this.bwidth = swidth + 2*smargin;   
+  this.bheight = sheight + 2*smargin;  
+  this.sheight = sheight;   
+  this.fillstyle = rectcolor;   
+  this.draw = drawThrow;    
+  this.img = new Image();    
+  this.img.src = picture;  
+  this.smargin = smargin;  
+ 
+}
+
+function drawThrow() {
+    ctx.strokeStyle = "rgb(0,0,0)"; 
+    ctx.strokeRect(this.sx,this.sy,this.bwidth,this.bheight);
+    ctx.fillStyle = this.fillstyle;
+    ctx.fillRect(this.sx,this.sy,this.bwidth,this.bheight);
+    ctx.drawImage(this.img,this.sx+this.smargin,this.sy+this.smargin,this.swidth,this.sheight);
+}
+
+function choose(ev) {
+	
+    var compch = Math.floor(Math.random()*3);
+    var compchn = choices[compch];
+    compimg.src = compchn;
+    var mx;
+    var my;
+    if ( ev.layerX ||  ev.layerX == 0) { 
+            mx= ev.layerX;
+            my = ev.layerY;
+          } else if (ev.offsetX || ev.offsetX == 0) { 
+            mx = ev.offsetX;
+            my = ev.offsetY;
+          }
+    var i;
+    for (i=0;i<everything.length;i++){
+        var ch = everything[i];
+		compimg1.src = choices[i];
+        if ((mx>ch.sx)&&(mx<ch.sx+ch.bwidth)&&(my>ch.sy)&&(my<ch.sy+ch.bheight)) {
+            drawall();
+			size = 15;
+            tid = setInterval(flyin,50);
+            result = beats[compch][i];
+            musicch = music[compch][i];
+			hh.src=img[compch][i];
+            newscore = Number(document.f.score.value);
+            newscore +=points[compch][i];
+        }
+    }
+}
+function flyin() {
+	ctx.drawImage(compimg1,220,100,size,size);
+    ctx.drawImage(compimg,80,100,size,size);
+	size +=5;
+    if (size>50) {
+        clearInterval(tid);
+        ctx.fillText(result,100,70,200);
+        document.f.score.value = String(newscore);
+		j=String(newscore);
+		k++;
+		musicelements[musicch].play();
+		setTimeout(ctx.drawImage(hh,80,80,230,200),100);
+		}
+
+    if(k==3 && document.f.guan.value ==0){
+		
+		if(j>0){
+		i++;
+		document.f.guan.value =i;
+		alert("你成功通过第"+i+"关");
+		setTimeout(init,1000);
+		}
+		else{
+			alert("累积分不到1分，重新来过吧！");
+			document.f.guan.value =0;
+			document.f.score.value =0;
+			k=0;
+			i=0;
+			setTimeout(init,1000);
+			}
+		}
+	if(k==6 && document.f.guan.value ==1){
+		if(j>0){ 
+		 
+		i++;
+		document.f.guan.value =i;
+		alert("你成功通过第"+i+"关");
+		setTimeout(init,1000);
+		
+		}
+		else{
+			alert("累积分不到1分，重新来过吧！");
+			document.f.guan.value =0;
+			document.f.score.value =0;
+			k=0;
+			i=0;
+			setTimeout(init,1000);
+			
+			}
+		}
+	 if(k==9 && document.f.guan.value ==2){
+		
+		i++;
+		document.f.guan.value =i;
+		document.f.score.value=j;
+		if(j<2){alert("你已成功通过所有关！所累积分数为"+j+"分"); 
+		window.location.href='最终结局1.html';}
+		if(j>1&&j<4){alert("你已成功通过所有关！所累积分数为"+j+"分");
+		window.location.href='最终结局2.html';}
+		if(j>3){alert("你已成功通过所有关！所累积分数为"+j+"分");
+		window.location.href='最终结局3.html';}
+		
+	 }
+	
+}
+function drawall() {
+    ctx.clearRect(0,0,cwidth,cheight);
+	if(k<3){
+                
+		ctx.drawImage(img1,0,0,400,400);
+        ctx.fillText("第一关",160,40,150);
+		ctx.fillText("电脑出拳",80,100,150);
+		ctx.fillText("自己出拳",220,100,150);
+		}
+	if(k>2&&k<6){
+                
+		ctx.drawImage(img2,0,0,400,400);
+        ctx.fillText("第二关",160,40,150);
+		ctx.fillText("电脑出拳",80,100,150);
+		ctx.fillText("自己出拳",220,100,150);
+		}
+	if(k>5&&k<9){
+                
+		ctx.drawImage(img3,0,0,400,400);
+        ctx.fillText("第三关",160,40,150);
+		ctx.fillText("电脑出拳",80,100,150);
+		ctx.fillText("自己出拳",220,100,150);
+		}
+	
+    var i;
+    for (i=0;i<everything.length;i++) {
+          everything[i].draw();
+            }
+}
+
+
+</script>
+</head>
+<body onLoad="init();">
+<canvas id="canvas" width="400" height="400">
+Your browser doesn't support the HTML5 element canvas.
+</canvas>  
+<br/>
+<form name="f">
+
+累积分数: <input name="score" value="0" size="3"/>
+关数: <input name="guan" value="0" size="3"/>
+</form>
+<audio autobuffer>
+<source src="p.ogg" />
+<source src="p.mp3" />
+</audio>
+<audio autobuffer>
+<source src="y.ogg" />
+<source src="y.mp3" />
+</audio>
+<audio autobuffer>
+<source src="s.ogg" />
+<source src="s.mp3" />
+</audio>
+
+
+</body>
+</html>

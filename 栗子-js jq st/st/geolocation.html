@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>geolocation</title>
+</head>
+<body>
+	<h1>地理定位</h1>
+	<script>
+		var options={
+			enableHighAccuracy:true,
+			maximumAge:300000,
+//      timeout:15000
+		};
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(success,error,options);
+		}else{
+			console.log("Geolocation not support in this browser");
+		}
+		function success(pos){
+			var latitude=pos.coords.latitude;
+			var longitude=pos.coords.longitude;
+			alert("Your position:"+latitude+","+longitude);
+		}
+		function error(e){
+			console.log(e.code+","+e.message);
+		}
+	</script>
+</body>
+</html>

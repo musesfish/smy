@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body {background:black; text-align:center;}
+#c1 {background:url(game_bg_2_hd.jpg);}
+</style>
+<script>
+function loadImgs(arr, fnSucc)
+{
+	var loaded=0;
+	
+	var json={};
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		var oImg=new Image();
+		
+		oImg.onload=function ()
+		{
+			loaded++;
+			
+			if(loaded==arr.length)
+			{
+				fnSucc(json);
+			}
+		};
+		
+		oImg.src=arr[i];
+		
+		var name=arr[i].split('.')[0];
+		
+		json[name]=oImg;
+		//alert(name);
+		/*
+		json=
+		{
+			bullet1: img,
+			cannon1: img
+		}
+		*/
+	}
+}
+
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	loadImgs([
+		'bullet1.png', 'cannon1.png', 'coinAni2.png', 'fish1.png'
+	], function (imgs){
+		//绘制
+		setInterval(function (){
+			//清除
+			gd.clearRect(0,0,oC.width,oC.height);
+			
+			//画
+			//炮弹画出来
+			for(var i=0;i<aBull.length;i++)
+			{
+				gd.drawImage(
+					imgs['bullet1'],
+					aBull[i].x, aBull[i].y
+				);
+			}
+			
+			//炮画出来
+			gd.drawImage(
+				imgs['cannon1'],
+				0,0,74,66,
+				gun_x,gun_y,74,66
+			);
+			
+			//鱼画出来
+			for(var i=0;i<aFish.length;i++)
+			{
+				gd.drawImage(
+					imgs['fish1'],
+					0,parseInt(aFish[i].frame)*36,55,36,
+					aFish[i].x, aFish[i].y, 55, 36
+				);
+			}
+		}, 1000/60);
+		
+		//炮弹飞出去
+		setInterval(function (){
+			for(var i=0;i<aBull.length;i++)
+			{
+				aBull[i].y-=4;
+			}
+		}, 1000/60);
+		
+		//鱼游起来
+		setInterval(function (){
+			for(var i=0;i<aFish.length;i++)
+			{
+				aFish[i].x+=1;
+				aFish[i].frame+=0.2;
+				
+				if(aFish[i].frame>=4)
+				{
+					aFish[i].frame=0;
+				}
+			}
+		}, 1000/60);
+	});
+	
+	//炮相关的
+	var gun_x=363;
+	var gun_y=500;
+	
+	document.onkeydown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		switch(oEvent.keyCode)
+		{
+			//左右
+			case 37:
+				gun_x-=5;
+				break;
+			case 39:
+				gun_x+=5;
+				break;
+			//空格——开炮
+			case 32:
+				aBull.push({
+					x: gun_x+25,
+					y: gun_y+10
+				});
+				break;
+		}
+	};
+	
+	//炮弹相关
+	var aBull=[];			//存炮弹数组
+	
+	//鱼相关
+	var aFish=[];			//存鱼数组
+	
+	setInterval(function (){
+		aFish.push({
+			x: -60,
+			y: Math.random()*600,
+			frame: 0	/*0-3*/
+		});
+	}, 300);
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>
+
+
+
+
+
+
+

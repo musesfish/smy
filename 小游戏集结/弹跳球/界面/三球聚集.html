@@ -1,0 +1,167 @@
+ 
+<html>
+<head>
+ 
+<title>弹跳球</title>
+<style>
+form{
+   width:330px;
+   margin:13px;
+   background-color:pink;
+   padding:20px;
+}
+body{
+    font-size:12px;
+}
+input:valid{background:pink;}
+input:invalid{background:white;}
+</style>
+
+<script typt="text/javascript">
+var ctx;
+ 
+var ballrad=10;
+
+var boxheight=250;
+var boxwidth=350;
+var boxx=20;
+var boxy=30;
+var ballx=50;
+var bally=60;
+
+var boxboundx=boxwidth+boxx-ballrad;
+var boxboundy=boxheight+boxy-ballrad;
+var inboxboundx=boxx+ballrad;
+var inboxboundy=boxy+ballrad;
+var ballvx=8;
+var ballvy=8;
+
+var cwidth=400;
+var cheight=300;
+
+
+function init(){
+	ctx=document.getElementById('canvas').getContext('2d');
+	ctx.lineWidth=5;
+	moveball();
+	setInterval(moveball,100);
+        }
+
+function fixed(i){
+       ctx=document.getElementById('canvas').getContext('2d');
+        ctx.beginPath();
+        ctx.fillStyle="pink";
+	ctx.arc(150,200,ballrad,0,Math.PI*2,true);
+        ctx.arc(170,200,ballrad,0,Math.PI*2,true);
+        ctx.arc(160,183,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle="red";
+	ctx.arc(160,193,2,0,Math.PI*2,true);
+	ctx.fill();
+       }
+function fixed1(j){
+        ctx=document.getElementById('canvas').getContext('2d');
+        ctx.beginPath();
+        ctx.fillStyle="pink";
+	ctx.arc(100,100,ballrad,0,Math.PI*2,true);
+        ctx.arc(120,100,ballrad,0,Math.PI*2,true);
+        ctx.arc(110,83,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle="red";
+	ctx.arc(110,93,2,0,Math.PI*2,true);
+	ctx.fill();
+       }
+function fixed2(k){
+       ctx=document.getElementById('canvas').getContext('2d');
+        ctx.beginPath();
+        ctx.fillStyle="pink";
+	ctx.arc(200,100,ballrad,0,Math.PI*2,true);
+        ctx.arc(220,100,ballrad,0,Math.PI*2,true);
+        ctx.arc(210,83,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle="red";
+	ctx.arc(210,93,2,0,Math.PI*2,true);
+	ctx.fill();
+       }
+
+function moveball(){
+	ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+        var i=true;
+        var j=true;
+        var k=true;
+        fixed(i);
+        fixed1(j);
+        fixed2(k);
+        moveandcheck();
+
+	ctx.beginPath();
+	ctx.fillStyle="red";
+	ctx.arc(ballx,bally,2,0,Math.PI*2,true);
+	ctx.fill();
+        
+        if(ballx==160 && bally==193){
+          i=false;
+         }
+        if(ballx==210 && bally==93){
+          j=false;
+         }
+        if(ballx==110 && bally==93){
+          k=false;
+         }
+        ctx.strokeStyle="pink";
+	ctx.strokeRect(boxx,boxy,boxwidth,boxheight);
+}
+
+function moveandcheck(){
+	var nballx=ballx+ballvx;
+	var nbally=bally+ballvy;
+	if(nballx>boxboundx){
+	   ballvx=-ballvx;
+	   nballx=boxboundx;
+	}
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx=-ballvx;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy=-ballvy;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy=-ballvy;
+	}
+        
+	ballx=nballx;
+	bally=nbally;
+}
+
+function change(){
+	ballvx=Number(f.hv.value);
+	ballvy=Number(f.vv.value);
+        return false;
+}
+
+</script>
+</head>
+
+
+<body onload="init()">
+
+<canvas id="canvas" width="400" height="300">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+
+<br />
+<form name="f" id="f" onSubmit="return change();">
+水平速度<input name="hv" id="hv" value="8" type="number" min="-10" max="10" />
+ &nbsp&nbsp
+垂直速度<input name="vv" id="vv" value="8" type="number" min="-10" max="10" />
+<br /><br />
+<input type="submit" value="改变" />
+</form>
+</body>
+</html>

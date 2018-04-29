@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div_start {width:270px; height:129px; background:url(img/logo.gif) no-repeat; margin:20px auto; position:relative;}
+#div_btn {width:118px; height:118px; background:url(img/logoa.jpg) 0 -5px no-repeat; position:absolute; left:76px; top:10px;}
+#div_stage {width:1015px; height:342px; background:url(img/stagebg.jpg) no-repeat; margin:10px auto; position:relative;}
+#main {width:570px; height:240px; position:absolute; left:200px; top:50px;}
+#main div {width:30px; height:30px; position:absolute;}
+
+#main .l {
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	transform:rotate(0deg); 
+	/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=1,
+            M12=0,
+            M21=0,
+            M22=1,
+            SizingMethod='auto expand');
+
+
+   /*
+    * To make the transform-origin be the middle of
+    * the object.    Note: These numbers
+    * are approximations.  For more accurate results,
+    * use Internet Explorer with this tool.
+    */
+
+
+}
+#main .r {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	transform:rotate(180deg);
+/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1,
+            M12=1.2246063538223773e-16,
+            M21=-1.2246063538223773e-16,
+            M22=-1,
+            SizingMethod='auto expand');
+
+}
+#main .t {
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	transform:rotate(90deg);
+/* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-1.836909530733566e-16, M12=-1, M21=1, M22=-1.836909530733566e-16, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=-1.836909530733566e-16,
+            M12=-1,
+            M21=1,
+            M22=-1.836909530733566e-16,
+            SizingMethod='auto expand');
+
+
+}
+#main .b {
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+	transform:rotate(270deg);
+ /* IE8+ - must be on one line, unfortunately */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=6.123031769111886e-17, M12=1, M21=-1, M22=6.123031769111886e-17, SizingMethod='auto expand')";
+   
+   /* IE6 and 7 */ 
+   filter: progid:DXImageTransform.Microsoft.Matrix(
+            M11=6.123031769111886e-17,
+            M12=1,
+            M21=-1,
+            M22=6.123031769111886e-17,
+            SizingMethod='auto expand');
+
+
+   /*
+    * To make the transform-origin be the middle of
+    * the object.    Note: These numbers
+    * are approximations.  For more accurate results,
+    * use Internet Explorer with this tool.
+    */
+}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('main');
+	
+	//1.蛇
+	var R=8;
+	var C=30;
+	
+	var aSnake=[];	//蛇数组
+	
+	var oNewDiv=document.createElement('div');
+	
+	oNewDiv.style.background='url(img/snake0.png)';
+	
+	oDiv.appendChild(oNewDiv);
+	
+	aSnake[0]={r: 0, c: 5, div: oNewDiv};
+	
+	setPos(aSnake[0]);
+	
+	//设置元素的坐标
+	function setPos(obj)
+	{
+		obj.div.style.left=obj.c*30+'px';
+		obj.div.style.top=obj.r*30+'px';
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div_start">
+	<div id="div_btn"></div>
+</div>
+<div id="div_stage">
+	<div id="main">
+    </div>
+</div>
+</body>
+</html>

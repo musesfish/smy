@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>cannon</title>
+<style>
+canvas{
+	background-image:url(img/bg.jpg);
+	background-repeat:repeat-x;
+}
+form{
+	width:1200px;
+	height:50px;
+	background-image:url(img/fbg.gif);
+	background-repeat:repeat-x;
+	font-size:12px;
+        text-align:center;
+}
+.input1{
+   border:0px;
+   background-color:transparent;
+}
+
+</style>
+<script>
+var cwidth=1200;
+var cheight=500;
+var ctx;
+var everything=[],everything1=[],everything2=[];
+var tid,tid1,tid2;
+var horvelocity;
+var verticalvel1;
+var verticalvel2;
+var gravity=2;
+var startrockx=100;
+var startrocky=240;
+var ballx=startrockx;
+var bally=startrocky;
+var ballrad=10;
+var ballradsq=ballrad*ballrad;
+var inmotion=false;
+var control=false;
+var inmotion1=false;
+var control1=false;
+var inmotion2=false;
+var control2=false;
+var chicken=new Image();
+chicken.src="img/chicken.gif";
+var feathers=new Image();
+feathers.src="img/feathers.gif";
+var dog=new Image();
+dog.src="img/dog.gif";
+var dogs=new Image();
+dogs.src="img/dogs.gif";
+var j=0;
+var xg=new Image();
+xg.src="img/xg.gif";
+var xg1=new Image();
+xg1.src="img/xg1.gif";
+var k=0;
+var l=0;
+
+
+
+function Picture(sx,sy,swidth,sheight,imga){
+	 this.sx=sx;
+	 this.sy=sy;
+	 this.img=imga;
+	 this.swidth=swidth;
+	 this.sheight=sheight;
+	 this.draw=drawAnImage;
+	 this.moveit=moveball;
+}
+function drawAnImage(){
+     ctx.drawImage(this.img,this.sx,this.sy,this.swidth,this.sheight);
+	 if(j==1){control=true;}//alert("1");
+	 if(k==1){control1=true;}
+	 if(l==1){control2=true;}
+}
+function moveball(dx,dy){
+	this.sx +=dx;
+	this.sy +=dy;
+}
+function Ball(sx,sy,rad,stylestring){
+	this.sx=sx;
+	this.sy=sy;
+	this.rad=rad;
+	this.draw=drawball;
+	this.moveit=moveball;
+	this.moveit1=moveball;
+	this.moveit2=moveball;
+	this.fillstyle=stylestring;
+}
+function drawball(){
+	ctx.fillStyle=this.fillstyle;
+	ctx.beginPath();
+	ctx.arc(this.sx,this.sy,this.rad,0,Math.PI*2,true);
+	ctx.fill();
+}
+function distsq(x1,y1,x2,y2){
+     return (x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
+}
+function Sling(bx,by,s1x,s1y,s2x,s2y,s3x,s3y,stylestring){
+        this.bx=bx;
+		this.by=by;
+		this.s1x=s1x;
+		this.s1y=s1y;
+		this.s2x=s2x;
+		this.s2y=s2y;
+		this.s3x=s3x;
+		this.s3y=s3y;
+		this.strokeStyle=stylestring;
+        this.draw=drawsling;
+		this.moveit=movesling;
+}
+function drawsling(){
+        ctx.strokeStyle=this.strokeStyle;
+		ctx.lineWidth=4;
+		ctx.beginPath();
+		ctx.moveTo(this.bx,this.by);
+		ctx.lineTo(this.s1x,this.s1y);
+		ctx.moveTo(this.bx,this.by);
+		ctx.lineTo(this.s2x,this.s2y);
+		ctx.moveTo(this.s1x,this.s1y);		
+		ctx.lineTo(this.s2x,this.s2y);
+		ctx.lineTo(this.s3x,this.s3y);	
+		ctx.stroke();	
+}
+function movesling(dx,dy){
+        this.bx +=dx;
+		this.by +=dy;
+		this.s1x +=dx;
+		this.s1y +=dy;
+		this.s2x +=dx;
+		this.s2y +=dy;
+		this.s3x +=dx;
+		this.s3y +=dy;
+}
+var mysling=new Sling(startrockx,startrocky,startrockx+80,startrocky-10,startrockx+80,startrocky+10,startrockx+70,startrocky+180,"rgb(120,20,10)");
+var cball=new Ball(startrockx,startrocky,ballrad,"rgb(250,0,0)");
+var target=new Picture(700,210,209,179,chicken);
+everything.push(target);
+everything.push(mysling);
+everything.push(cball);
+function init(){
+        // alert("111");
+	 ctx=document.getElementById("canvas").getContext('2d');
+	 canvas1=document.getElementById("canvas");
+	 canvas1.addEventListener('mousedown',findball,false);//alert("aaa1");
+	 canvas1.addEventListener('mousemove',moveit,false);//alert("aaa2");
+	 canvas1.addEventListener('mouseup',finish,false);//alert("aaa3");
+	 drawall();//alert("aaa5");
+}
+function findball(ev){
+     var mx;
+	 var my;
+	 if(ev.layerX || ev.layerX == 0){
+		 mx=ev.layerX;
+		 my=ev.layerY;
+	 }
+	 else if(ev.offsetX || ev.offsetX == 0){
+		 mx=ev.offsetX;
+		 my=ev.offsetY;		 
+	 }
+	 if(distsq(mx,my,cball.sx,cball.sy)<ballradsq){
+	    inmotion=true;
+		drawall();//alert("2");
+	 }
+}
+function moveit(ev){
+     var mx;
+	 var my;
+	 if(inmotion){
+		 if(ev.layerX || ev.layerX==0){
+			 mx=ev.layerX;
+			 my=ev.layerY;
+		 }else if(ev.offsetX || ev.offsetX==0){
+			 mx=ev.offsetX;
+			 my=ev.offsetY;			 
+		 }
+		 cball.sx=mx;
+		 cball.sy=my;
+		 mysling.bx=mx;
+		 mysling.by=my;
+		 drawall();//alert("3");
+	}
+}
+function finish(ev){
+      if(inmotion){
+		  inmotion=false;
+		  var outofcannon=distsq(mysling.bx,mysling.by,mysling.s1x,mysling.s1y)/700;
+		  var angleradians=-Math.atan2(mysling.s1y-mysling.by,mysling.s1x-mysling.bx);
+	         horvelocity=outofcannon*Math.cos(angleradians);	
+	         verticalvel1=-outofcannon*Math.sin(angleradians);
+	      drawall();//alert("4");
+	     tid=setInterval(change,100); 
+          }
+}
+function drawall(){
+	ctx.clearRect(0,0,cwidth,cheight);
+	var i;
+	for(i=0;i<everything.length;i++)
+	{ 
+	  var ob=everything[i].draw();
+	  }
+	//alert("aaa4"); 
+}
+function change(){
+	 //alert("5");
+	var dx=horvelocity;
+	verticalvel2=verticalvel1+gravity;
+	var dy=(verticalvel1+verticalvel2)*.5;
+	verticalvel1=verticalvel2;
+	cball.moveit(dx,dy);
+	var bx=cball.sx;
+	var by=cball.sy;
+	if((bx>=target.sx+40)&&(bx<=(target.sx+target.swidth-40))
+	 &&(by>=target.sy+40)&&(by<=(target.sy+target.sheight-40))){
+		 target.img=feathers; j++;
+}
+	
+	drawall();//alert("6");
+if(control){clearInterval(tid);alert("通过第一关");document.f.stage.value="通过第一关！";document.f.jf.value="10";init1();}
+	}
+
+
+var mysling1=new Sling(startrockx,startrocky,startrockx+80,startrocky-10,startrockx+80,startrocky+10,startrockx+70,startrocky+180,"rgb(120,20,10)");
+var cball1=new Ball(startrockx,startrocky,ballrad,"rgb(250,0,0)");
+var target1=new Picture(700,210,209,179,dog);
+everything1.push(target1);
+everything1.push(mysling1);
+everything1.push(cball1);
+ 
+function init1(){
+ctx.clearRect(0,0,cwidth,cheight);
+//alert("88");
+inmotion=false;j=0;control=false;
+//alert("222");
+	 ctx=document.getElementById("canvas").getContext('2d');
+	 canvas1=document.getElementById("canvas");
+	 canvas1.addEventListener('mousedown',findball1,false);//alert("aa1");
+	 canvas1.addEventListener('mousemove',moveit1,false);//alert("aa2");
+	 canvas1.addEventListener('mouseup',finish1,false);//alert("aa3");
+	 drawall1();//alert("aa5");
+}
+function drawall1(){
+	ctx.clearRect(0,0,cwidth,cheight);
+	var i;
+	for(i=0;i<everything1.length;i++)
+	{ 
+	  var ob=everything1[i].draw();
+	  }
+	//alert("aaa4"); 
+}
+function change1(){
+	 //alert("qqqqqq");
+	var dx=horvelocity;
+	verticalvel2=verticalvel1+gravity;
+	var dy=(verticalvel1+verticalvel2)*.5;
+	verticalvel1=verticalvel2;//alert("qq2");
+	cball1.moveit1(dx,dy);//alert("qqq2");
+	var bx=cball1.sx;
+	var by=cball1.sy;//alert("q2");
+	if((bx>=target1.sx+40)&&(bx<=(target1.sx+target1.swidth-40))
+	 &&(by>=target1.sy+40)&&(by<=(target1.sy+target1.sheight-40))){
+		 target1.img=dogs;k++;// alert("q1");
+}
+	drawall1();//alert("q3");
+	if(control1){clearInterval(tid1);alert("通过第二关");document.f.stage.value="通过第二关！";document.f.jf.value="20";init2();}
+}
+function findball1(ev){
+     var mx;
+	 var my;
+	 if(ev.layerX || ev.layerX == 0){
+		 mx=ev.layerX;
+		 my=ev.layerY;
+	 }
+	 else if(ev.offsetX || ev.offsetX == 0){
+		 mx=ev.offsetX;
+		 my=ev.offsetY;		 
+	 }
+	 if(distsq(mx,my,cball1.sx,cball1.sy)<ballradsq){
+	    inmotion1=true;
+		drawall1();//alert("22222");
+	 }
+}
+function moveit1(ev){
+     var mx;
+	 var my;
+	  
+	 if(inmotion1){
+		 if(ev.layerX || ev.layerX==0){
+			 mx=ev.layerX;
+			 my=ev.layerY;
+		 }else if(ev.offsetX || ev.offsetX==0){
+			 mx=ev.offsetX;
+			 my=ev.offsetY;			 
+		 }
+		 cball1.sx=mx;
+		 cball1.sy=my;
+		 mysling1.bx=mx;
+		 mysling1.by=my;
+		 drawall1();//alert("333333");
+		 
+	 }
+}
+function finish1(ev){
+      if(inmotion1){//alert("44444");
+		  inmotion1=false;
+		  var outofcannon=distsq(mysling1.bx,mysling1.by,mysling1.s1x,mysling1.s1y)/700;
+		  var angleradians=-Math.atan2(mysling1.s1y-mysling1.by,mysling1.s1x-mysling1.bx);
+	         horvelocity=outofcannon*Math.cos(angleradians);	
+	         verticalvel1=-outofcannon*Math.sin(angleradians);
+	      drawall1();//alert("44444");
+	     tid1=setInterval(change1,100); 
+            // alert("44444");
+          }
+}
+
+var mysling2=new Sling(startrockx,startrocky,startrockx+80,startrocky-10,startrockx+80,startrocky+10,startrockx+70,startrocky+180,"rgb(120,20,10)");
+var cball2=new Ball(startrockx,startrocky,ballrad,"rgb(250,0,0)");
+var target2=new Picture(700,210,209,179,xg);
+everything2.push(target2);
+everything2.push(mysling2);
+everything2.push(cball2);
+ 
+function init2(){
+ctx.clearRect(0,0,cwidth,cheight);
+//alert("88");
+inmotion2=false;j=0;control1=false;
+//alert("222");
+	 ctx=document.getElementById("canvas").getContext('2d');
+	 canvas1=document.getElementById("canvas");
+	 canvas1.addEventListener('mousedown',findball2,false);//alert("aa1");
+	 canvas1.addEventListener('mousemove',moveit2,false);//alert("aa2");
+	 canvas1.addEventListener('mouseup',finish2,false);//alert("aa3");
+	 drawall2();//alert("aa5");
+}
+function drawall2(){
+	ctx.clearRect(0,0,cwidth,cheight);
+	var i;
+	for(i=0;i<everything2.length;i++)
+	{ 
+	  var ob=everything2[i].draw();
+	  }
+	//alert("aaa4"); 
+}
+function change2(){
+	 //alert("qqqqqq");
+	var dx=horvelocity;
+	verticalvel2=verticalvel1+gravity;
+	var dy=(verticalvel1+verticalvel2)*.5;
+	verticalvel1=verticalvel2;//alert("qq2");
+	cball2.moveit2(dx,dy);//alert("qqq2");
+	var bx=cball2.sx;
+	var by=cball2.sy;//alert("q2");
+	if((bx>=target2.sx+40)&&(bx<=(target2.sx+target2.swidth-40))
+	 &&(by>=target2.sy+40)&&(by<=(target2.sy+target2.sheight-40))){
+		 target2.img=xg1;l++;// alert("q1");
+}
+	drawall2();//alert("q3");
+	if(control2){clearInterval(tid2);document.f.stage.value="已通过所有关卡！";document.f.jf.value="30";alert("你赢了！");}
+}
+function findball2(ev){
+     var mx;
+	 var my;
+	 if(ev.layerX || ev.layerX == 0){
+		 mx=ev.layerX;
+		 my=ev.layerY;
+	 }
+	 else if(ev.offsetX || ev.offsetX == 0){
+		 mx=ev.offsetX;
+		 my=ev.offsetY;		 
+	 }
+	 if(distsq(mx,my,cball2.sx,cball2.sy)<ballradsq){
+	    inmotion2=true;
+		drawall2();//alert("22222");
+	 }
+}
+function moveit2(ev){
+     var mx;
+	 var my;
+	  
+	 if(inmotion2){
+		 if(ev.layerX || ev.layerX==0){
+			 mx=ev.layerX;
+			 my=ev.layerY;
+		 }else if(ev.offsetX || ev.offsetX==0){
+			 mx=ev.offsetX;
+			 my=ev.offsetY;			 
+		 }
+		 cball2.sx=mx;
+		 cball2.sy=my;
+		 mysling2.bx=mx;
+		 mysling2.by=my;
+		 drawall2();//alert("333333");
+		 
+	 }
+}
+function finish2(ev){
+      if(inmotion2){//alert("44444");
+		  inmotion2=false;
+		  var outofcannon=distsq(mysling2.bx,mysling2.by,mysling2.s1x,mysling2.s1y)/700;
+		  var angleradians=-Math.atan2(mysling2.s1y-mysling2.by,mysling2.s1x-mysling2.bx);
+	         horvelocity=outofcannon*Math.cos(angleradians);	
+	         verticalvel1=-outofcannon*Math.sin(angleradians);
+	      drawall2();//alert("44444");
+	     tid2=setInterval(change2,100); 
+            // alert("44444");
+          }
+}
+</script>
+</head>
+
+<body onload="init();">
+
+<canvas id="canvas" width="1200" height="500">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+<form name="f" class="form">
+
+挑战提示: 
+<input name="stage" type="text" value="" size="25" class="input1"></input>
+<br/> 
+
+积分：<input name="jf" value="" size="20" class="input1"/>
+ 
+时间:<input name="sj" value=" " size="20" class="input1"/>
+<br/> 
+
+</form>
+</body>
+</html>
+

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+     #top{
+	 width:500px;
+	 height:500px;
+	 border-radius:50%;
+	 position:relative;
+	 transition:all .3s linear;
+	 animation:a 20000s linear;
+	 }	
+	 @keyframes a{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(-36000deg);
+	 }
+	 }
+	 #d1{
+	 height:40px;
+	 width:40px;
+	 position:absolute;
+	 top:10px;
+	 left:200px;
+	 transition:all .3s linear;
+	 animation:b 20000s linear;
+	 }
+	  #d1{
+	 top:10px;
+	 left:200px;
+	 }
+	 @keyframes b{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d2{
+	 height:40px;
+	 width:40px;
+	 position:absolute;
+	 top:50px;
+	 left:340px;
+	 transition:all .3s linear;
+	 animation:b 20000s linear;
+	 }
+	  @keyframes c{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	 #d3{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 140px;
+    left: 425px;
+    transition: all .3s linear;
+    animation: d 20000s linear;
+	 }
+	  @keyframes d{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d4{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 270px;
+    left:440px;
+    transition: all .3s linear;
+    animation: e 20000s linear;
+	 }
+	  @keyframes e{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d5{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 365px;
+    left: 390px;
+    transition: all .3s linear;
+    animation: f 20000s linear;
+	 }
+	  @keyframes f{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d6{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 440px;
+    left: 285px;
+    transition: all .3s linear;
+    animation: g 20000s linear;
+	 }
+	  @keyframes g{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d7{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 435px;
+    left: 155px;
+    transition: all .3s linear;
+    animation: r 20000s linear;
+	 }
+	  @keyframes r{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d8{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 330px;
+    left: 40px;
+    transition: all .3s linear;
+    animation: s 20000s linear;
+	 }
+	  @keyframes s{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #d9{
+	height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 135px;
+    left: 40px;
+    transition: all .3s linear;
+    animation: t 20000s linear;
+	 }
+	  @keyframes t{
+	 0%{
+	 transform:rotate(0);
+	 }
+	 100%{
+	 transform:rotate(36000deg);
+	 }
+	 }
+	  #r1,#r2,#r3,#r4,#r5,#r6,#r7,#r8,#r9{
+	width: 254px;
+    height: 234px;
+    position: absolute;
+    margin: -368px 0 0 115px;
+    overflow: hidden;
+	display:none;
+	color:#000;
+	 }
+	#r1:target{
+		display:block;
+	}
+	#r2:target{
+		display:block;
+	}
+	#r3:target{
+		display:block;
+	}
+	#r4:target{
+		display:block;
+	}
+	#r5:target{
+		display:block;
+	}
+	#r6:target{
+		display:block;
+	}
+  </style>
+ </head>
+ <body>
+  <div id="top">
+      <div id="d1">
+	      <a href="#r1">七夕(徐)</h3>
+	  </div>
+      <div id="d2">
+	      <a href="#r2">七夕(权)</h3>
+	  </div>
+      <div id="d3">
+	      <a href="#r3">七夕(徐)</h3>
+	  </div>
+      <div id="d4">
+	      <a href="#r4">七夕(权)</h3>
+	  </div>
+      <div id="d5">
+	      <a href="#r5">七夕(徐)</h3>
+	  </div>
+      <div id="d6">
+	      <a href="#r6">七夕(权)</h3>
+	  </div>
+      <div id="d7">
+	      <a href="#r7">七夕(徐)</h3>
+	  </div>
+      <div id="d8">
+	      <a href="#r8">七夕(权)</h3>
+	  </div>
+      <div id="d9">
+	      <a href="#r9">七夕(权)</h3>
+	  </div>
+  </div>
+  <div id="r1">这是最早的乞巧方式，始于汉，流于后世。《西京杂记》说：“汉彩女常以七月七日穿七孔针于开襟楼，人具习之。”南朝梁宗谋《荆楚岁时记》说：“七月七日，是夕人家妇女结彩楼穿七孔外，或以金银愉石为针。”《舆地志》说：“齐武帝起层城观，七月七日，宫人多登之穿针。世谓之穿针楼。”五代王仁裕《开元天宝遗事》说：“七夕，宫中以锦结成楼殿，高百尺，上可以胜数十人，陈以瓜果酒炙，设坐具，以祀牛女二星，妃嫔各以九孔针五色线向月穿之，过者为得巧之侯。动清商之曲，宴乐达旦。土民之家皆效之。”元陶宗仪《元氏掖庭录》说：“九引台，七夕乞巧之所。至夕，宫女登台以五彩丝穿九尾针，完者为得巧，迟完者谓之输巧，各出资以赠得巧者焉。” </div>
+  <div id="r2">迢迢牵牛星
+迢迢牵牛星，皎皎河汉女。
+纤纤擢素手，札札弄机杼。
+终日不成章，泣涕零如雨。
+河汉清且浅，相去复几许。
+盈盈一水间，脉脉不得语。
+</div>
+
+<div id="r3">最传统的乞巧活动是穿巧针。古时的巧针一般是多孔针，而现在还有待商业开发。现在可将七枚针合并在一起，一次穿过就算胜利。</div>
+
+<div id="r4">影者，谓乞得巧；其影粗如锤、细如丝、直如轴蜡，此拙征矣。”《直隶志书》也说，良乡县（今北京西南）“七月七日，妇女乞巧，投针于水，借日影以验工拙，至夜仍乞巧于织女”请于敏中《日下旧闻考》引《宛署杂记》说：“燕都女子七月七日以碗水暴日下，各自投小针浮之水面，徐视水底日影。或散如花，动如云，细如线，粗租如锥，因以卜女之巧。”</div>
+<div id="r5">将一盆清水放在阳光下，准备一枚涂有油脂的针，分别将针抛在水面，在张力的作用下，油针会浮在水面的油膜上。水底的针影会多种多样。观看针影可以判断手巧与否(无实际预言意义，仅做娱乐一笑)。按古时的说法，针影“粗如锤、细如丝、直如轴蜡”等简单形状说明手工比较笨拙，而出现“动如云，散如花”等复杂形态的，恭喜，你是个手巧心细的MM。</div>
+<div id="r6">这也是较早的一种乞巧方式，其俗稍晚于穿针乞巧，大致起于南北朝之时。南朝梁宗懔《荆楚岁时记》说；“是夕，陈瓜果于庭中以乞巧。有喜子网于瓜上则以为符应。”
+五代王仁裕《开元天宝遗事》说：“七月七日，各捉蜘蛛于小盒中，至晓开；视蛛网稀密以为得巧之侯。密者言巧多，稀者言巧少。中国民间亦效之”宋朝孟元老《东京梦华录》说，七月七夕“以小蜘蛛安合子内，次日看之，若网圆正谓之得巧。”宋周密《乾淳岁时记》说；“以小蜘蛛贮合内，以候结网之疏密为得巧之多久”明田汝成《熙朝乐事》说，七夕“以小盒盛蜘蛛，次早观其结网疏密以为得巧多寡。”由此可见，历代验巧之法不同，南北朝视网之有无、唐视网之稀密，宋视网之圆正，后世多遵唐俗。
+
+</div>
+<div id="r7">旧时习俗，在七夕前几天，先在小木板上敷一层土，播下粟米的种子，让它生出绿油油的嫩苗，再摆一些小茅屋、花木在上面，做成田舍人家小村落的模样，称为“壳板”，或将绿豆、小豆、小麦等浸于磁碗中，等它长出敷寸的芽，再以红、蓝丝绳扎成一束，称为“种生”，又叫“五生盆”或“生花盆”。南方各地也称为“泡巧”，将长出的豆芽称为巧芽，甚至以巧芽取代针，抛在水面乞巧。还用蜡塑各种形象，如牛郎、织女故事中的</div>
+<div id="r8">七月初一就开始准备一块小木板，在上面洒上薄土，轻轻喷水使其潮湿，均匀洒上生长旺盛的草种。待到七夕小草发芽，GG和MM一起动手制作小茅屋，田舍人家。</div>
+<div id="r9">鹰、鸳鸯、等动物之形，放在水上浮游，称之为“水上浮”。又有蜡制的婴儿玩偶，让妇女买回家浮于水土，以为宜子之祥，称为“化生”。</div>
+  <!-- <div id="r2"> -->
+  <!-- 迢迢牵牛星 -->
+<!-- 迢迢牵牛星，皎皎河汉女。 -->
+<!-- 纤纤擢素手，札札弄机杼。 -->
+<!-- 终日不成章，泣涕零如雨。 -->
+<!-- 河汉清且浅，相去复几许。 -->
+<!-- 盈盈一水间，脉脉不得语。 -->
+  <!-- </div> -->
+ </body>
+</html>

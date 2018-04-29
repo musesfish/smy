@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+<style type="text/css">
+ #d1{
+ width:300px;
+ height:300px;
+ background:green;
+ border-radius:50%;
+ position:relative;
+ transition:all 10s linear;
+ animation:my 30s infinite;
+ }
+#d1>div{
+    /* width: 150px; */
+    /* height: 150px; */
+    background: pink;
+    /* border-radius: 50%; */
+    position: absolute;
+    left: 135px;
+    top: 135px;
+	transition:all 10s linear;
+	animation:font 50s infinite;
+}
+#d1:hover .c1{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c2{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c3{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c4{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c5{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c6{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c7{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c8{
+display:block;
+transition:all 10s linear;
+}
+#d1:hover .c9{
+display:block;
+transition:all 10s linear;
+}
+
+
+#d1>div:nth-child(1){
+/*transform:translate(-108px,50px);*/
+top:50px;
+left:-108px;
+transition:all 10s linear;
+display:none;
+z-index:100;
+}
+#d1>div:nth-child(2){
+/*transform:translate(50px,98px);*/
+top:98px;
+left:50px;
+display:none;
+}
+#d1>div:nth-child(3){
+/*transform:translate(50px,119px);*/
+top:119px;
+left:50px;
+display:none;
+}
+#d1>div:nth-child(4){
+/*transform:translate(107px,54px);*/
+top:54px;
+left:107px;
+display:none;
+}
+#d1>div:nth-child(5){
+/*transform:translate(110px,-28px);*/
+top:-28px;
+left:110px;
+display:none;
+}
+#d1>div:nth-child(6){
+/*transform:translate(-112px,-11px);*/
+top:-11px;
+left:-112px;
+display:none;
+}
+#d1>div:nth-child(7){
+/*transform:translate(-81px,-75px);*/
+top:-75px;
+left:-81px;
+display:none;
+}
+@keyframes my{
+0%{
+transform:rotate(0deg);
+}
+100%{
+transform:rotate(360deg);
+}
+}
+
+@keyframes font{
+0%{
+transform:rotate(0deg);
+}
+100%{
+transform:rotate(-360deg);
+}
+}
+
+/*.c1{*/
+/*width:30px;*/
+/*height:28px;*/
+/*trans*/
+/*}*/
+</style>
+ <body>
+  <div id="d1">
+     <div class="c1">我们</div>
+     <div class="c2">我们</div>
+     <div class="c3">我们</div>
+     <div class="c4">我们</div>
+     <div class="c5">我们</div>
+     <div class="c6">我们</div>
+     <div class="c7">我们</div>
+     <div class="c8">我们</div>
+     <div class="c9">我们</div>
+  </div>
+ </body>
+</html>

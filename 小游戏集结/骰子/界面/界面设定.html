@@ -1,0 +1,262 @@
+<html>
+<head>
+<title>简单骰子游戏</title>
+<style>
+.input{
+   border:2px solid white;
+   background-color:pink;
+}
+.input1{
+   border:0px;
+   background-color:pink;
+}
+body{
+   font-size:12px;
+    
+}
+canvas{
+	margin-left:35px;
+}
+.form{
+    
+   width:430px;
+   background-color:pink;
+   padding:15px;
+}
+</style>
+<script type="text/javascript">
+
+ var cwidth=520;
+ var cheight=250;
+ var dicex=60;
+ var dicey=60;
+ var dicewidth=100;
+ var diceheight=100;
+ var dx;
+ var dy;
+
+ var dotrad=6;
+ var ctx;
+ 
+ var firstturn=true;
+ var point;
+ var i;
+ 
+ function init(){
+    ctx=document.getElementById("canvas").getContext('2d');
+        ctx.lineWidth=3;
+         ctx.strokeStyle="pink";
+	ctx.strokeRect(20,20,340,200);
+}
+ function throwdice1(){
+       
+	var sum;
+	var ch=1+Math.floor(Math.random()*6);
+	sum=ch;
+	dx=dicex;
+	dy=dicey;
+	drawface(ch);
+	
+	dx=dicex+160;
+	ch=1+Math.floor(Math.random()*6);
+	
+	sum+=ch;
+	drawface(ch);
+	if(firstturn){
+		switch(sum){
+			case 8:
+			point=sum;
+			document.f.pv.value=point;
+			document.f.stage.value="开始新一轮挑战吧！";
+			document.f.outcome.value="在第一局你便完胜!";firstturn=true;
+			break;
+			
+			case 4:
+			point=sum;
+			document.f.pv.value=point;
+			document.f.stage.value="没有复活机会，重新挑战吧！";
+			document.f.outcome.value="sorry，在第一局你便输了!";firstturn=true;
+			break;
+			
+			default:
+			point=sum;
+			document.f.pv.value=point;
+			 
+			document.f.stage.value="第二局开始：你有3次机会掷出点数和"+point+"，你就赢，掷出点数和4，则你输！";
+			document.f.outcome.value="尚未决出胜负，继续奋斗！";
+i=3;			
+firstturn=false;
+		}
+	}
+	else{
+             if(i==1){
+       document.f.outcome.value="已经全力以赴，虽败犹荣！";
+       document.f.stage.value= "失败是难免的，开始新一轮的游戏吧。";
+document.f.pv.value=sum;
+firstturn=true;
+}
+else{
+		   
+	        switch(sum){
+				 case point:
+				 point=sum;
+			     document.f.pv.value=point;
+				 document.f.stage.value="你的恒心为你取得最终的胜利！";
+				 document.f.outcome.value="你赢了！";                firstturn=true;
+				 break;
+				 
+				 case 4:
+				 
+			     document.f.pv.value=4;
+				 document.f.outcome.value="游戏结束，你输了!";
+				 document.f.stage.value="重新挑战吧.";
+				  
+				 firstturn=true;
+				 
+				 default:
+				  
+			     document.f.pv.value=sum;
+			    i--; document.f.stage.value="别放弃，你还有"+i+"次机会胜出，只要掷出点数和"+point+"！";firstturn=false;
+			}
+			
+			
+	}
+}
+	
+}
+function drawface(n){
+    ctx=document.getElementById("canvas").getContext('2d');
+         
+       ctx.lineWidth=5;
+	ctx.clearRect(dx,dy,dicewidth,diceheight);
+	ctx.strokeRect(dx,dy,dicewidth,diceheight);
+	
+	var dotx;
+	var doty;
+	ctx.fillStyle="#009966";
+	
+	switch(n){
+		case 1:
+		draw1();
+		break;
+		case 2:
+		draw2();
+		break;
+		case 3:
+		draw2();
+		draw1();
+		break;
+		case 4:
+		draw4();
+		break;
+		case 5:
+		draw4();
+		draw1();
+		break;
+		case 6:
+		draw4();
+		draw2mid();
+		break;
+	}
+}
+function draw1(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+.5*dicewidth;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+	ctx.fill();
+}
+function draw2(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+function draw4(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+function draw2mid(){
+	var dotx;
+	var doty;
+    ctx.beginPath();
+	dotx=dx+3*dotrad;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dx+dicewidth-3*dotrad;
+	doty=dy+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+}
+
+</script>
+</head>
+
+<body onLoad="init()">
+
+<canvas id="canvas" width="530" height="250">
+Your browser doesn't support the HTML5 element canvas.
+</canvas> 
+<br/>
+<button onClick="throwdice1();">掷骰子</button>
+
+ <form name="f" class="form">
+
+
+<br/>
+挑战提示: 
+<input name="stage" type="text" value="欢迎挑战，第一局开始！  " size="66" class="input1"></input>
+<br/>
+骰子点数和: 
+<input name="pv" type="text" value=" " size="3" class="input1"> 
+<br/>
+ 
+结局:<input name="outcome" value=" " size="23" class="input1"/><br/>
+  <br/>
+游戏规则:  <br/> <textarea name="rule" cols="50" rows="3" class="input">第一局：骰子点数和为8，则为你赢，为4，则你输；第二局：你有三次机会，只要掷出点数和第一局结束时一样点数和，你就赢，若掷出点数和4，则你输！</textarea>
+</form>
+ 
+
+</body>
+</html>
+
+
+

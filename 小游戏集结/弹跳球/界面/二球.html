@@ -1,0 +1,194 @@
+ 
+<html>
+<head>
+ 
+<title>弹跳球</title>
+<style>
+form{
+   width:330px;
+   margin:13px;
+   background-color:pink;
+   padding:20px;
+}
+body{
+    font-size:12px;
+}
+input:valid{background:pink;}
+input:invalid{background:white;}
+</style>
+
+<script typt="text/javascript">
+var ctx;
+var ballrad=10;
+var boxheight=250;
+var boxwidth=350;
+var boxx=20;
+var boxy=30;
+var ballx=30;
+var bally=60;
+var ballx1=100;
+var bally1=150;
+var boxboundx=boxwidth+boxx-ballrad;
+var boxboundy=boxheight+boxy-ballrad;
+var inboxboundx=boxx+ballrad;
+var inboxboundy=boxy+ballrad;
+var ballvx=4;
+var ballvy=8;
+var ballvx1=8;
+var ballvy1=4;
+var cwidth=400;
+var cheight=300;
+
+function init(){
+	ctx=document.getElementById('canvas').getContext('2d');
+	ctx.lineWidth=5;
+	 moveball();
+	 setInterval(moveball,100);
+     moveball1();
+     setInterval(moveball1,100);
+        }
+
+function moveball(){
+	ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+        moveandcheck();
+		ctx.strokeStyle="pink";
+	ctx.strokeRect(boxx,boxy,boxwidth,boxheight);
+	
+	 ctx.fillStyle="yellow";
+	 ctx.fillRect(120,130,30,30);
+	 
+        ctx.beginPath();
+	    ctx.fillStyle="red";
+	    ctx.arc(ballx,bally,ballrad,0,Math.PI*2,true);
+	    ctx.fill();
+      
+}
+
+function moveball1(){
+	moveandcheck1();
+        ctx.beginPath();
+	ctx.fillStyle="blue";
+	ctx.arc(ballx1,bally1,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+}
+
+function moveandcheck(){
+        var nballx=ballx+ballvx;
+	var nbally=bally+ballvy;
+	if(nballx>boxboundx){
+	   ballvx=-ballvx;
+	   nballx=boxboundx;
+	}
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx=-ballvx;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy=-ballvy;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy=-ballvy;
+	}
+      
+	ballx=nballx;
+	bally=nbally;
+	  
+}
+
+function moveandcheck1(){
+        if(ballx==120){
+            if(bally>130 && bally<180){
+               alert("踩中地雷了！");
+             
+             ballx=30;
+             bally=60;}
+             }
+        else if(ballx==150){
+             if(bally>130 && bally<180){
+                 alert("踩中地雷了！");   
+              
+             ballx=30;
+             bally=60;}
+              }
+		else if(bally==130){
+             if(ballx>120 && ballx<150){
+                 alert("踩中地雷了！");   
+               
+             ballx=30;
+             bally=60;}
+              }
+	    else if(bally==160){
+			if(ballx>120 && ballx<150){
+                 alert("踩中地雷了！");   
+               
+             ballx=30;
+             bally=60;}
+		}
+        var nballx=ballx1+ballvx1;
+	var nbally=bally1+ballvy1;
+	if(nballx>boxboundx){
+	   ballvx1=-ballvx1;
+	   nballx=boxboundx;
+	}
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx1=-ballvx1;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy1=-ballvy1;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy1=-ballvy1;
+	}
+      
+	ballx1=nballx;
+	bally1=nbally;
+}
+
+function change(){
+        ballvx=Number(f.hv.value);
+	ballvy=Number(f.vv.value);
+        return false;
+}
+
+function change1(){
+        ballvx1=Number(f1.hv1.value);
+	ballvy1=Number(f1.vv1.value);
+        return false;
+}
+
+</script>
+</head>
+
+
+<body onLoad="init()">
+
+<canvas id="canvas" width="400" height="300">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+
+<br />
+<form name="f" id="f" onSubmit="return change();">
+水平速度<input name="hv" id="hv" value="8" type="number" min="-10" max="10" />
+ &nbsp&nbsp
+垂直速度<input name="vv" id="vv" value="8" type="number" min="-10" max="10" />
+<br /><br />
+<input type="submit" value="改变红球" />
+ 
+</form>
+
+<form name="f1" id="f1" onSubmit="return change1();">
+水平速度<input name="hv1" id="hv1" value="8" type="number" min="-10" max="10" />
+ &nbsp&nbsp
+垂直速度<input name="vv1" id="vv1" value="8" type="number" min="-10" max="10" />
+<br /><br />
+ 
+<input type="submit" value="改变蓝球" />
+</form>
+
+</body>
+</html>

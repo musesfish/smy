@@ -1,0 +1,591 @@
+#topaas {
+  width: 28.41%;
+  height:99.75%;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 0 0 33.5%;
+  background: url(imge/11111.png);
+  transition: all .3s linear;
+  /* animation: a152 20000s linear; */
+  background-size: 100%;
+  /*border: 1px solid red;*/
+  float: left;
+}
+@keyframes a152{
+  0%{
+    transform:rotate(0deg);
+  }
+  100%{
+    transform:rotate(-36000deg);
+  }
+}
+#d11{
+  height: 10.5%;
+  width: 10.5%;
+  position: absolute;
+  top: 7%;
+  left: -10%;
+  transition: all .3s linear;
+  animation: dsa 7s linear;
+  color: #b2e3ff;
+  border: 2px solid;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 277.5%;
+}
+@keyframes dsa {
+  0% {
+    top:45%;
+    left:45%;
+  }
+  100% {
+    top:7%;
+    left:-10%;
+  }
+}
+#d22 {
+  height: 10.5%;
+  width: 10.5%;
+  position: absolute;
+  top: 78%;
+  left: 51%;
+  transition: all .3s linear;
+  animation: fs 7s linear;
+  color: #b2e3ff;
+  border: 2px solid;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 277.5%;
+}
+@keyframes fs {
+  0% {
+    top:45%;
+  }
+  100% {
+    top:78%;
+  }
+}
+#d33 {
+  height: 10.5%;
+  width: 10.5%;
+  position: absolute;
+  top: 9%;
+  left: 99%;
+  transition: all .3s linear;
+  animation: fs1 7s linear;
+  color: #b2e3ff;
+  border: 2px solid;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 277.5%;
+}
+@keyframes fs1 {
+  0% {
+    top:45%;
+    left: 45%;
+  }
+  100% {
+    top: 9%;
+    left:99%;
+  }
+}
+
+#d41 {
+  width: 10.5%;
+  height: 10.5%;
+  position: relative;
+  top: 44%;
+  left: 46%;
+  background: #32346D;
+}
+#imgsa1,#imgsa,#imgsa2,#imgsa3{
+  position: relative;
+  transition: all 8s linear;
+  animation: xdew 8s infinite;
+}
+@keyframes xdew {
+  0% {
+    transform: rotatey(45deg);
+    left: 5px;
+  }
+  50% {
+    left: 15px;
+    width: 115px;
+    height: 50px;
+  }
+  100% {
+    transform: rotatey(0deg);
+    left: 0;
+  }
+}
+#imgsb,#imgsb1,#imgsb2,#imgsb3{
+  position: relative;
+  transition: all 20s linear;
+  animation: xdew 20s infinite;
+}
+@keyframes xdew1 {
+  0% {
+    transform: rotate(13deg);
+    left: 0px;
+  }
+  50% {
+    transform: rotate(0deg);
+    top: 3px;
+  }
+  70% {
+    transform: rotate(8deg);
+    left: -20px;
+  }
+  100% {
+    transform: rotate(13deg);
+    left: 0;
+  }
+}
+#imge,#imge1,#imge2 {
+  position: relative;
+  transition: all 8s linear;
+  animation: dgf 8s infinite;
+}
+@keyframes dgf {
+  0% {
+    width: 60px;
+    height: 27px;
+  }
+  100% {
+    width: 63px;
+    height: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+  .imgsa_7{
+    height: 86%;
+    left: 35%;
+    top: -5%;
+  }
+  .imgsa_8{
+    top: 9%;
+    left: 41%;
+  }
+  .imgsa_9{
+    left: 43%;
+    top: 34%;
+  }
+  .aq{
+    left: -30%;
+    position: relative;
+  }
+  #slgjdggsa{
+    display: none;
+  }
+  .imgsa_9{
+    top:27%;
+  }
+  #ssaas4{
+    width: 10.5%;
+    top: 217%;
+  }
+  .ps{
+    left: 10%;
+  }
+  .rights>li{
+    width: 3%;
+  }
+  #topaas{
+    width: 28.41%;
+    height: 66.75%;
+    margin: 0 0 0 40.5%;
+  }
+  #d22,#d11,#d33{
+    height: 14.5%;
+    width: 15.3%;
+  }
+  #d22{
+  top: 78%;
+  left: 51%;
+}
+  #k1, #k2, #k3{
+    width: 27%;
+    height: 54%;
+    position: absolute;
+    margin: 2% 0 0 35%;
+    display: none;
+  }
+  #top{
+    height: 56.7%;
+    margin:4% 0 0 42%;
+  }
+  #d1,#d2,#d3,#d4,#d5,#d6,#d7,#d8,#d9{
+    width: 13.5%;
+  }
+  #r1{
+    width: 17%;
+    height: 37%;
+    position: absolute;
+    margin: 3% 0 0 49%;
+    overflow: hidden;
+    display: none;
+    color: #b2e3ff;
+    /* z-index: 2000; */
+    float: left;
+  }
+  #r2,#r3,#r4,#r5,#r6,#r7,#r8,#r9{
+    width: 17%;
+    height: 37%;
+    position: absolute;
+    margin: 10% 0 0 49%;
+    overflow: hidden;
+    display: none;
+    color: #b2e3ff;
+    /* z-index: 2000; */
+    float: left;
+  }
+  #carousel{
+    top: 68%;
+    width: 24%;
+    left: 39.6%;
+  }
+  #needle_2{
+    top: 24%;
+  }
+  #needle_3{
+    top: 28%;
+  }
+  #needle_4{
+    top: -8%;
+    left: 39.5%;
+  }
+  #needle_5{
+    top: -6%;
+    left: 29%;
+  }
+  #needle_6{
+    top: -7%;
+    left: 19.8%;
+  }
+  #needle_7{
+    top: -9%;
+    left: 19.5%;
+  }
+  #needle_8{
+    top: -8%;
+    left: 3%;
+  }
+  #needle_1{
+    top: 9%;
+  }
+  /*.container{*/
+    /*left: 19%;*/
+  /*}*/
+  /*.container_tu1{*/
+    /*top: 51px;*/
+    /*left: -10px;*/
+  /*}*/
+  /*.container{*/
+    /*left: 38%;*/
+  /*}*/
+  #contaier_qp{
+    margin: 0 0 0 19%;
+  }
+  .container_tu1{
+    top: 57px;
+    left: -22px;
+  }
+  #contaier_wo{
+    margin: 0 0 0 6%;
+    left: 14%;
+  }
+}
+@media screen and (max-width: 767px){
+  .aq,.az,.aw,#slgjdggsa{
+    display: none;
+  }
+  body{
+    background-size: 318%;
+  }
+  #slgjdggsa{
+    display: block;
+  }
+  .ae{
+    width: 17%;
+  }
+  #r1,#r2,#r3,#r4,#r5,#r6,#r7,#r8,#r9,{
+    width: 17%;
+    height: 32%;
+    margin: 3% 0 0 42%;
+    top: -3%;
+    left:44%;
+    display: none;
+  }
+  .ar{
+    position: absolute;
+    left: 75%;
+    top: 25%;
+    width: 301%;
+  }
+  .imgsa_7{
+    left: 41%;
+    width: 34%;
+    height: 43%;
+    top: -4%;
+  }
+  .imgsa_8{
+    left: 47%;
+    top: 4%;
+  }
+  .aqa{
+    top: -14%;
+  }
+  .imgsa_9{
+    top: 12%;
+    left: 48%;
+  }
+  #ssaas4{
+    width: 17.5%;
+    height: 97%;
+    top: 92%;
+    left: -7%;
+  }
+  .ps{
+    width: 39%;
+    font-size: 3.5em;
+    left: 44%;
+    top: -22%;
+  }
+  .rights>li{
+    width: 5%;
+  }
+  .rights{
+    top:73%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){}
+@media screen and (max-width: 767px){}
+/*xiaoguo*/
+.container_a h1{
+  font-family:方正粗雅宋简体;
+}
+/*花瓣*/
+#w1{
+  width:100vw;
+  height: 100vh;
+  position: absolute;
+  mix-blend-mode: screen;
+  z-index: 100;
+  cursor: pointer;
+  /*background: #251D50;*/
+}
+.falling-leaves {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.leaf-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.leaf-scene div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 60px;
+  background: url(shuc/花瓣/hb4.png) no-repeat;
+  background-size: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+/*ziti*/
+#ssaas2>div p{
+  height:10%;
+  border-bottom:1px dashed #71739B;
+  text-indent:1em;
+  color:#ACDAF8;
+}
+#r1>p:first-child,
+#r2>p:first-child,
+#r3>p:first-child,
+#r4>p:first-child,
+#r5>p:first-child,
+#r6>p:first-child,
+#r7>p:first-child,
+#r8>p:first-child,
+#r9>p:first-child{
+  font-weight: bold;
+}
+#r1>p,#r2>p,#r3>p,#r4>p,#r5>p,#r6>p,#r7>p,#r8>p,#r9>p{
+  text-align:center;
+}
+#k2>p:first-child,#k3>p:first-child,#k1>p:first-child{
+  font-family:方正粗雅宋简体;
+  font-size: 4em;
+}
+#k1>p,#k2>p,#k3>p{
+  text-align:center;
+}
+#ssaas1>div p{
+  color:#B2E4FF;
+}
+/*zong*/
+@keyframes lineA{
+  0%,100%{clip:rect(0px,350px,2px,0)}
+  25%{clip:rect(0,2px,350px,0)}
+  50%{clip:rect(348px,350px,350px,0)}
+  75%{clip:rect(0,350px,350px,348px)}
+}
+@keyframes lineB{
+  0%,100%{clip:rect(348px,350px,350px,0)}
+  25%{clip:rect(0,350px,350px,348px)}
+  50%{clip:rect(0,350px,2px,0)}
+  75%{clip:rect(0,2px,350px,0)}
+}
+.wt-a1{
+  float: left;
+  /*background-color: #eee;*/
+  width:330px;
+  height: 330px;
+  margin: 38px 0px 0px 22px;
+  position: relative;
+  z-index: 3;
+  display: none;
+  text-indent:2em;
+}
+.wt-a1::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineA 8s linear infinite;
+  -o-animation: lineA 8s linear infinite;
+  animation: lineA 8s linear infinite;
+}
+.wt-a1::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineB 8s linear infinite;
+  -o-animation: lineB 8s linear infinite;
+  animation: lineB 8s linear infinite;
+}
+/*投针*//*蜘蛛*/
+@keyframes lineA{
+  0%,100%{clip:rect(0px,350px,2px,0)}
+  25%{clip:rect(0,2px,350px,0)}
+  50%{clip:rect(348px,350px,350px,0)}
+  75%{clip:rect(0,350px,350px,348px)}
+}
+@keyframes lineB{
+  0%,100%{clip:rect(348px,350px,350px,0)}
+  25%{clip:rect(0,350px,350px,348px)}
+  50%{clip:rect(0,350px,2px,0)}
+  75%{clip:rect(0,2px,350px,0)}
+}
+.wt-a2,.wt-a3{
+  float: left;
+  width:330px;
+  height: 330px;
+  margin: 20px 0px 0px 20px;
+  position: relative;
+  z-index: 3;
+  display: none;
+  text-indent:2em;
+}
+.wt-a2::before,.wt-a3::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineA 8s linear infinite;
+  -o-animation: lineA 8s linear infinite;
+  animation: lineA 8s linear infinite;
+}
+.wt-a2::after,.wt-a3::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineB 8s linear infinite;
+  -o-animation: lineB 8s linear infinite;
+  animation: lineB 8s linear infinite;
+}
+/*种子*/
+@keyframes lineA{
+  0%,100%{clip:rect(0px,350px,2px,0)}
+  25%{clip:rect(0,2px,350px,0)}
+  50%{clip:rect(348px,350px,350px,0)}
+  75%{clip:rect(0,350px,350px,348px)}
+}
+@keyframes lineB{
+  0%,100%{clip:rect(348px,350px,350px,0)}
+  25%{clip:rect(0,350px,350px,348px)}
+  50%{clip:rect(0,350px,2px,0)}
+  75%{clip:rect(0,2px,350px,0)}
+}
+.wt-a4{
+  float: left;
+  /*background-color: #eee;*/
+  width:330px;
+  height: 330px;
+  margin: 38px 0px 0px 22px;
+  position: relative;
+  z-index: 3;
+  display: none;
+  text-indent:2em;
+}
+.wt-a4::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineA 8s linear infinite;
+  -o-animation: lineA 8s linear infinite;
+  animation: lineA 8s linear infinite;
+}
+.wt-a4::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid pink;
+  margin: -10px;
+  z-index: -1;
+  -webkit-animation: lineB 8s linear infinite;
+  -o-animation: lineB 8s linear infinite;
+  animation: lineB 8s linear infinite;
+}

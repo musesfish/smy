@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		#all{
+			width:100%;
+			height:400px;
+		}
+		#box{
+			width:100%;
+			height:100px;
+			background: #ccc;
+			padding: 5px;		
+		}
+		#box h3{
+			color:#008000;
+		}
+		#qb{
+			width:40px;
+			height:50px;
+			background: red;
+			position:absolute;
+			left:100px;
+			top:100px;
+			border-radius: 8px;
+			transform: translate(10px,6px) rotate(45deg);
+			display: none;
+		}
+		#cover{
+			width:100%;
+			height:450px;
+			position:absolute;
+			left:0px;
+			top:0px;
+			z-index: :100;
+			/*background: red;*/
+		}
+		/*画笔盒子*/
+		#hb_box{
+			width:250px;
+			height:100px;
+			/*border:1px solid blue;*/
+			float:left;
+			margin-left:100px;
+			text-align: center;
+		}
+		#hb_box div{
+			width:40px;
+			height:50px;
+			display: inline-block;
+			border-radius: 8px;
+			transition: all 1s linear;
+			margin-top:8px;
+			margin-left: 10px;
+			cursor: pointer;
+			transform: rotate(45deg);
+			border:2px solid transparent;
+		}
+		#hb_box div.red{
+			background: red;
+			border:2px solid white;
+		}
+		#hb_box div.blue{
+			background: blue;
+		}
+		#hb_box div.orange{
+			background: orange;
+		}
+		#hb_box div.green{
+			background: green;
+		}
+		#hb_box div:hover{
+			background: white;
+		}
+		#hb_box h3{
+			margin-top: 10px;
+			text-align: center;
+		}
+		/*橡皮檫工具*/
+		#xp_box{
+			width:200px;
+			height:100px;
+			/*border:1px solid purple;*/
+			float:left;
+			margin-left:100px;
+			position: relative;
+			padding:10px;
+		}
+		#xp_box h3{
+			position: absolute;
+			top:70px;
+			left:110px;
+		}
+		#xp_box .xp{
+			width:80px;
+			height:80px;
+			background: yellow;
+			border-radius: 8px;
+			transition: all 1s linear;
+			cursor: pointer;
+		}
+		#xp_box .xp:hover{
+			background: white;
+		}
+		/*保存部分*/
+		#save_box{
+			width:200px;
+			height:100px;
+			/*border:1px solid green;*/
+			float: left;
+			margin-left:100px;
+			position: relative;
+			padding:10px;
+		}
+		#save_box h3{
+			position: absolute;
+			top:70px;
+			left:110px;
+		}
+		#save_box .save{
+			width:80px;
+			height:80px;
+			background: magenta;
+			border-radius: 8px;
+			transition: all 1s linear;
+			cursor: pointer;
+		}
+		#save_box .save:hover{
+			background: white;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="all">
+		<div id="cover"></div>
+		<div id="qb"></div>
+		<canvas id="canvas"></canvas>
+		<div id="box">
+			<div id="hb_box">
+				<div class="red"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="green"></div>
+				<h3>画笔盒</h3>
+			</div>
+			<div id="xp_box">
+				<div class="xp" onclick="e.clearBlackBoard()"></div>
+				<h3>橡皮檫</h3>
+			</div>
+			<div id="save_box">
+				<div onclick="e.saveImage()" class="save"></div>
+				<h3>保存</h3>
+			</div>
+		</div>
+	</div>
+	<br>
+	<img src="" alt="" id="img">
+	<script>
+		// window.onload=function(){
+			var cover=document.getElementById("cover");
+			// 画板
+			var canvas=document.getElementById("canvas");
+			// 铅笔
+			var qb=document.getElementById("qb");
+			// 铅笔颜色
+			var colors=["red","blue","orange","green"];
+			// 画笔
+			var hbs=document.getElementById("hb_box").getElementsByTagName("div");
+			var w=document.documentElement.clientWidth;
+			var h=450;
+			canvas.width=w;
+			canvas.height=h;
+			// 创建画布环境
+			var obj=canvas.getContext("2d");
+			// 设置画布颜色
+			obj.fillStyle="black";
+			// 画布坐标范围
+			obj.rect(0,0,w,h);
+			//线条
+			obj.lineWidth=2;
+			//颜色
+			obj.strokeStyle="red";
+			// 执行以上设置
+			obj.fill();
+			//---------1----------
+			//画笔切换效果
+			for(var i=0;i<hbs.length;i++){
+				hbs[i].i=i;//将变量 i 保存给在每个段落对象上
+				hbs[i].onclick=function(){
+					// alert(this.i);
+					for(var j=0;j<hbs.length;j++){
+						hbs[j].style.border="2px solid transparent";
+					}
+					this.style.border="2px solid white";
+					qb.style.backgroundColor=colors[this.i];
+					obj.strokeStyle=colors[this.i];
+				};
+			}
+			// 黑板类
+			var blackboard=function(){
+				// 默认没被按下
+				this.downstatus=false;
+				//鼠标按下事件
+				this.downEvent=function(event){
+					// 鼠标被按下
+					this.downstatus=true;
+					console.log("down"+this.downstatus);
+					//获得了鼠标位置
+					this.oldX=event.pageX;
+					this.oldY=event.pageY;
+					// 铅笔的位置获取并显示
+					qb.style.display="block";
+					qb.style.left=this.oldX-25+"px";
+					qb.style.top=this.oldY-qb.offsetHeight-10+"px";
+				}
+				//鼠标抬起事件
+				this.upEvent=function(){
+					// 鼠标没被按下
+					this.downstatus=false;
+					console.log("up"+this.downstatus);
+					qb.style.display="none";
+				}
+				//鼠标移动事件
+				this.moveEvent=function(event){
+					console.log("move"+this.downstatus);
+					if(!this.downstatus) return;
+					//获得铅笔位置
+					qb.style.left=this.oldX-25+"px";
+					qb.style.top=this.oldY-qb.offsetHeight-10+"px";
+					//开始划线
+					obj.beginPath();
+					obj.moveTo(this.oldX,this.oldY);
+					obj.lineTo(event.pageX,event.pageY);
+					//执行以上设置
+					obj.stroke();
+					//鼠标位置
+					this.oldX=event.pageX;
+					this.oldY=event.pageY;
+				}
+				//清除
+				this.clearBlackBoard=function(){
+					//清空画布
+					obj.clearRect(0,0,w,h);
+					obj.fillStyle="black";
+					obj.fillRect(0,0,w,h);
+				}
+				//保存
+				this.saveImage=function(){
+					//返回一个base64路径
+					var data=canvas.toDataURL("image/png");
+					document.getElementById("img").src=data;
+				}
+			}
+			//实例化对象
+			var e=new blackboard();
+			cover.addEventListener("mousedown",e.downEvent,true);
+			cover.addEventListener("mousemove",e.moveEvent,true);
+			cover.addEventListener("mouseup",e.upEvent,true);
+
+			// -----------2-----------
+			// for(var i=0;i<hbs.length;i++){
+			// 	(hbs[i].onclick=function(){
+			// 		alert(arguments.callee.i);
+			// 	}).i=i;//将变量 i 保存在匿名函数自身
+			// }
+			// -----------3--------------
+			// for(var i=0;i<hbs.length;i++){
+			// 	(function(i){
+			// 		hbs[i].onclick=function(){
+			// 			alert(i);
+			// 		}
+			// 	})(i);//加一层闭包，i 以函数参数形式传递给内层函数
+			// }
+			// --------------4--------------
+			// for(var i=0;i<hbs.length;i++){
+			// 	(function(){
+			// 		var arg=i;//加一层闭包，i 以局部变量形式传递给内层函数
+			// 		hbs[i].onclick=function(){
+			// 			alert(arg);
+			// 		}
+			// 	})()
+			// }
+			// -------------5--------------
+			// for(var i=0;i<hbs.length;i++){
+			// 	hbs[i].onclick=function(i){
+			// 		return function(){//加一层闭包，返回一个函数作为响应事件
+			// 			alert(i);
+			// 		}
+			// 	}(i);
+			// }
+			// --------------6--------------
+			// for(var i=0;i<hbs.length;i++){
+			// 	hbs[i].onclick=new Function("alert("+i+")");//用Function实现，new一次就产生一个函数实例就会产生一个闭包
+			// }
+			// ----------------7------------------
+			// for(var i=0;i<hbs.length;i++){
+			// 	hbs[i].onclick=Function(
+			// 		"alert("+i+")"
+			// 	);//用Function实现
+			// }
+		// }
+	</script>
+</body>
+</html>

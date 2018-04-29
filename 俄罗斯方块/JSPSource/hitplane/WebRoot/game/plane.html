@@ -1,0 +1,597 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0;}
+body{ background:white;}
+#img1{ width:0px; height:0px;  position:absolute;border:hidden;}
+
+</style>
+
+<script>
+    
+var ctx;
+var boxwidth = 1200;
+var boxheight = 600;
+var username;
+var cwidth = 400;
+var cheight = 550;
+var plane = new Image();  //飞机图片
+plane.src="plane.png";
+
+
+var plane2 = new Image();  //敌机图片
+plane2.src="enemy_plane1.png";
+
+var plane3 = new Image();  //敌机图片
+plane3.src="enemy_plane2.png";
+
+var plane5 = new Image();  //敌机图片
+plane5.src="enemy_plane3.png";
+
+var back1 = new Image();  //背景图片
+back1.src="back.jpg";
+
+var bu = new Image();    // 子弹图片
+bu.src="bullet.png";
+
+var bu2 = new Image();    // 子弹图片
+bu2.src="bullet2.png";
+
+var bu3 = new Image();    // 子弹图片
+bu3.src="bullet3.png";
+
+
+var px = 675;             //飞机起始坐标
+var py = 400;				//飞机起始坐标
+var bullet = [];			//子弹数组 用来储存子弹
+var enemy = [];			//敌机数组 用来储存子弹
+var eBullet = [];		//敌机子弹数组
+var speed = 3;			//敌机移动速度
+var speed1 = 20;		//子弹移动速度
+var speed2 = 3;			//敌机移动速度
+var speed3 = 3;			//敌机移动速度
+var point = 0;
+var sY ;					//子弹位移变化
+var inmotion = false;
+var tid;
+var tid1;
+var tid2;
+var xx;
+var yy;	
+var number = 1;        //敌机种类
+var number3 = true;			//是否产生3号敌机
+var bossx;
+var bossy;
+var first=true;
+var level = 1; // 关卡
+var fps = 60;
+ function load(){
+	 
+	url = location.search.substr(1);
+    	if(url.length > 0) 
+  	{
+    		document.getElementById("main").style.display="block";
+		document.getElementById("login").style.display="none";
+		ar = url.split(/[&=]/);
+   		   for(i=0;i<ar.length;i+=2) 
+   		   {
+				username = unescape(ar[i+1]);
+				  init();
+  		    }
+	}
+    else {
+    	
+		document.getElementById("main").style.display="none";
+    }
+ }
+function init(){
+	ctx = document.getElementById('canvas').getContext('2d');
+	ctx.clearRect(0,0,boxwidth,boxheight);
+	canvas1=document.getElementById('canvas');
+	canvas1=addEventListener('mousedown',mousedown,false);
+	canvas1=addEventListener('mousemove',moveit,false);
+
+	 xx = (document.documentElement.clientWidth - 400)/5;       //确定游戏画面在屏幕可视区中心
+	 yy = 50;
+	 
+	 bossx = xx;
+	 bossy = yy;
+	 
+	//canvas1=addEventListener('mouseup',finish,false);
+	//img();
+	drawrects();
+
+	}
+var emenytime = 1000;
+
+function start(){
+	if(first){
+	tid=setInterval(drawAll,1000/fps);   
+	tid1=setInterval(bulletCalc,1000/fps);
+	tid2=setInterval(createEmeny,emenytime);
+	setInterval(function sds(){ 
+			bullet.push({    
+				x : px + 23,
+				y : py,
+				sY : sY	,
+				img : bu
+			});
+	},700); //自动射击
+	}
+	first=false;
+}
+	
+function createEmeny(){      //敌机添加数组
+	
+	var x1=xx+cwidth;
+	if(number3){
+	 	number = 1 + Math.floor(Math.random()*3) ;
+		if(number == 3){
+			number3 = false;
+		}
+	}
+	else {
+		number = 1 + Math.floor(Math.random()*3) ;	
+	}
+	
+	
+	enemy.push({
+			img : plane2,	  
+			x : xx + Math.floor(Math.random()*(cwidth - 47)),
+			y : 50,
+			w : 47,
+			h : 49,
+			num : number
+			//startX : 300,
+			//startY : 0	  
+			  });	
+	
+	
+}
+	
+function bulletCalc(){            //子弹位移计算
+	
+	for(var i=0;i<bullet.length;i++){
+
+		bullet[i].y = bullet[i].y -(speed+30);
+				bullet[i].img = bu2;
+				//break;
+		if(bullet[i].y<50 || bullet[i].x<xx || bullet[i].x>(xx+375)){		
+			bullet.splice(i,1);   //子弹超出边界时删除子弹		
+			}	
+	}
+	
+	for(var i=0;i<eBullet.length;i++){
+		
+		eBullet[i].y = eBullet[i].y + speed;
+		}
+		
+
+
+	
+	for(var i=0;i<enemy.length;i++){        //敌机位移计算
+		if(enemy[i].num==1){
+			enemy[i].y = enemy[i].y + speed;
+		}
+		else if(enemy[i].num==2){
+			
+			enemy[i].y = enemy[i].y + speed;
+			if(enemy[i].y>50){
+				enemy[i].y = enemy[i].y + 2*speed;
+			}
+			
+		}
+		else {
+			if(enemy[i].y<150){			
+			enemy[i].y = enemy[i].y + speed;
+			}
+			else {
+				enemy[i].x = enemy[i].x + speed2;
+				if(enemy[i].x>xx+cwidth-45){
+					enemy[i].x = xx+cwidth-45;
+					speed2=-speed2;
+				}
+				if(enemy[i].x<xx){
+					enemy[i].x = xx;
+					speed2=-speed2;
+				}
+				
+				var n = 1 + Math.floor(Math.random()*40)+level*2 ;	//3号敌机子弹添加数组
+				if(n==3){
+					eBullet.push({	
+						img : bu3,
+						x : enemy[i].x,
+						y : 150,
+						w : 10,
+						h : 10,
+			  		});
+				}
+			}
+		}
+		
+		if(enemy[i].y>500){		
+			enemy.splice(i,1);   //敌机超出边界时删除敌机	
+		}	
+	}
+	
+	
+	for(var i=0;i<bullet.length;i++){    //子弹与敌机的碰撞检测
+					
+		for(var j=0;j<enemy.length;j++){
+						
+			if(crash(bullet[i].x,bullet[i].y,enemy[j].x,enemy[j].y)){ 
+				if(enemy[j].num==3){
+					bullet.splice(i,1);
+					enemy.splice(j,1);
+					number3 = true;
+					point++;
+					break;
+				}
+				else {
+					bullet.splice(i,1);
+					enemy.splice(j,1);
+					point++;
+					break;
+				}
+			 }
+		}
+					
+	}
+
+	for(var i=0;i<enemy.length;i++){     //飞机与敌机的碰撞检测
+		if(crash(px+5,py,enemy[i].x,enemy[i].y)){ 
+				enemy.splice(i,1);
+				
+				upload();
+				alert("你输咯..");
+				clearInterval(tid);
+				clearInterval(tid1);
+				clearInterval(tid2);
+				location.href='plane.html?n='+escape(username);
+				break;
+		 }				
+	}
+	
+	for(var i=0;i<eBullet.length;i++){     //飞机与敌机子弹的碰撞检测
+		if(crash1(px - 10,py,eBullet[i].x,eBullet[i].y)){ 
+				//eBullet.splice(i,1);
+				
+				upload();
+				alert("你输咯..");
+				clearInterval(tid);
+				clearInterval(tid1);
+				clearInterval(tid2);
+				location.href='plane.html?n='+escape(username);
+				break;
+		 }				
+	}
+				
+	
+}	
+var startgametext = "开始游戏";
+
+function drawrects(){      //游戏画框
+	ctx.clearRect(0,0,boxwidth,boxheight);
+
+	ctx.linewidth = 3;
+	ctx.strokeRect(xx,yy,cwidth,cheight);
+	
+	
+	ctx.beginPath();
+	ctx.drawImage(back1,xx,yy,cwidth,cheight);  //背景图片
+	ctx.fill();
+	
+	ctx.font = "12pt 宋体";
+	ctx.strokeText("用户:",xx+cwidth+50,yy+50);
+	ctx.font = "12pt 宋体";
+	ctx.strokeText(username,xx+cwidth+100,yy+50);
+	
+	
+	ctx.font = "12pt 宋体";
+	ctx.strokeText("分数:",xx+cwidth+50,yy+90);
+	ctx.font = "12pt 宋体";
+	ctx.strokeText(point,xx+cwidth+100,yy+90);
+	ctx.font = "12pt 宋体";
+
+	ctx.font = "20pt Arial";
+	ctx.strokeText(startgametext,xx+cwidth+20,yy+500);
+
+	var levelis=1;
+	if (point>10){
+		level = parseInt(point/10)+1;
+		if (level>1){
+			levelis=level*0.55;
+		}
+	}
+	speed = levelis*3;
+	speed2 = levelis*3;
+	speed3 = levelis*3;
+	ctx.font = "12pt 宋体";
+	ctx.strokeText("关卡:",xx+cwidth+50,yy+130);
+	ctx.strokeText(level,xx+cwidth+100,yy+130);
+	
+	}
+
+function drawAll(){          
+	ctx.clearRect(0,0,boxwidth,boxheight);
+	drawrects();
+	ctx.beginPath();
+	ctx.drawImage(plane,px,py,60,76);
+	ctx.fill();
+		
+	for(var i=0;i<bullet.length;i++){       //调用子弹
+		
+		ctx.beginPath();
+		ctx.drawImage(bullet[i].img,bullet[i].x,bullet[i].y,15,15);
+		ctx.fill();
+		
+	}
+	
+	for(var i=0;i<eBullet.length;i++){       //调用子弹
+		
+		ctx.beginPath();
+		ctx.drawImage(eBullet[i].img,eBullet[i].x+30,eBullet[i].y+49,eBullet[i].w,eBullet[i].h);
+		ctx.fill();
+		
+	}
+	
+
+	
+	
+	
+	for(var i=0;i<enemy.length;i++){     //调用敌机
+	
+
+		
+			if(enemy[i].num==1){     //1号敌机
+				ctx.beginPath();
+				ctx.drawImage(plane2,enemy[i].x,enemy[i].y,enemy[i].w,enemy[i].h);
+				ctx.fill();
+			}
+				
+			else if(enemy[i].num==2){    //2号敌机
+				
+				ctx.beginPath();
+				ctx.drawImage(plane3,enemy[i].x,enemy[i].y,enemy[i].w,enemy[i].h);
+				ctx.fill();
+			 }
+			else {                     //3号敌机
+				 
+				ctx.beginPath();
+				ctx.drawImage(plane5,enemy[i].x,enemy[i].y,enemy[i].w,enemy[i].h);
+				ctx.fill();
+				 
+				 }
+	}
+}
+
+function moveit(ev){    
+	
+	var mx;
+	var my;
+	if(ev.layerX||ev.layerX==0){
+		mx = ev.layerX;
+		my = ev.layerY;
+		}
+	else if(ev.offsetX||ev.offsetX==0){
+		mx = ev.offsetX;
+		my = ev.offsetY;	
+		}
+	
+	 xx = (document.documentElement.clientWidth - 400)/5;
+	yy = 50;
+	
+
+	px = mx - 30;
+	py= my - 38;	
+		
+	inmotion = true;	
+		
+	if(mx<(xx+30)){
+		px = xx 
+		}	
+	if( mx>((xx+cwidth)-30)){
+		px = xx + cwidth - 60;
+		}	
+	if(my<yy+38){
+		py = yy ;
+		}		
+	if(my>(yy+cheight)){
+		py = yy + cheight ;
+		}			
+	
+	
+		return false;
+}
+
+function mousedown(ev){
+	var mx;
+	var my;
+	if (inmotion) {
+		if(ev.layerX||ev.layerX==0){
+			mx = ev.layerX;
+			my = ev.layerY;
+		}
+		else if(ev.offsetX||ev.offsetX==0){
+			mx = ev.offsetX;
+			my = ev.offsetY;		
+		}		 
+
+	}
+	
+	if(mx>(xx+cwidth+20) && mx<(xx+cwidth+130) && my>(yy+470) && my<(yy+500)){
+			start();
+			ctx.clearRect(xx+cwidth,yy+470,130,50);
+			ctx.font = "20pt Arial";
+			startgametext="正在游戏";
+			ctx.strokeText(startgametext,xx+cwidth+20,yy+500);
+	
+		}
+	return false;
+}
+
+
+function crash(x1,y1,x2,y2){    //碰撞检测系统
+		
+		var a = x1 - x2;
+		var b = y1 - y2;
+		
+		var c = Math.sqrt(a*a + b*b);
+		
+		if(c < 40){
+			return  true;
+			
+			}
+		else {
+			return false;
+			
+			}
+		
+		}
+		
+function crash1(x1,y1,x2,y2){    //碰撞检测系统
+		
+		var a = x1 - x2;
+		var b = y1 - y2;
+		
+		var c = Math.sqrt(a*a + b*b);   //计算面积
+		
+		if(c < 30){
+			return  true;
+			
+			}
+		else {
+			return false;
+			
+			}
+		
+		}
+
+/*
+function  img(){
+	var oImg = document.getElementById('img1');
+}
+*/
+
+function upload()
+{
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    //alert("a");
+    if (xmlhttp.responseText!=""&&xmlhttp.responseText!="null"){
+    alert("成绩提交成功!\n你获得了"+xmlhttp.responseText+"分");
+    }
+    else {
+    
+    alert("数据提交失败!\n请检查环境搭配是否正确");
+		}
+    }
+  }
+  //alert("http://"+window.location.host+"/OrderServer/CallService");
+xmlhttp.open("POST","http://127.0.0.1:8080/hitplane/myGame",true);
+ xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("score="+point+"&username="+username);
+}
+
+
+function login(){
+		
+	username = document.getElementById("username").value;
+	if (username.length==0){
+		alert("用户名不能为空");
+	}
+	else {
+	
+		location.href='plane.html?n='+escape(username);
+	}
+}
+function getrank()
+{
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    //alert("a");
+    if (xmlhttp.responseText!=""&&xmlhttp.responseText!="null"){
+    document.getElementById("rank").innerHTML=xmlhttp.responseText;
+    //alert(xmlhttp.responseText);
+    }
+    else {
+    	
+    document.getElementById("rank").innerHTML="数据库读取失败.请检查本程序是否运行在服务器中";
+   // document.getElementById("btn").style.display="none";
+	}
+    }
+    else {
+    
+    document.getElementById("rank").innerHTML="数据库读取失败.请检查本程序是否运行在服务器中";}
+  }
+  //alert("http://"+window.location.host+"/OrderServer/CallService");
+xmlhttp.open("POST","http://127.0.0.1:8080/hitplane/getScore",true);
+ xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+}
+
+
+</script>
+<script type="text/javascript" src="js.js">
+
+
+<link href="css.css" rel="stylesheet" type="text/css">
+</head>
+
+</script>
+
+<body onload="load();getrank();" >
+
+
+<table id='main'>
+<tr>
+<td>
+<canvas id="canvas" width="800" height="575">
+Your browser doesn't support the HTML5 element canvas.
+</canvas>
+</td>
+<td>
+
+<input type="button" onclick="location.href='plane.html'" value="退出登陆" />
+<div id="rank" ></div>
+
+
+
+</td>
+</tr>
+</table>
+<div id="login" align="center" style=" margin-top:20px;"  >
+请输入您的大名:
+<input type="text" id="username" name="username" />
+<input type="button" onclick="login();" value="登陆" />
+
+</div>
+</body>
+</html>

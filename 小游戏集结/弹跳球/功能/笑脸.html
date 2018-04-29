@@ -1,0 +1,214 @@
+ 
+<html>
+<head>
+ 
+<title>弹跳球</title>
+<style>
+form{
+   width:330px;
+   margin:13px;
+   background-color:pink;
+   padding:20px;
+   text-align:left;
+}
+body{
+    font-size:12px;
+}
+input:valid{background:pink;}
+input:invalid{background:white;}
+</style>
+
+<script typt="text/javascript">
+var ctx;
+ 
+var ballrad=10;
+var boxheight=250;
+var boxwidth=350;
+var boxx=20;
+var boxy=30;
+var ballx=60;
+var bally=60;
+ 
+var boxboundx=boxwidth+boxx-ballrad;
+var boxboundy=boxheight+boxy-ballrad;
+var inboxboundx=boxx+ballrad;
+var inboxboundy=boxy+ballrad;
+var ballvx=4;
+var ballvy=8;
+var i; 
+var cwidth=400;
+var cheight=300;
+var tid;
+var a;
+var b;
+var c;
+var d;
+var e; 
+function init(){
+	i=0;
+	a=true;
+	b=true;
+	c=true;
+	d=true;
+ 	e=true;	
+	ctx=document.getElementById('canvas').getContext('2d');   ctx.lineWidth=5;
+    ctx.strokeStyle="pink";
+	ctx.strokeRect(boxx,boxy,boxwidth,boxheight);
+    moveball();
+    tid=setInterval(moveball,100);    
+}
+function moveball(){
+	if(i<5){
+	ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+	
+	ctx.beginPath();
+	ctx.fillStyle="white";
+	ctx.arc(30,40,ballrad,0,Math.PI*2,true);
+	ctx.arc(360,40,ballrad,0,Math.PI*2,true);
+	ctx.arc(30,270,ballrad,0,Math.PI*2,true);
+	ctx.arc(360,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+	
+	 if(a){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(30,40,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+		}
+		if(b){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(360,40,ballrad,0,Math.PI*2,true);
+	ctx.fill();	
+		}
+		if(c){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(30,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+		}
+		if(d){
+				ctx.beginPath();
+	ctx.fillStyle="pink";
+	ctx.arc(360,270,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+		}
+		if(i==4){
+		e=false;
+	    clearInterval(tid);	
+		alert("you win!");
+		ctx.lineWidth=3;
+        ctx.beginPath();
+	    ctx.strokeStyle="pink";
+	    ctx.arc(190,150,40,0,Math.PI*2,true);
+		ctx.stroke();
+
+		ctx.lineWidth=1;
+        ctx.beginPath();
+	    ctx.strokeStyle="black";
+	    ctx.arc(175,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+
+        ctx.beginPath();			
+	    ctx.strokeStyle="black";
+	    ctx.arc(205,140,8,0,Math.PI*1,true);
+		ctx.stroke();
+				
+        ctx.beginPath();			
+	    ctx.fillStyle="red";
+	    ctx.arc(190,165,8,0,Math.PI*1,false);
+		ctx.fill();
+							
+		ctx.beginPath();
+	    ctx.fillStyle="purple";		
+		ctx.arc(190,150,2,0,Math.PI*2,true);
+	    ctx.fill();
+		}
+    moveandcheck();
+	if(e){
+	ctx.beginPath();
+	ctx.fillStyle="blue";
+	ctx.arc(ballx,bally,ballrad,0,Math.PI*2,true);
+	ctx.fill();
+	}
+	}
+		
+		
+}
+ 
+function moveandcheck(){
+    var nballx=ballx+ballvx;
+	var nbally=bally+ballvy;
+	if(a){
+	    if(nballx>20 && nballx<40 && nbally<50 && nbally>30){ 
+	       i++;
+		 a=false;
+		 moveball();
+	}}
+	if(b){
+          if(nballx>350 && nballx<370 && nbally<50 && nbally>30){ 
+	    i++;
+		 b=false;
+		 moveball();
+	}}
+	if(c){
+	  if(nbally>260 && nbally<280 && nballx<40 && nballx>20){ 
+	  i++; 
+		 c=false;
+		 moveball();
+	}}
+	if(d){
+		  if(nbally>260 && nbally<280 && nballx<370 && nballx>350){
+         i++;
+		 d=false;
+		 moveball();
+	}}
+	if(nballx>boxboundx){
+	   ballvx=-ballvx;
+	   nballx=boxboundx;
+	}
+	if(nballx<inboxboundx){
+	  nballx=inboxboundx;
+	  ballvx=-ballvx;
+	}
+	if(nbally>boxboundy){
+	  nbally=boxboundy;
+	   ballvy=-ballvy;
+	}
+	if(nbally<inboxboundy){
+	   nbally=inboxboundy;
+	   ballvy=-ballvy;
+	}
+     
+	ballx=nballx;
+	bally=nbally;
+        
+}
+function change(){
+    ballvx=Number(f.hv.value);
+	ballvy=Number(f.vv.value);
+        return false;
+}
+</script>
+</head>
+
+<body onLoad="init()">
+<center>
+<canvas id="canvas" width="400" height="300">
+Your browser doesn't support the NTML5 element canvas.
+</canvas>
+<br />
+
+<form name="f" id="f" onSubmit="return change();">
+水平速度<input name="hv" id="hv" value="4" type="number" min="-10" max="10" />
+ &nbsp&nbsp
+垂直速度<input name="vv" id="vv" value="8" type="number" min="-10" max="10" />
+<br /><br />
+规则:<input size="44" value="移动蓝球，吃掉4个粉红球，即获得胜利！" type="text" style="border:1px;background="pink"/>
+<br /><br />
+<input type="submit" value="改变蓝球" />
+</form>
+ 
+</center>
+</body>
+</html>

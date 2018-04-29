@@ -1,0 +1,262 @@
+#section {
+    width: 1050px;
+    margin: 10px auto;
+    box-shadow: 0 0 10px #666;
+    border-radius: 3px;
+    position: relative;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%) translateY(-50%);*/
+}
+
+#part1 {
+    /*height: 1180px;*/
+    background-color: #87CEFA;
+    /*background-color: #87CEFA;*/
+
+    width: 100%;
+    height: 715px;
+    overflow: hidden;
+    transition: all .5s linear;
+    position: absolute;
+    z-index: 600;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#part1 > .qiqiu {
+    position: absolute;
+    top: 12px;
+    left: 0;
+}
+
+#part1 > .bike {
+    position: absolute;
+    top: 155px;
+    right: -597px;
+    transition: all 2s linear;
+}
+
+#part1 > .bike.active {
+    right: 0px;
+}
+
+#part1 > .cloud {
+    position: absolute;
+    top: 340px;
+    right: 0;
+}
+
+#part1 > .qi, #part1 > .xi, #part1 > .qing {
+    opacity: 0;
+}
+
+#part1 > .qi_cloud, #part1 > .xi_cloud, #part1 > .qing_cloud {
+    transition: all 2s linear;
+}
+
+#part1 > .qi {
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    transition: all .7s linear 2s;
+}
+
+#part1 > .qi_cloud {
+    position: absolute;
+    top: 90px;
+}
+
+#part1 > .xi {
+    position: absolute;
+    top: 170px;
+    left: 60px;
+    transition: all .7s linear 2.7s;
+}
+
+#part1 > .xi_cloud {
+    position: absolute;
+    top: 275px;
+}
+
+#part1 > .qing {
+    position: absolute;
+    top: 295px;
+    left: 270px;
+    transition: all .7s linear 3.4s;
+}
+
+#part1 > .qing_cloud {
+    position: absolute;
+    top: 425px;
+}
+
+#part1 > .qi_cloud {
+    left: 0;
+}
+
+#part1 > .qi_cloud.active {
+    left: 235px;
+}
+
+#part1 > .xi_cloud {
+    left: -70px;
+}
+
+#part1 > .xi_cloud.active {
+    left: 165px;
+}
+
+#part1 > .qing_cloud {
+    left: -5px;
+}
+
+#part1 > .qing_cloud.active {
+    left: 230px;
+}
+
+#part1 > .qi.active, #part1 > .xi.active, #part1 > .qing.active {
+    opacity: 1;
+}
+
+#part1 > .msg1 {
+    position: absolute;
+    top: 10px;
+    right: 395px;
+    opacity: 0;
+    transition-delay: 2.5s;
+}
+
+#part1 > .msg1.active {
+    opacity: 1;
+}
+
+#part1 > .msg2 {
+    position: absolute;
+    top: 48px;
+    right: 78px;
+    opacity: 0;
+    transition-delay: 3s;
+}
+
+#part1 > .msg2.active {
+    opacity: 1;
+}
+
+#part1_next > .xin {
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    left: 280px;
+}
+
+#part1_next > .part1_title {
+    position: absolute;
+    bottom: 270px;
+    left: 35px;
+    opacity: 0;
+    transition: all 1.2s linear;
+}
+
+/*---------------------------------part1_next---------------------------------*/
+
+#part1_next {
+    background-color: white;
+
+    width: 100%;
+    height: 715px;
+    overflow: hidden;
+    transition: all .5s linear;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#part1_next > .part1_detail {
+    width: 380px;
+    position: absolute;
+    top: 50px;
+    left: 380px;
+    opacity: 0;
+    transition: all 1.2s linear 0.5s;
+}
+
+#part1_next > .content {
+    width: 820px;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    font-family: 'Microsoft yahei';
+    color: #33beee;
+    margin: 8px;
+    font-size: 1.8rem;
+    padding: 0 30px;
+    line-height: 40px;
+    opacity: 0;
+    transition: all 1.2s linear 1.2s;
+}
+
+#part1_next > .part1_detail > p {
+    font-family: 'Microsoft yahei';
+    color: #33beee;
+    margin: 8px;
+    font-weight: bold;
+}
+
+#part1_next > .part1_detail > :nth-child(1) {
+    font-size: 2.1rem;
+}
+
+#part1_next > .part1_detail > :nth-child(2) {
+    font-size: 1.5rem;
+    padding: 0 30px;
+    line-height: 25px;
+}
+
+#part1_next > .bottom {
+    width: 100%;
+    height: 380px;
+    padding-top: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    background: white;
+}
+
+#part1_next > .bottom > .main {
+    width: 820px;
+    height: 100%;
+    margin: 0 auto;
+    /*opacity: 0;*/
+    /*transition: all 1s linear;*/
+}
+
+#part1_next > .photo {
+    position: absolute;
+    right: -204px;
+    top: 50%;
+    box-shadow: 0 0 10px 2px #ddd;
+    /*border: 3px solid red;*/
+    width: 204px;
+    height: 250px;
+}
+
+#part1_next > .photo:hover {
+    box-shadow: 0 0 10px 3px #33beee;
+    cursor: pointer;
+}
+
+/*#part1_next > .bottom > .main img {*/
+/*float: left;*/
+/*}*/
+
+#part1_next > .bottom > .main > img + img {
+    margin-left: 29px;
+}

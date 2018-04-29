@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="qixi.css"/>
+    <link rel="stylesheet" href="animate.css"/>
+    <script src="jquery-1.11.3.js"></script>
+	<!-- 最底部的介绍css 1,2,3-->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+	<!--必要样式-->
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+	<!-- 立方体css -->
+	<link rel="stylesheet" type="text/css" href="css/xuanzhuanlifang.css" />
+<!--必要样式表-->
+<link rel="stylesheet" href="css/header.css" type="text/css">
+<script type="text/javascript" src="js/first/flux.js"></script>
+<script type="text/javascript">
+$(function(){
+	if(!flux.browser.supportsTransitions)
+		alert("Flux Slider requires a browser that supports CSS3 transitions");	
+	window.f = new flux.slider('#slider', {
+		pagination: false,
+		controls: false,
+		transitions: ['explode', 'tiles3d', 'bars3d', 'cube', 'turn'],
+		autoplay: false
+	});	
+	$('.transitions').click(function(event){
+		event.preventDefault();
+		window.f.next($(event.target).data('transition'), $(event.target).data('params'));
+	});
+});
+</script>
+<style>
+	#a1{
+		display:flex;
+	}
+</style>
+</head>
+<body>
+    <header>
+        <section class="container">
+			<div id="slider">
+				<img src="imgs/bg512.jpg" alt="" />
+				<img src="imgs/hero.jpg" alt="" />
+				<img src="imgs/zhuyetu.gif" alt="" />	
+			</div>
+			<ul class="transitions">
+				<li><button type="button" data-transition="explode" ></button></li>
+			</ul>	
+		</section>
+    </header>
+    <section>
+        <div id="four-love">
+        </div>
+		<div id="a9">
+			<ul id="nine-img">
+				<li><img class="i1" src="cx/timg.jpg" alt=""/></li>
+				<li class="img11"><img src="cx/92.jpg" alt="" /></li>
+				<li><img class="i1" src="cx/93.jpg" alt=""/></li>
+				<li><img class="i2" src="cx/94.jpg" alt=""/></li>
+				<li><img class="i3" src="cx/95.png" alt=""/></li>
+				<li><img class="i4" src="cx/96.jpg" alt=""/></li>
+				<li><img class="i1" src="cx/97.jpg" alt=""/></li>
+				<li><img class="i1"src="cx/98.jpg" alt=""/></li>
+				<li><img class="i1" src="cx/99.jpg" alt=""/></li>
+			</ul>
+		</div>
+		<div id="a1">
+			<div id="main-wrapper">
+				<div id="maincube" class="cube" style="--cubesize:400px;--anim:maincuberotation;">
+					<div class="front"><img src="cxcycr/3279569-20160815224014397.jpg" alt=""></div>
+					<div class="back"><img src="cxcycr/timg-(2).jpg" alt=""></div>
+					<div class="right"><img src="cxcycr/timg-(9).jpg" alt=""></div>
+					<div class="left"><img src="cxcycr/timg-(14).jpg" alt=""></div>
+					<div class="top"><img src="cxcycr/u=2810055443,134784499&fm=27&gp=0.jpg" alt=""></div>
+					<div class="bottom"><img src="cxcycr/123sad.jpg" alt=""></div>
+				</div>
+			</div>
+			<div id="main-wrapper">
+				<div id="maincube" class="cube" style="--cubesize:400px;--anim:maincuberotation;">
+					<div class="front"><img src="cxcycr/u=2810055443,134784499&fm=27&gp=0.jpg" alt=""></div>
+					<div class="back"><img src="cxcycr/timg-(14).jpg" alt=""></div>
+					<div class="right"><img src="cxcycr/123sad.jpg" alt=""></div>
+					<div class="left"><img src="cxcycr/timg-(9).jpg" alt=""></div>
+					<div class="top"><img src="cxcycr/3279569-20160815224014397.jpg" alt=""></div>
+					<div class="bottom"><img src="cxcycr/timg-(2).jpg" alt=""></div>
+				</div>
+			</div>
+			<div id="main-wrapper">
+				<div id="maincube" class="cube" style="--cubesize:400px;--anim:maincuberotation;">
+					<div class="front"><img src="cxcycr/timg-(2).jpg" alt=""></div>
+					<div class="back"><img src="cxcycr/123sad.jpg" alt=""></div>
+					<div class="right"><img src="cxcycr/timg-(9).jpg" alt=""></div>
+					<div class="left"><img src="cxcycr/u=2810055443,134784499&fm=27&gp=0.jpg" alt=""></div>
+					<div class="top"><img src="cxcycr/timg-(14).jpg" alt=""></div>
+					<div class="bottom"><img src="cxcycr/3279569-20160815224014397.jpg" alt=""></div>
+				</div>
+			</div>
+		</div>
+        <div id="blue-background">
+            <div id="wenzi">
+                <p class="text-style1  flash"><h2>爱是长在我们心里的藤蔓</h2></p>
+                <p><h4>love is like a butterfly.it goewhere it pleaseand it pleasewhere it goes</h4></p>
+            </div>
+            <ul id="circle-img">
+                <li><div><img src="img/41.jpg" /></div></li>
+                <li><div><img src="img/42.jpg" /></div></li>
+                <li><div><img src="img/43.jpg" /></div></li>
+                <li><div><img src="img/44.jpg" /></div></li>
+            </ul>
+        </div>
+        <div id="pink-background">
+            <div id="like">
+                <h1 class="xi">斯人若彩虹 </h1>
+                <h1 class="huan">遇上方知有</h1>
+            </div>
+        </div>
+        <!--1-------------------------------->
+        <div id="flower">
+            <div >
+                <img src="111.jpg" alt="" />
+            </div>
+        <!--2-------------------------------->
+            <div>
+                <img src="112.jpg" alt="" />
+            </div>
+        <!--3-------------------------------->
+            <div>
+               <img src="113.jpg" alt=""/>
+            </div>
+        <!--4-------------------------------->
+            <div>
+                <img src="114.jpg" alt="" />
+            </div>
+        </div>
+    </section>
+<div class="wrapper">
+	<ul class="stage clearfix">
+
+		<li class="scene">
+			<div class="movie" onClick="return true">
+				<div class="poster"></div>
+				<div class="info">
+					<header>	
+						<h1>李梦君</h1>
+						<span class="year">1992</span>
+						<span class="rating">哈喽</span>
+						<span class="duration">word</span>
+					</header>	
+					<p>
+					<br>
+						“生活不止眼前的苟且，
+				<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;还有诗和远方”
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<li class="scene">
+			<div class="movie" onClick="return true">
+				<div class="poster"></div>
+				<div class="info">
+					<header>
+						<h1>王文青</h1>
+						<span class="year">2000</span>
+						<span class="rating">CN
+						</span>
+						<span class="duration">可美了</span>
+					</header>
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我是“诗”,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;想去远方。
+					</p>
+				</div>
+			</div>
+		</li>
+
+		<li class="scene">
+			<div class="movie" onClick="return true">
+				<div class="poster"></div>
+				<div class="info">
+					<header>
+						<h1>沈崎荣</h1>
+						<span class="year">1995</span>
+						<span class="rating">cn</span>
+						<span class="duration">man</span>
+					</header>
+					<p>
+						想做个静静的美男子，看着远方
+					</p>
+				</div>
+			</div>
+		</li>
+
+	</ul>
+</div>
+
+<script src="index.js"></script>
+<script type="text/javascript" class="autoinsert" src="js/jquery-1.2.6.min.js"></script> 
+<script src="js/snowfall.jquery.js"></script> 
+<script>
+        $("section").snowfall('clear');
+        $("section").snowfall({
+            image: "images/huaban.png",
+            flakeCount:30,
+            minSize: 50,
+            maxSize: 22
+        });
+</script>
+</body>
+</html>

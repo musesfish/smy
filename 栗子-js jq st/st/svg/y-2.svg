@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="838.639px" height="953.81px" viewBox="0 0 838.639 953.81" enable-background="new 0 0 838.639 953.81"
+	 xml:space="preserve" id="y2" class="svg">
+<style>
+        #y2{
+            stroke-dasharray: 3000;
+            stroke-dashoffset: 3000;
+            transition: all 10s linear;
+        }
+	</style>
+	<script>
+	window.onload = function(){
+		document.getElementsByClassName("svg")[0].style.cssText = "stroke-dashoffset: 0;";
+	}
+	</script>
+<g id="_x30_2拖行李">
+	
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M333.416,116.563h20.999
+		c0,0-1.544-13.271,12.847-12.659c10.645,0.452,33.119-2.522,43,3.174c3.211,1.852,3,12.826,3,12.826h16.667l1-11
+		c0,0,3.452-25.022-15-23.666l-64.667-2.667C351.262,82.571,328.903,77.223,333.416,116.563z"/>
+	
+		<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="336.596" y1="116.563" x2="336.596" y2="416.722"/>
+	
+		<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="349.262" y1="116.904" x2="347.929" y2="411.512"/>
+	
+		<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="417.262" y1="119.904" x2="417.929" y2="392.571"/>
+	
+		<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="428.262" y1="119.904" x2="428.262" y2="391.916"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M267.594,453.57c0,0,9.525-20.586,33-21
+		c0,0,59-3,76,21c0,0,12,14,15,48v360c0,0-72,20-91-17c0,0-12-41-39-47L267.594,453.57z"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M306.189,432.451c0,0,87.404-56.545,184.404-37.213
+		c0,0,73,13.086,106,37.209c0,0,25,11.396,13,217.26c0,0,4.788,105.416-28.047,147.389c-3.265,4.174-6.901,7.721-10.953,10.475
+		c0,0-150,75-179,54"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M386.174,473.388
+		c96.42-72.817,210.42-40.94,210.42-40.94"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M264.965,798.652"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M413.445,864.111
+		c0.533,2.198,0.816,4.495,0.816,6.856c0,16.017-12.983,29-29,29c-16.018,0-29-12.983-29-29c0-1.811-0.152-1.864,0.165-3.582"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M576.705,802.28c0,0.399-0.008,0.797-0.024,1.191
+		c-0.624,15.464-13.357,27.809-28.976,27.809c-5.83,0-11.259-1.721-15.805-4.682"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M298.639,838.947
+		c-2.301,16.109-6.253,27.164-23.426,27.164c-18.779,0-31.426-21.442-31.426-40.22c0-17.636,0.604-26.747,17.794-28.445"/>
+	<path fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" d="M219.168,774.105"/>
+</g>
+
+</svg>

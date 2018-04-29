@@ -1,0 +1,194 @@
+<html>
+<head>
+<title>die1-6</title>
+<script>
+function init(){
+ var cwidth=400;
+ var cheight=800;
+ var dicex=25;
+ var dicey=25;
+ var dicewidth=50;
+ var diceheight=50;
+ var dotrad=4;
+ var ctx;
+ 
+ ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex,dicey,dicewidth,diceheight);
+ ctx.strokeRect(dicex,dicey,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+ 
+ ctx.beginPath();
+ dotx=dicex+.5*dicewidth;
+ doty=dicey+.5*diceheight;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ ctx.closePath();
+ ctx.fill();
+ 
+ ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex+100,dicey,dicewidth,diceheight);
+ ctx.strokeRect(dicex+100,dicey,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+ 
+ ctx.beginPath();
+ dotx=dicex+3*dotrad+100;
+ doty=dicey+3*dotrad;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ dotx=dicex+dicewidth-3*dotrad+100;
+ doty=dicey+diceheight-3*dotrad;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ ctx.closePath();
+ ctx.fill();
+ 
+ ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex,dicey+80,dicewidth,diceheight);
+ ctx.strokeRect(dicex,dicey+80,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+
+ 
+ ctx.beginPath();
+ dotx=dicex+.5*dicewidth;
+ doty=dicey+80+.5*diceheight;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ dotx=dicex+3*dotrad;
+ doty=dicey+80+3*dotrad;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ dotx=dicex+dicewidth-3*dotrad;
+ doty=dicey+80+diceheight-3*dotrad;
+ ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+ ctx.closePath();
+ ctx.fill();
+ 
+ ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex+100,dicey+80,dicewidth,diceheight);
+ ctx.strokeRect(dicex+100,dicey+80,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+
+ 
+ ctx.beginPath();
+	dotx=dicex+3*dotrad+100;
+	doty=dicey+80+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad+100;
+	doty=dicey+80+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx.beginPath();
+	dotx=dicex+3*dotrad+100;
+	doty=dicey+80+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad+100;
+	doty=dicey+80+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex,dicey+160,dicewidth,diceheight);
+ ctx.strokeRect(dicex,dicey+160,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+
+ 
+ ctx.beginPath();
+	dotx=dicex+.5*dicewidth;
+	doty=dicey+160+.5*diceheight;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+    ctx.closePath();
+	ctx.fill();
+ 
+  ctx.beginPath();
+	dotx=dicex+3*dotrad;
+	doty=dicey+160+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad;
+	doty=dicey+160+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx.beginPath();
+	dotx=dicex+3*dotrad;
+	doty=dicey+160+diceheight-3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad;
+	doty=dicey+160+3*dotrad;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx=document.getElementById("canvas").getContext('2d');
+ ctx.lineWidth=5;
+ ctx.clearRect(dicex+100,dicey+160,dicewidth,diceheight);
+ ctx.strokeRect(dicex+100,dicey+160,dicewidth,diceheight);
+ ctx.fillStyle="#009966";
+ 
+ 
+ 
+  ctx.beginPath();
+	dotx=dicex+3*dotrad+100;
+	doty=dicey+3*dotrad+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad+100;
+	doty=dicey+diceheight-3*dotrad+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	
+	
+	ctx.beginPath();
+	dotx=dicex+3*dotrad+100;
+	doty=dicey+diceheight-3*dotrad+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad+100;
+	doty=dicey+3*dotrad+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	ctx.beginPath();
+	dotx=dicex+3*dotrad+100;
+	doty=dicey+.5*diceheight+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+	dotx=dicex+dicewidth-3*dotrad+100;
+	doty=dicey+.5*diceheight+160;
+	ctx.arc(dotx,doty,dotrad,0,Math.PI*2,true);
+	
+    ctx.closePath();
+	ctx.fill();
+	
+	
+}
+</script>
+ 
+}
+</script>
+</head>
+
+<body onLoad="init();">
+<canvas id="canvas" width="400" height="300">
+Your browser doesn't support the HTML5 element canvas.
+</canvas>
+</body>
+</html>
+
+
