@@ -1,0 +1,121 @@
+<!doctype html>
+<html ng-app="myapp">
+
+	<head>
+		<title>angular-deckgrid</title>
+		<style>
+			.deckgrid[deckgrid]::before {
+				content: '4 .column.column-1-4';
+				font-size: 0;
+				visibility: hidden;
+			}
+			
+			.deckgrid .column {
+				float: left;
+			}
+			
+			.deckgrid .column-1-4 {
+				width: 25%;
+			}
+			
+			.my-wrap {
+				padding: 5px;
+			}
+			
+			.my-wrap a {
+				display: block;
+			}
+			
+			.my-wrap a img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="HomeController">
+
+		<div deckgrid class="deckgrid" source="photos" cardTemplate="templates/deckgrid-card.html"></div>
+
+		<script src="js/angular.js"></script>
+		<script src="js/plugins/angular-deckgrid.min.js"></script>
+		<script type="text/javascript">
+			angular.module("myapp", ["akoenig.deckgrid"])
+				.controller("HomeController", function($scope) {
+					$scope.photos = [{
+						"src": "img/list/glcy.jpg",
+						"title": "精锐出游桂林山水",
+						"text": "”桂林山水甲天下。“我们乘着木船荡漾在漓江上，来观赏桂林的山水。 我看见过波澜壮阔的大海，玩赏过水平如镜的西湖，却从没看见过漓江这样的水。漓江的水真静啊，静得让你感觉不到它在流动；漓江的水真清啊，清...",
+						"time": "2016年11月30日",
+						"s_number": "11"
+					}, {
+						"src": "img/list/xyj.png",
+						"title": "信用家上线",
+						"text": "信用家是一家专注于小微信贷领域的互联网金融服务公司，核心团队均来自于业内知名机构，拥有十余年的管理和运营经验。公司始终坚持“小额、分散”的经营理念，采用“网络、数据”为核心的新型微贷技术，利用成熟的风险评价模型和高效的IT系统，建立起了完善的信贷流水线和云端管理体系。",
+						"time": "2016年10月15日",
+						"s_number": "10"
+					}, {
+						"src": "img/list/xdjf.jpg",
+						"title": "信达金服上线",
+						"text": "深圳市长信达互联网金融服务,平台定位于投融资信息交互、纯信息中介撮合，旨在为投资人提供“安全、高效、专业、低门槛”的理财服务，是由深圳市长信达金融控股有限公司控股打造的专业化金融信息服务平台。",
+						"time": "2016年7月15日",
+						"s_number": "9"
+					}, {
+						"src": "img/list/zcax.jpg",
+						"title": "中诚安信上线",
+						"text": "中诚安信是一家专业的保险经纪公司，兼具风险顾问和保险经纪人的双重角色，能够提供全面而专业的服务。帮助企业满足国内外市场对企业风险管理和保险的特殊要求，以适应当今世界与日俱增、日趋分散化和复杂化的风险环境。",
+						"time": "2016年8月15日",
+						"s_number": "8"
+					}, {
+						"src": "img/list/zzqdjs.jpg",
+						"title": "精锐成功申请计算机软件著作权",
+						"text": "计算机软件是指计算机程序及有关文档。受保护的软件必须由开发者独立开发，即必须具备原创性，同时，必须是已固定在某种有形物体上而非存在于开发者的头脑中。",
+						"time": "2016年6月15日",
+						"s_number": "7"
+					}, {
+						"src": "img/list/zlm.jpg",
+						"title": "涨了么APP上线",
+						"text": "专注于黄金白银贵金属投资理财软件，为广大客户提供专业的投资指导，涨了么app支持在线开户，直连交易所，行情走势一目了然，实时交易，安全有保障，助你财富蹭蹭往上涨。",
+						"time": "2016年7月15日",
+						"s_number": "6"
+					}, {
+						"src": "img/list/bjjys.jpg",
+						"title": "百家金钥匙微信端上线",
+						"text": "通过科学实用的财商教育知识，提升国内老百姓的财商智慧，推广实践金融理财规划，协助更多老百姓全方位保护，从而走向财富通往人生幸福的目标。",
+						"time": "2016年6月15日",
+						"s_number": "5"
+					}, {
+						"src": "img/list/wql.png",
+						"title": "万企联金融服务有限上线了",
+						"text": "深圳前海万企联金融服务有限公司（简称万企联）与多家银行推出的银企支付系统（企业版多账户资金管理系统），致力于与金融机构合作，一起为中小企业提供全面的金融服务。",
+						"time": "2015年6月15日",
+						"s_number": "4"
+					}, {
+						"src": "img/list/0.jpg",
+						"title": "小猪罐子金融P2P上线了",
+						"text": "小猪罐子通过互联网平台提供专业、透明、稳健的全方位网络借贷信息中介服务，实现个体与个体之间的借贷，而未来将致力于打造互联网金融闭环生态圈，在普惠金融的定位上发挥自身价值。",
+						"time": "2015年8月15日",
+						"s_number": "3"
+					}, {
+						"src": "img/list/zxcf.jpg",
+						"title": "中小财富平台上线",
+						"text": "中小财富响应国家提出的“金融创新”、“解决中小企业融资难问题”和深圳市政府前海金融改革试验区号召，采用创新的互联网金融模式，通过严谨、专业、透明的操作规范和流程，是一个专业、稳健、高收益的互联网金融平台。",
+						"time": "2015年8月15日",
+						"s_number": "2"
+					}, {
+						"src": "img/list/yjb.jpg",
+						"title": "壹金宝平台上线",
+						"text": "壹金宝（www.onejinbao.com)是深圳市前海新一贷互联网金融服务有限公司旗下的互联网投融资信息平台，于2014年9月在前海注册，力争为投资者打造一个全方位的互联网金融“交易所”平台。",
+						"time": "2015年8月15日",
+						"s_number": "1"
+					}, {
+						"src": "img/list/hry.jpg",
+						"title": "浩融益平台上线",
+						"text": "以健全稳重的风险管理体系为基础，推出“二高二低”高保障、高收益、低风险、低门槛的投资理财产品，为广大机构中小企业与投资者提供专业，安全的金融创新产品，让投资和融资变得透明，简单，高效。实现全民财富的保值增值。",
+						"time": "2015年7月15日",
+						"s_number": "0"
+					}];
+				});
+		</script>
+	</body>
+
+</html>
