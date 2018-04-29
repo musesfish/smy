@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="height = device-height,width = device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>测试页面</title>
+</head>
+<script type="text/javascript" src="dialog.js"></script>
+<script type="text/javascript" src="drag.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<body>
+<input id="test" type="button"value="弹出密码框">
+</body>
+<script>
+    document.querySelector("#test").onclick=function(){
+        var diag;
+        var param = '';
+        var userName='';
+        var diag = new Dialog();
+        diag.Drag=false;
+        diag.Width=$(window).width();
+        diag.Height=$(window).height();
+        diag.URL = "ladingPasswordConfirm.html?action=set&param="+param+"&userName="+userName+"&t="+Math.random();
+        diag.show();
+    }
+</script>
+</html>

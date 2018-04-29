@@ -1,0 +1,17 @@
+我们建议使用上文提供的 <script> 标记通过 HTTPS 加载 Maps JavaScript API。
+必要时，您可以通过请求 http://maps.googleapis.com/
+（对于中国用户，则是 http://maps.google.cn）通过 HTTP 加载 Maps JavaScript API。
+async 属性允许浏览器在 Maps JavaScript API 加载的同时渲染网站的其余内容。
+当 API 就绪时，它将调用使用 callback 参数指定的函数。
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZVzXchXGzv9hSSNCdDNDGb4T1Wn_x1rg&callback=initMap"
+    async defer></script>
+<script src="http://maps.google.cn/maps/api/js?key=AIzaSyBZVzXchXGzv9hSSNCdDNDGb4T1Wn_x1rg&callback=initMap"
+    async defer></script>
+zoom 属性设置
+1：世界
+5：大陆/洲
+10：城市
+15：街道
+20：建筑物
+
+    

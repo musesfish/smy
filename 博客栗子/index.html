@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的博客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/tool.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+<!--头部start-->
+    <div class="header">
+        <div class="main">
+            <div class="headerLogo"></div>
+            <div class="profile">
+                个人中心
+                <ul>
+                    <li>发文</li>
+                    <li>换肤</li>
+                    <li>帮助</li>
+                    <li>退出</li>
+                </ul>
+            </div>
+            <div class="signIn">注册</div>
+            <div class="logIn">登录</div>
+        </div>
+        <!--遮罩锁屏-->
+        <div class="screen"></div>
+        <!--登录界面start-->
+        <div class="login">
+            <div class="loginHeader">
+                <h2>网站登录</h2>
+                <img src="img/close.png" alt="" class="close">
+            </div>
+            <div class="loginCon">
+                <form action="" class="loginForm" name="loginForm">
+                    <div class="info"></div>
+                    <div class="user">
+                        <label for="user">账 号：</label>
+                        <input type="text" id="user" class="text" name="user">
+                    </div>
+                    <div class="password">
+                        <label for="password">密 码：</label>
+                        <input type="password" id="password" class="text" name="password">
+                    </div>
+                    <div class="button">
+                        <input type="button" class="submit">
+                    </div>
+                    <div class="other">
+                        <a href="#">注册新用户</a> | <a href="#">忘记密码？</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--登录界面end-->
+        <!--注册界面start-->
+        <div class="sign">
+            <div class="signHeader">
+                <h2>会员注册</h2>
+                <img src="img/close.png" alt="" class="signClose">
+            </div>
+            <div class="signCon clearfix">
+                <form action="" method="post" name="signForm" class="signForm">
+                    <dl>
+                    <dd>
+                        <label for="username">用<s style="display:inline-block;padding:0 4px 0 3px;"></s>户<s style="display:inline-block;padding:0 4px 0 3px;"></s>名：</label>
+                        <input type="text" class="text" id="username" name="username">
+                        <span class="info info_user">请输入用户名，2~20位，由字母、数字和下划线组成！</span>
+                        <span class="error error_user">输入不合法，请重新输入！</span>
+                        <span class="succ succ_user">可用</span>
+                        <span class="loading" style="display:none;">正在检测用户名...</span>
+                    </dd>
+                    <dd>
+                        <label for="pass">密<s style="display:inline-block;padding:0 14px;"></s>码：</label>
+                        <input type="password" class="text" id="pass" name="pass">
+                        <span class="info info_pass">
+                            <p>安全级别：<strong class="s s1">■</strong><strong class="s s2">■</strong><strong class="s s3">■</strong> <strong class="s s4" style="font-weight:normal;"></strong></p>
+                            <p><strong class="q q1" style="font-weight:normal;">●</strong> 6-20 个字符</p>
+                            <p><strong class="q q2" style="font-weight:normal;" >●</strong> 只能包含大小写字母、数字和非空格字符</p>
+                            <p><strong class="q q3" style="font-weight:normal;">●</strong> 大、小写字母、数字、非空字符，2种以上</p>
+                        </span>
+                        <span class="error error_pass">输入不合法，请重新输入！</span>
+                        <span class="succ succ_pass">可用</span>
+                    </dd>
+                    <dd>
+                        <label for="passfirm">密码确认：</label>
+                        <input type="password" class="text" id="passfirm" name="passfirm">
+                        <span class="info info_passfirm">请再一次输入密码！</span>
+                        <span class="error error_passfirm">密码不一致，请重新输入！</span>
+                        <span class="succ succ_passfirm">可用</span>
+                    </dd>
+                    <dd>
+                        提<s style="display:inline-block;padding:0 14px;"></s>问：
+                        <select  id="signSel" class="signSel" name="ques">
+                                    <option value="0">----请选择----</option>
+                                    <option value="1">--您最喜欢吃的饭</option>
+                                    <option value="2">--您的狗狗的名字</option>
+                                    <option value="3">--您的出生地</option>
+                                    <option value="4">您喜欢的明星</option>
+                        </select>
+                        <span class="error error_ques">尚未选择提问，请选择！</span>
+                    </dd>
+                    <dd>
+                        <label for="answer">回<s style="display:inline-block;padding:0 14px;"></s>答：</label>
+                        <input type="text" class="text" id="answer" name="answer">
+                        <span class="info info_ans">请输入回答，2~32位！</span>
+                        <span class="error error_ans">回答不合法，请重新输入！</span>
+                        <span class="succ succ_ans">可用</span>
+                    </dd>
+                    <dd>
+                        <label for="email">电子邮件：</label>
+                        <input type="text" class="text" id="email" name="email">
+                        <ul class="all_email">
+                            <li class=""><span></span>@qq.com</li>
+                            <li class=""><span></span>@163.com</li>
+                            <li class=""><span></span>@sohu.com</li>
+                            <li class=""><span></span>@sina.com.cn</li>
+                            <li class=""><span></span>@gmail.com</li>
+                        </ul>
+                        <span class="info info_email">请输入电子邮件！</span>
+                        <span class="error error_email">邮件不合法，请重新输入！</span>
+                        <span class="succ succ_email">可用</span>
+                    </dd>
+                    <dd>
+                        生<s style="display:inline-block;padding:0 14px;"></s>日：
+                        <select name="year" id="year" class="birth">
+                             <option value="">-年-</option>
+                        </select>-
+                        <select name="month" id="month" class="birth">
+                            <option value="">-月-</option>
+                        </select>-
+                        <select name="day" id="day" class="birth">
+                            <option value="">-日-</option>
+                        </select>
+                        <span class="error error_birth">尚未全部选择，请选择！</span>
+                    </dd>
+                    <dd style="position:relative;height:105px;">
+                        <label for="add" style="position:absolute;left:0;top:0;">备<s style="display:inline-block;padding:0 14px;"></s>注：</label>
+                        <textarea name="add" id="add" cols="30" rows="10"></textarea>
+                    </dd>
+                    <dd style="text-indent:300px;display:block;" class="ps">
+                        还可以输入<i class="signLeft" style="font-style:normal;font-weight:bold;padding:0 2px;">200</i>字
+                    </dd>
+                    <dd style="text-indent:300px;display:none;" class="ps">
+                        已超过<i class="signLeft" style="font-style:normal;color:red;font-weight:bold;padding:0 2px;"></i>字，
+                        <a href="javascript:void(0);" class="ps_clear">清尾</a>
+                    </dd>
+                    <dd class="signSub">
+                        <input type="button" class="button">
+                    </dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+        <!--注册界面end-->
+        <!--异步加载start-->
+        <div class="loading ajax">
+            <p>正在加载</p>
+        </div>
+        <div class="success ajax">
+            <p>加载成功</p>
+        </div>
+        <!--异步加载end-->
+    </div>
+<!--头部end-->
+<!--网页主体start-->
+    <div class="middle clearfix">
+        <div class="main">
+            <!--主导航栏start-->
+            <div class="nav">
+                <ul class="top">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <ul class="about">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">博文列表</a></li>
+                    <li><a href="#">精彩相册</a></li>
+                    <li><a href="#">动感音乐</a></li>
+                    <li><a href="#">关于我</a></li>
+                </ul>
+                <div class="navBg">
+                    <ul class="white">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">博文列表</a></li>
+                        <li><a href="#">精彩相册</a></li>
+                        <li><a href="#">动感音乐</a></li>
+                        <li><a href="#">关于我</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--主导航栏end-->
+            <!--主体侧边栏start-->
+            <div class="sidebar">
+                <div class="sidebarItem">
+                    <h2>教育博文1</h2>
+                    <ul>
+                        <li><a href="#">靠自己00后女生被16所国外名校录取</a></li>
+                        <li><a href="#">10后成长的烦恼：压力巨大成隐形杀手</a></li>
+                        <li><a href="#">一年学习33门MIT课？疯狂学习法</a></li>
+                        <li><a href="#">申请赴美读研人数下降5% 7年来首遇冷</a></li>
+                        <li><a href="#">西政“萌招聘”秀出辣椒与美女被赞</a></li>
+                    </ul>
+                </div>
+                <div class="sidebarItem">
+                    <h2>教育博文2</h2>
+                    <ul>
+                        <li><a href="#">靠自己00后女生被16所国外名校录取</a></li>
+                        <li><a href="#">10后成长的烦恼：压力巨大成隐形杀手</a></li>
+                        <li><a href="#">一年学习33门MIT课？疯狂学习法</a></li>
+                        <li><a href="#">申请赴美读研人数下降5% 7年来首遇冷</a></li>
+                        <li><a href="#">西政“萌招聘”秀出辣椒与美女被赞</a></li>
+                    </ul>
+                </div>
+                <div class="sidebarItem">
+                    <h2>教育博文3</h2>
+                    <ul>
+                        <li><a href="#">靠自己00后女生被16所国外名校录取</a></li>
+                        <li><a href="#">10后成长的烦恼：压力巨大成隐形杀手</a></li>
+                        <li><a href="#">一年学习33门MIT课？疯狂学习法</a></li>
+                        <li><a href="#">申请赴美读研人数下降5% 7年来首遇冷</a></li>
+                        <li><a href="#">西政“萌招聘”秀出辣椒与美女被赞</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--发文satrt-->
+            <div class="index"></div>
+            <!--发文end-->
+            <!--主体轮播器start-->
+            <div class="carousel clearfix">
+               <div class="wrap">
+                   <img src="img/banner1.jpg" class="img1" alt="">
+                   <img src="img/banner2.jpg" alt="">
+                   <img src="img/banner3.jpg" alt="">
+               </div>
+                <span></span>
+                <ul>
+                    <li style="color:rgb(51,51,51)">●</li>
+                    <li>●</li>
+                    <li>●</li>
+                </ul>
+                <strong style="display:block">轮播器第一张</strong>
+                <strong>轮播器第二张</strong>
+                <strong>轮播器第三张</strong>
+            </div>
+            <!--主体轮播器end-->
+            <!--图片加载start-->
+            <div class="imgGallery">
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p1.jpg" bigsrc="img/p1big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p2.jpg" bigsrc="img/p2big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p3.jpg" bigsrc="img/p3big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p4.jpg" bigsrc="img/p4big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p5.jpg" bigsrc="img/p5big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p6.jpg" bigsrc="img/p6big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p7.jpg" bigsrc="img/p7big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p8.jpg" bigsrc="img/p8big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p9.jpg" bigsrc="img/p9big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p10.jpg" bigsrc="img/p10big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p11.jpg" bigsrc="img/p11big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+                <dl>
+                    <dd><img class="wait_load" xsrc="img/p12.jpg" bigsrc="img/p12big.jpg" src="img/wait_load.jpg" alt=""></dd>
+                    <dt>延迟加载图片</dt>
+                </dl>
+            </div>
+            <!--放大图片start-->
+            <div class="bigImg">
+                <div class="imgHeader">
+                    <h2>图片预加载</h2>
+                    <img src="img/close.png" class="img_close" alt="">
+                </div>
+                <div class="imgCon">
+                    <img src="img/loading.gif" class="" alt="">
+                    <strong class="sl">&lt;</strong>
+                    <strong class="sr">&gt;</strong>
+                    <span class="left"></span>
+                    <span class="right"></span>
+                    <em>1/12</em>
+                </div>
+            </div>
+            <!--放大图片end-->
+            <!--图片加载end-->
+            <!--侧边栏分享start-->
+            <div class="share">
+                <div class="shareHeader">
+                    <h3>分享到</h3>
+                </div>
+                <div class="shareCon clearfix">
+                    <ul>
+                        <li><a href="#" class="n1">一键分享</a></li>
+                        <li><a href="#" class="n2">新浪微博</a></li>
+                        <li><a href="#" class="n3">人人网</a></li>
+                        <li><a href="#" class="n4">百度相册</a></li>
+                        <li><a href="#" class="n5">腾讯朋友</a></li>
+                        <li><a href="#" class="n6">豆瓣网</a></li>
+                        <li><a href="#" class="n7">百度新首页</a></li>
+                        <li><a href="#" class="n8">和讯微博</a></li>
+                        <li><a href="#" class="n9">QQ空间</a></li>
+                        <li><a href="#" class="n10">百度收藏</a></li>
+                        <li><a href="#" class="n11">腾讯微博</a></li>
+                        <li><a href="#" class="n12">开心网</a></li>
+                        <li><a href="#" class="n13">百度贴吧</a></li>
+                        <li><a href="#" class="n14">搜狐微博</a></li>
+                        <li><a href="#" class="n15">QQ好友</a></li>
+                        <li><a href="#" class="n16">更多...</a></li>
+                    </ul>
+                </div>
+                <div class="shareFooter">
+                    <a href="#">百度分享</a>
+                    <span></span>
+                </div>
+            </div>
+            <!--侧边栏分享end-->
+        </div>
+    </div>
+<!--网页主体end-->
+<!--尾部start-->
+    <div class="footer">
+        <div class="main">
+            <p>Copyright© 2017-2017 周祥娅</p>
+            <p>联系邮箱：773043264@qq.com</p>
+        </div>
+    </div>
+<!--尾部end-->
+

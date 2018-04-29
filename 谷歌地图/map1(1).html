@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title></title>
+	<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAABjfudy2JHun7akhM9qSqPxQ_Zu-7BHeTikSrrThuN_kCyr6v3xS2zdq46jLJxIIm3VuRdZkpY0AsbQ"
+      type="text/javascript"></script>
+</head>
+<body onLoad="initialize()" onUnload="GUnload()">
+    <input name="" type="text" id="x">
+    <input name="" type="text" id="y">
+    <div id="mapdiv" style="width:800;height:400">mapdiv</div> <br>
+    <script type="text/javascript">
+		var map;
+		function initialize() {
+		   if (GBrowserIsCompatible()) { 
+		   	map= new GMap2(document.getElementById("mapdiv"));
+		   		//设置地图中心点和缩放级别
+		   		map.setCenter(new GLatLng(31.262704744996252, 121.50432586669922), 13); 
+		   		GEvent.addListener(map,"click", function(overlay,point) { 
+		    		document.getElementById("x").value=point.x;  
+		    		document.getElementById("y").value=point.y;  
+		    		//var center = new GLatLng(point);
+		        	var marker = new GMarker(point, {draggable: true});
+		  
+		        GEvent.addListener(marker, "dragstart", function() {
+		          map.closeInfoWindow();
+		        });
+		        GEvent.addListener(marker, "dragend", function() {
+		          marker.openInfoWindowHtml("正在反弹...");
+		        });
+		        //map.clearoverlays();
+		        map.addOverlay(marker);
+			var myHtml = "GPoint 值是 : " + point ;
+		    	map.openInfoWindow(point, myHtml);
+		     });
+		     map.enableContinuousZoom();
+		        //启用使用鼠标滚轮缩放
+		        map.enableScrollWheelZoom();
+		   		//添加地图类型
+		   		//map.addMapType(G_PHYSICAL_MAP);
+		   		//设置地图显示类型
+		   		//map.setMapType(G_PHYSICAL_MAP);
+		   		//添加控件
+		   		map.addControl(new GLargeMapControl(),new GControlPosition(G_ANCHOR_TOP_LEFT, new GSize(7,32)));
+		   }
+		}
+	</script> 
+</body>
+</html>

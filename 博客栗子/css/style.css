@@ -1,0 +1,720 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-size:12px;
+    font-family:微软雅黑;
+    color:#333;
+    background-color: #fff;
+    width:100%;
+}
+.main{
+    width:1000px;
+    margin:0 auto;
+}
+ul{
+    list-style:none;
+}
+a{
+    text-decoration:none;
+}
+.clearfix::after{
+    clear:both;
+    display:block;
+    content:'...';
+    height:0;
+    overflow:hidden;
+}
+.header{
+    width:100%;
+    height:30px;
+    background:url(../img/header_bg.png) repeat-x left top;
+}
+/*网页头部*/
+.header .headerLogo{
+    width:100px;
+    height:30px;
+    float:left;
+    background:url(../img/logo.gif) no-repeat left top;
+}
+.header .profile,.signIn,.header .logIn{
+    float:right;
+    cursor:pointer;
+    line-height:30px;
+}
+.header .profile{
+    padding-right:15px;
+    background:url(../img/arrow.png) no-repeat right 13px;
+    position:relative;
+}
+.header .profile ul{
+    width:100px;
+    height:120px;
+    position:absolute;
+    top:30px;
+    left:-20px;
+    background-color:#FBF7E1;
+    border:solid 1px #999;
+    border-top:0;
+    padding:10px 0 0 0;
+    display:none;
+}
+.header .profile li{
+    height:25px;
+    line-height:25px;
+    text-indent:20px;
+    background:url(../img/arrow3.gif) no-repeat 5px center;
+}
+.header .profile li:hover{
+    background:orange url(../img/arrow4.gif) no-repeat 5px center;
+}
+.header .signIn{
+    margin:0 10px;
+}
+.header .screen{
+    position:absolute;
+    left:0;
+    top:0;
+    background-color:black;
+    opacity:0.3;
+    filter:alpha(opacity=30);
+    z-index:900;
+    display:none;
+}
+/*登录*/
+.header .login{
+    width:350px;
+    height:250px;
+    position:absolute;
+    z-index:999;
+    background-color: #fff;
+    border:solid 1px #ccc;
+    display:none;
+}
+.header .login .loginHeader,.header .sign .signHeader,.middle .bigImg .imgHeader{
+    color:#666;
+    background:url(../img/login_header.png) repeat-x;
+    text-align:center;
+    position:relative;
+    cursor:move;
+}
+.header .login .loginHeader,.header .sign .signHeader,.middle .bigImg .imgHeader{
+    height:40px;
+    line-height:40px;
+}
+.login .loginHeader h2,.sign .signHeader h2,.middle .imgHeader h2{
+    font-size:14px;
+    letter-spacing:1px;
+}
+.login .loginHeader img,.middle .imgHeader img{
+    position:absolute;
+    top:13px;
+    right:10px;
+    cursor:pointer;
+}
+.login .loginCon .info{
+    padding:15px 0 5px 0;
+    text-align:center;
+    color:maroon;
+}
+.login .loginCon .user,.login .loginCon .password{
+    font-size:14px;
+    color:#666;
+    padding:8px 0;
+    text-align:center;
+}
+.login .loginCon .text{
+    width:200px;
+    height:25px;
+    font-size:14px;
+    text-indent:5px;
+    border:solid 1px #ccc;
+}
+.login .loginCon .button{
+    padding:15px 0;
+    text-align:center;
+    overflow:hidden;
+}
+.login .loginCon .submit{
+    width:107px;
+    height:30px;
+    background:url(../img/login_button.png) no-repeat 0 0;
+    border:none;
+    cursor:pointer;
+}
+.login .loginCon .other{
+    text-align:right;
+    margin:15px 10px;
+    color:#666;
+}
+.login .other a{
+    color:#666;
+}
+/*注册*/
+.header .sign{
+    width:600px;
+    height:550px;
+    background-color: #fff;
+    border:solid 1px #ccc;
+    z-index:999;
+    position:absolute;
+    display:none;
+}
+.sign .signHeader{
+    height:40px;
+    line-height:40px;
+}
+.sign .signHeader .signClose{
+    position:absolute;
+    top:13px;
+    right:10px;
+    cursor:pointer;
+}
+.sign .signCon{
+    padding:10px 0 0 25px;
+    position:relative;
+}
+.sign .signCon dd{
+    height:30px;
+    padding:5px 0;
+}
+.sign .signCon dd,.sign .signCon  .text,.sign .signCon select,.sign .signCo  textarea{
+    font-size:14px;
+    color:#666;
+}
+.sign .signCon .text,.sign .signCon .signSel{
+    width:200px;
+    height:25px;
+    line-height:25px;
+}
+.sign .signCon textarea{
+    width: 360px;
+    height: 100px;
+    position:absolute;
+    top:0;
+    left:74px;
+}
+.sign .signCon .button{
+    width:143px;
+    height:33px;
+    background:url(../img/reg.png) no-repeat 0 0;
+    border:none;
+    margin-left:150px;
+    cursor:pointer;
+}
+.sign .signCon span.info,.sign .signCon span.error,.sign .signCon span.succ{
+    width:165px;
+    height:32px;
+    line-height:32px;
+    font-size:12px;
+    color:#333;
+    padding-left:35px;
+    position:absolute;
+    left:310px;
+    display:none;
+}
+.sign .signCon span.info{
+    background:url(../img/reg_info.png) no-repeat;
+}
+.sign .signCon span.error{
+    background:url(../img/reg_error.png) no-repeat;
+}
+.sign .signCon span.succ{
+    background:url(../img/reg_succ.png) no-repeat left center;
+    padding-left:20px;
+}
+.sign .signCon span.info_user{
+    height:50px;
+    line-height:23px;
+    padding-top:4px;
+    background:url(../img/reg_info2.png) no-repeat;
+    top:8px;
+}
+.sign .signCon span.error_user{
+    top:12px;
+}
+.sign .signCon span.succ_user{
+    top:12px;
+}
+.sign .signCon span.loading{
+    background:url(../img/loading2.gif) no-repeat left center;
+    top:12px;
+    padding-left:20px;
+}
+.sign .signCon span.info_pass{
+    width:244px;
+    height:102px;
+    padding:4px 0 0 16px;
+    background:url(../img/reg_info3.png) no-repeat;
+    top:14px;
+}
+.sign span p{
+    height:25px;
+    line-height:25px;
+    color:#666;
+}
+.sign span .s{
+   color:rgb(204,204,204);
+}
+.sign span .q{
+    color:#fff;
+}
+.header .sign .signCon dd span.error_pass,.header .sign .signCon dd span.succ_pass{
+    top:53px;
+}
+.header .sign .signCon dd span.info_passfirm,.header .sign .signCon dd span.error_passfirm,.header .sign .signCon dd span.succ_passfirm{
+    top:92px;
+}
+.header .sign .signCon dd span.error_ques{
+    top:133px;
+}
+.header .sign .signCon dd span.info_ans,.header .sign .signCon dd span.error_ans,.header .sign .signCon dd span.succ_ans{
+    top:174px;
+}
+.header .sign .signCon dd span.info_email,.header .sign .signCon dd span.error_email,.header .sign .signCon dd span.succ_email{
+    top:215px;
+}
+.header .sign .signCon dd span.error_birth{
+    top:250px;
+}
+.header .sign .signCon dd .all_email{
+    width: 180px;
+    height: 130px;
+    background: #fff;
+    padding: 5px 10px;
+    position: absolute;
+    top: 242px;
+    left: 99px;
+    border: 1px solid #ccc;
+    z-index:4;
+    display:none;
+}
+.header .sign .signCon dd .all_email li{
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid #e5edf2;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.header .sign .signCon dd .all_email li.on,.header .sign .signCon dd .all_email li:hover{
+    background-color:rgb(229,237,242);
+    color:#369;
+}
+.header .ajax{
+    width:200px;
+    height:40px;
+    background: url(../img/login_header.png);
+    position:absolute;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    z-index:10000;
+    display:none;
+    left:583px;
+    top:297px;
+}
+.header .ajax p{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    text-indent: 50px;
+}
+.header .loading p{
+    background:url(../img/loading3.gif) no-repeat 20px center;
+}
+.header .success p{
+    background:url(../img/success.gif) no-repeat 20px center;
+}
+
+
+
+
+/*网页主体*/
+.middle .nav{
+    width:465px;
+    height:52px;
+    margin:50px auto;
+    background: url(../img/nav_bg.png) no-repeat;
+    position:relative;
+}
+.middle .nav ul{
+    position:absolute;
+}
+.middle .nav ul.top{
+    z-index:4;
+    left:20px;
+    cursor:pointer;
+}
+.middle .nav ul.about{
+    left:20px;
+    z-index:1;
+}
+.middle .nav ul li{
+    width:85px;
+    height:52px;
+    float:left;
+    text-align:center;
+}
+.middle .nav ul li a{
+    font-weight:bold;
+    line-height:52px;
+}
+.middle .nav ul.about a{
+    color:#333;
+}
+.middle .nav .navBg{
+    width:85px;
+    height:52px;
+    z-index:2;
+    position:absolute;
+    left:20px;
+    top:0;
+    overflow:hidden;
+    background:url(../img/nav_over.png) no-repeat 0 11px;
+    cursor:pointer;
+}
+.middle .nav .navBg ul{
+    width:425px;
+    z-index:3;
+    left:0;
+}
+.middle .nav .navBg ul a{
+    color:#fff;
+}
+/*中部侧边导航栏*/
+.middle .sidebar{
+    width:250px;
+    height:500px;
+    float:left;
+}
+.middle .sidebar .sidebarItem{
+    margin-bottom:10px;
+}
+.middle .sidebar .sidebarItem h2{
+    font-size:14px;
+    width:248px;
+    height:30px;
+    line-height:30px;
+    background:url(../img/side_h.png) repeat-x;
+    border:solid 1px #ccc;
+    text-indent:10px;
+}
+.middle .sidebar .sidebarItem ul{
+    padding:5px 10px;
+    border:solid 1px #ccc;
+    display:block;
+    border-top:none;
+}
+.middle .sidebar .sidebarItem ul li{
+    text-indent:17px;
+    background:url(../img/arrow4.gif) no-repeat left center;
+    margin:9px 0;
+}
+.middle .sidebar .sidebarItem ul li a{
+    color:#333;
+}
+.middle .sidebar .sidebarItem ul li a:hover{
+    color:red;
+}
+.middle .index{
+    width:630px;
+    height:570px;
+    float:right;
+}
+.middle .carousel{
+    width:900px;
+    height:150px;
+    float:left;
+    margin:10px 0;
+    position:relative;
+    overflow:hidden;
+}
+.middle .carousel .wrap{
+    width:2700px;
+    height:150px;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.middle .carousel img{
+    width:900px;
+    height:150px;
+    float:left;
+}
+.middle .carousel span{
+    display:block;
+    width:900px;
+    height:25px;
+    background-color:#333;
+    opacity:0.3;
+    filter:alpha(opacity=30);
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:3;
+}
+.middle .carousel ul{
+    z-index:4;
+    position:absolute;
+    bottom:3px;
+    left:410px;
+}
+.middle .carousel ul li{
+    color:rgb(153,153,153);
+    float:left;
+    padding:0 5px;
+    cursor:pointer;
+    font-size:16px;
+}
+.middle .carousel ul li:hover{
+    color:rgb(51,51,51);
+}
+.middle .carousel strong{
+    position:absolute;
+    bottom:3px;
+    left:10px;
+    z-index:4;
+    color:#fff;
+    display:none;
+}
+.middle .imgGallery{
+    width:900px;
+    float:left;
+    padding:10px;
+}
+.middle .imgGallery dl{
+    width:225px;
+    height:270px;
+    float:left;
+    margin:5px 0 15px 0;
+}
+.middle .imgGallery dl dd{
+    width: 200px;
+    height:250px;
+    margin:0 auto;
+    cursor:pointer;
+}
+.middle .imgGallery dl dt{
+    height:25px;
+    line-height:25px;
+    text-align:center;
+}
+.middle .bigImg{
+    width:620px;
+    height:511px;
+    border:solid 1px #ccc;
+    background-color: #fff;
+    z-index:999;
+    position:absolute;
+    display:none;
+}
+.middle .bigImg .imgCon{
+    width:620px;
+    height:460px;
+    padding:10px 0 0 0;
+    background-color:#333;
+    position:relative;
+}
+.bigImg .imgCon img{
+    display:block;
+    margin:0 auto;
+    position:relative;
+    top:190px;
+}
+.bigImg .imgCon .big{
+    width:600px;
+    height:450px;
+    top:0;
+}
+.bigImg .imgCon strong{
+    width:100px;
+    height:100px;
+    font-size:70px;
+    line-height:100px;
+    color:#fff;
+    background-color:#000;
+    position:absolute;
+    text-align:center;
+    opacity:0.5;
+    filter:alpha(opacity=300);
+    cursor:pointer;
+    display:block;
+}
+.bigImg .imgCon strong.sl{
+    left:20px;
+    top:180px;
+}
+.bigImg .imgCon strong.sr{
+    right:20px;
+    top:180px;
+}
+.bigImg .imgCon span{
+    width:300px;
+    height:450px;
+    background-color:#000;
+    opacity:0;
+    filter:alpha(opacity=0);
+    position:absolute;
+    cursor:pointer;
+}
+.bigImg .imgCon span.left{
+    left:10px;
+    top:10px;
+}
+.bigImg .imgCon span.right{
+    right:10px;
+    top:10px;
+}
+.bigImg .imgCon em{
+    font-size:14px;
+    color:#fff;
+    font-style:normal;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+}
+
+/*侧边栏分享*/
+.share{
+    width:210px;
+    height:315px;
+    border:solid 1px #ccc;
+    background-color: #fff;
+    position:absolute;
+    left:-211px;
+    top:0;
+    z-index:999;
+}
+.share .shareHeader h3{
+    height:30px;
+    font-size:14px;
+    color:#666;
+    line-height:30px;
+    text-indent:10px;
+    background-color:#eee;
+}
+.share .shareCon ul{
+    padding-left:10px;
+    overflow:hidden;
+}
+.share .shareCon li{
+    width:96px;
+    height:28px;
+    float:left;
+    padding: 2px;
+}
+.share .shareCon a{
+    width:96px;
+    height:28px;
+    display:block;
+    color:#666;
+    line-height:28px;
+    background:url(../img/share_bg.png) no-repeat;
+    text-indent:23px;
+}
+.share .shareCon a:hover{
+    color:blue;
+}
+.share .shareCon a.n1{
+    background-position:0 6px;
+}
+.share .shareCon a.n2{
+    background-position:0 -23px;
+}
+.share .shareCon a.n3{
+    background-position:0 -53px;
+}
+.share .shareCon a.n4{
+    background-position:0 -82px;
+}
+.share .shareCon a.n5{
+    background-position:0 -114px;
+}
+.share .shareCon a.n6{
+    background-position:0 -143px;
+}
+.share .shareCon a.n7{
+    background-position:0 -173px;
+}
+.share .shareCon a.n8{
+    background-position:0 -203px;
+}
+.share .shareCon a.n9{
+    background-position:0 -235px;
+}
+.share .shareCon a.n10{
+    background-position:0 -264px;
+}
+.share .shareCon a.n11{
+    background-position:0 -295px;
+}
+.share .shareCon a.n12{
+    background-position:0 -325px;
+}
+.share .shareCon a.n13{
+    background-position:0 -355px;
+}
+.share .shareCon a.n14{
+    background-position:0 -384px;
+}
+.share .shareCon a.n15{
+    background-position:0 -414px;
+}
+.share .shareCon a.n16{
+    background-position:0 -443px;
+}
+.share .shareFooter{
+    position:relative;
+    height:29px;
+    background-color:#eee;
+}
+.share .shareFooter a{
+    position:absolute;
+    top:7px;
+    left:140px;
+    display:block;
+    color:#666;
+    padding-left:15px;
+    background:url(../img/share_bg.png) no-repeat 0 -475px;
+}
+.share .shareFooter span{
+    width:24px;
+    height:88px;
+    display:block;
+    position:absolute;
+    left:210px;
+    top:-230px;
+    background:url(../img/share.png) no-repeat;
+    cursor:pointer;
+}
+
+/*尾部*/
+.footer{
+    width:100%;
+    background-color: #fff;
+}
+.footer .main{
+    padding:5px 0;
+}
+.footer .main p{
+    line-height:20px;
+    text-align:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

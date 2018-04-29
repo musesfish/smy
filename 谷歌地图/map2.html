@@ -1,0 +1,256 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title>Google Maps JavaScript API v3 Example: Marker  
+            Animations Loop</title>  
+        <link href="/maps/documentation/javascript/examples/default.css"  
+            rel="stylesheet">  
+        <script  
+            src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>  
+        <script>  
+            //地图的中心  
+            var center = new google.maps.LatLng(32.102208, 118.925946);  
+            //总路线  
+            var flightPath;  
+            //已经过的路线  
+            var flightPath_yes;  
+            //未经过的路线  
+            var flightPath_no;  
+            //路线所有点坐标数组  
+            var path = [];  
+            //路线上经过的点坐标数组  
+            var path_yes = [];  
+            //路线上未经过的点坐标数组  
+            var path_no = [];  
+            //已经经过的标记的图标样式  
+            var image_green = 'green.jpg';  
+            var image_red = 'red.jpg';  
+              
+            //路线上的各个中间点  
+            var markers = [];  
+              
+            //地图变量  
+            var map;  
+              
+            //定义已经过线的类型(箭头)  
+            var lineSymbol1 = {  
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW  
+            };  
+            //定义未经过线的类型(圆形)  
+            var lineSymbol2 = {  
+                path: google.maps.SymbolPath.CIRCLE,  
+                scale: 5,  
+                strokeColor: '#393'  
+            };  
+          
+            function initialize() {  
+                var mapOptions = {  
+                    zoom :12,  
+                    mapTypeId :google.maps.MapTypeId.ROADMAP,  
+                    center :center,  
+                    scaleControl :true //比例控件   
+                };  
+                map = new google.maps.Map(document.getElementById('map_canvas'),  
+                        mapOptions);  
+            }  
+          
+            function drop() {  
+                if(markers.length != 0){  
+                    deleteOverlays();  
+                }  
+                    //出发点坐标的字符串  
+                    var str_start = document.getElementById("p_start").value;  
+                    //目的点坐标的字符串,进行分解并创建该字符串对应的坐标  
+                    var str_end = document.getElementById("p_end").value;  
+                      
+                    var str_start_ary = str_start.split(",");  
+                    var str_end_ary = str_end.split(",");  
+                      
+                    //出发点和终点坐标  
+                    var pos_start = new google.maps.LatLng(parseFloat(str_start_ary[0]),parseFloat(str_start_ary[1]));  
+                    var pos_end = new google.maps.LatLng(parseFloat(str_end_ary[0]),parseFloat(str_end_ary[1]));  
+                      
+                    //开始点坐标放入数组  
+                    path_yes.push(pos_start);  
+                    path.push(pos_start);  
+                    //中间点坐标字符串  
+                    var centers = document.getElementsByName("p_center");   
+                    var sel_centers = document.getElementsByName("sel_center");   
+                    for(var i=0; i<centers.length; i++){  
+                        var val = trim(centers[i].value);  
+                        if(val!=""){  
+                            var str_center_ary = val.split(",");  
+                            var pos_center = new google.maps.LatLng(parseFloat(str_center_ary[0]),parseFloat(str_center_ary[1]));  
+                            //判断该点坐标是否已经经过  
+                            var is_pass = sel_centers[i].value;  
+                            path.push(pos_center);  
+                            if(is_pass=="1"){  
+                                //经过  
+                                path_yes.push(pos_center);  
+                            }  
+                        }  
+                    }  
+                    //结束点坐标放入数组并判断结束点是否已经经过  
+                    path.push(pos_end);  
+                    if(document.getElementById("sel_p_end").value=="1"){  
+                        path_yes.push(pos_end);  
+                    }  
+                      
+                    //在地图上画出坐标点对应的标志  
+                    for ( var i = 0; i < path.length; i++) {  
+                        addMarker(path[i]);  
+                    }  
+                    //绘制总路线  
+                    flightPath = new google.maps.Polyline( {  
+                        path :path,  
+                        strokeColor :"red",  
+                        strokeOpacity :1.0,  
+                        strokeWeight :3,  
+                        icons: [{  
+                            icon: lineSymbol1,  
+                            offset: '100%'  
+                        }]  
+                    });  
+                    //绘制已经经过的路线  
+                    flightPath_yes = new google.maps.Polyline( {  
+                        path :path_yes,  
+                        strokeColor :"green",  
+                        strokeOpacity :1.0,  
+                        strokeWeight :3,  
+                        icons: [{  
+                            icon: lineSymbol1,  
+                            offset: '100%'  
+                        }]  
+                    });  
+                    flightPath.setMap(map);  
+                    flightPath_yes.setMap(map);  
+                      
+                /** 根据总的坐标数组和已经经过点的坐标数组来获得未经过点的坐标数组 */  
+                for(var i=0; i<path.length; i++){  
+                    var pass = false;  
+                    for(var j=0; i<path_yes.length-1; i++){  
+                        if(path_yes[j]==path[i]){  
+                            pass = true;  
+                            break;  
+                        }  
+                    }  
+                    if(!pass){  
+                        path_no.push(path[i]);  
+                    }  
+                }  
+                //绘制未经过的路线  
+                flightPath_no = new google.maps.Polyline( {  
+                    path :path_no,  
+                    strokeColor :"red",  
+                    strokeOpacity :1.0,  
+                    strokeWeight :3,  
+                    icons: [{  
+                        icon: lineSymbol2,  
+                        offset: '100%'  
+                    }]  
+                });  
+                flightPath.setMap(map);  
+                flightPath_no.setMap(map);  
+                  
+            }  
+            /** 地图上添加标志 */  
+            function addMarker(pos) {  
+                //判断该点是否已经经过,经过则将地图上的标志样式进行改变  
+                var exist = false;  
+                for(var j=0; j<path_yes.length; j++){  
+                    if(path_yes[j] == pos){  
+                        exist = true;  
+                            break;  
+                    }  
+                }  
+              
+                var marker = new google.maps.Marker( {  
+                        position :pos,  
+                        map :map,  
+                        draggable :false,  
+                        //icon:image_green,  
+                        animation :google.maps.Animation.DROP  
+                    });  
+                //鼠标放在图标上的时候显示的信息  
+                marker.setTitle(pos.toString());  
+                //根据某坐标是否经过来设置图标的颜色  
+                if(exist){  
+                    marker.setIcon(image_green);  
+                }else{  
+                    marker.setIcon(image_red);  
+                }  
+                markers.push(marker);  
+                  
+                // 每个图标点击后对应的信息框   
+                var infowindow = new google.maps.InfoWindow({   
+                    content: pos.toString(),  
+                    maxWidth: 20  
+                });  
+                google.maps.event.addListener(marker, 'click', function() {  
+                    infowindow.open(map,marker);  
+                });  
+                  
+            }  
+            /** 删除地图上的标志和路线 */  
+            function deleteOverlays() {  
+                if (markers) {  
+                    for (i in markers) {  
+                        markers[i].setMap(null);  
+                    }  
+                    markers.length = 0;  
+                    path_yes.length = 0;  
+                    path.length = 0;  
+                    path_no.length = 0;  
+                    flightPath.setPath(path);  
+                    flightPath_yes.setPath(path);  
+                    flightPath_no.setPath(path);  
+                }  
+            }  
+            /** 线上点的动画效果 */  
+              
+            function animateCircle() {  
+                var count = 0;  
+                offsetId = window.setInterval(function() {  
+                    count = (count + 1) % 200;  
+                    var icons = flightPath_no.get('icons');  
+                    icons[0].offset = (count / 2) + '%';  
+                    flightPath_no.set('icons', icons);  
+                }, 20);  
+            }  
+              
+              
+            /** 去除字符串两端空格 */  
+            function trim(str){  
+                return str.replace( /^\s*/, "").replace(/\s*$/,"");  
+            }  
+              
+        </script>  
+    </head>  
+    <body onload="initialize();animateCircle();">  
+        <div id="map_canvas" style="width: 500px; height: 400px;">  
+            map div  
+        </div>  
+        -----------------模拟数据---------------------<br />  
+        出发  :<input type="text" id="p_start" value="32.136168,118.944963"><br />  
+          
+        途经1:<input type="text" name="p_center" value="32.125666,118.945285">  
+        <select name="sel_center"><option value="0">未到达</option><option value="1">到达</option></select><br />  
+          
+        途经2:<input type="text" name="p_center" value="32.103493,118.939492">  
+        <select name="sel_center"><option value="0">未到达</option><option value="1">到达</option></select><br />  
+          
+        途经3:<input type="text" name="p_center" value="">  
+        <select name="sel_center"><option value="0">未到达</option><option value="1">到达</option></select><br />  
+          
+        目的  :<input type="text" id="p_end" value="32.086042,118.889431">  
+        <select id="sel_p_end"><option value="0">未到达</option><option value="1">到达</option></select><br />  
+        --------------------------------------  
+        <br />  
+        <button id="drop" onclick="drop()">  
+            获取路线  
+        </button>  
+        <button id="delete" onclick="deleteOverlays()">  
+            删除路线图标  
+        </button>  
+    </body>  
+</html>  

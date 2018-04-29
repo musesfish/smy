@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width,initial-scale=1, user-scalable=no">
+</head>
+<link href="passwordkeyboard.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="fastclick.js"></script>
+<script>
+    function init(){
+        var width=$(window).width();
+        var height=$(window).height();
+        $("body").css("height",height);
+        $("body").css("width",width);
+    }
+    window.addEventListener('load', function() {
+    	  FastClick.attach(document.body);
+    	}, false);
+</script>
+<body onload="init()">
+<div>
+    <div style="text-align: center;padding-top: 10px;p"><span id="set_text" style="font-size: large;"></span></div>
+    <div style="padding-top: 20px;text-align: center;">
+        <form id="password" >
+            <input readonly class="pass" type="password"maxlength="1"value=""><input readonly class="pass" type="password"maxlength="1"value=""><input readonly class="pass" type="password"maxlength="1"value=""><input readonly class="pass" type="password"maxlength="1"value=""><input readonly class="pass" type="password"maxlength="1"value=""><input readonly class="pass pass_right" type="password"maxlength="1"value="">
+        </form>
+    </div>
+</div>
+<div id="keyboardDIV"></div>
+</body>
+<script type="text/javascript" src="ladingPasswordConfirm.js"></script>
+</html>
