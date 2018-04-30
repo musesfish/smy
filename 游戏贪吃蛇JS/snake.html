@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>后盾网演示游戏-贪吃蛇</title>
+	<link rel="stylesheet" type="text/css" href="./css.css">
+	<script type="text/javascript" src="./jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="./js.js"></script>
+</head>
+<body>
+	<div id="info">
+		<div id="score">0</div>
+		<form action="" id="form" name="form">
+			<input type="radio" name='time' value="500" checked='checked'/>简单
+			<input type="radio" name='time' value="300"/>中等
+			<input type="radio" name='time' value="150"/>高级
+			<input type="radio" name='time' value="50"/>神速
+			<input type="button" value="开始" class="button" id="start"/>
+			<input type="button" value="重玩" class="button" id="res"/>
+		</form>
+		
+	</div>
+	<div id="main">
+		<div id="home">
+			
+			<!-- <div style="background:url(./images/snake1.png) no-repeat; left:20px;"></div>
+			<div style="background:url(./images/snake2.png) no-repeat; left:40px;"></div>
+			<div style="background:url(./images/snake3.png) no-repeat; left:60px;"></div> -->
+		</div>
+		<div class="wall left"></div>
+		<div class="wall right"></div>
+		<div class="wall top"></div>
+		<div class="wall bottom"></div>
+	</div>
+
+</body>
+</html>

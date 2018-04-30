@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="jquery-1.5.js" type="text/javascript"></script>
+
+    <script src="jquery.validate.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        jQuery.validator.addMethod("regex",  //addMethod第1个参数:方法名称
+        function(value, element, params) {     //addMethod第2个参数:验证方法，
+            //验证方法参数（被验证元素的值，被验证元素，参数）
+            var exp = new RegExp(params);     //实例化正则对象，参数为用户传入的正则表达式
+            return exp.test(value);                    //测试是否匹配
+        },
+        "格式错误");
+
+        $(function() {
+            $("#signupForm").validate(
+
+            //在上例中新增的部分
+            {
+            rules: {
+                txtPassword1: "required",  //密码1必填
+
+                txtPassword2: {    //密码2的描述多于1项使用对象类型
+                    required: true,  //必填，这里可以是一个匿名方法
+                    equalTo: "#txtPassword1",  //必须与密码1相等
+                    rangelength: [5, 10],    //长度5-10之间
+                    regex: "^\\w+$"          //使用自定义的验证规则
+                },
+
+                txtEmail: "email",   //电子邮箱必须合法
+                sex: "required"
+            },
+            messages: {  //对应上面的错误信息
+                txtPassword1: "您必须填写",
+
+                txtPassword2: {
+                    required: "您必须填写",
+                    equalTo: "密码不一致",
+                    rangelength: "长度必须介于{0} 和 {1} 之间的字符串",
+                    regex: "密码只能是数字、字母与下划线"
+                }
+            },
+
+            errorPlacement: function(error, element) { //指定错误信息位置
+                if (element.is(':radio') || element.is(':checkbox')) {  //如果是radio或checkbox
+                    var eid = element.attr('name');  //获取元素的name属性
+                    error.appendTo(element.parent());    //将错误信息添加当前元素的父结点后面
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+
+            debug: false,  //如果修改为true则表单不会提交
+            submitHandler: function() {
+                alert("开始提交了");
+            }
+        });
+    });
+    </script>
+
+    <style type="text/css">
+        *
+        {
+            font-size: 14px;
+        }
+        #signupForm label.error
+        {
+            color: Red;
+            font-size: 13px;
+            margin-left: 5px;
+            padding-left: 16px;
+            background: url("error.png") left no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <form id="signupForm" method="get" action="">
+    <fieldset>
+        <legend>用户注册</legend>
+        <p>
+            <label for="txtPassword1">
+                密码1</label>
+            <input id="txtPassword1" name="txtPassword1" type="text" />
+        </p>
+        <p>
+            <label for="txtPassword2">
+                密码2</label>
+            <input id="txtPassword2" name="txtPassword2" type="text" />
+        </p>
+        <p>
+            <label for="txtEmail">
+                邮箱</label>
+            <input id="txtEmail" name="txtEmail" />
+        </p>
+        <p>
+            <label for="sex">
+                性别</label>
+            <input type="radio" id="rdoFemale" name="sex" />男
+            <input type="radio" id="rdoMale" name="sex" />女
+        </p>
+        <p>
+            <label for="txtAge">
+                年龄</label>
+            <input id="txtAge" name="txtAge" min="18" max="45" />
+            <!--年龄只能在18-45之间-->
+        </p>
+        <p>
+            <input type="submit" value="提交" />
+        </p>
+    </fieldset>
+    </form>
+</body>
+</html>
