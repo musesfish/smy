@@ -1,0 +1,11 @@
+<ul>
+{% for obj in list %}
+    <li>{{ obj.name }}</li>
+{% endfor %}
+</ul>
+{% load static %}
+<ul>
+{% for img in imgs %}
+    <li>{{ img.name }}<img src="/static/upload/{{ img.path }}" alt="{{ img.name }}"></li>
+{% endfor %}
+</ul>
