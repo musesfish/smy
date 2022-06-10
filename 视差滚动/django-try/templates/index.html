@@ -9,8 +9,7 @@
   <script src="/static/plugins/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script>  
   <script src="/static/plugins/jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>    
   <script src="/static/js/default.js" type="text/javascript"></script>
-</head>   
-{% load static %} 
+</head>    
 <body id="default">     
   <div class="pageWidth" id="box_root">
     <!-- 头部导航开始 -->  
@@ -18,25 +17,25 @@
       <a href="../test" class="logo_a"></a>
       <ul id="menu"> 
         <li class="" id="mn_home" name="home">
-          <a href="#home">{{list.0.name}}</a>
+          <a href="#home">网站首页</a>
         </li>  
         <li id="mn_news" name="news">
-          <a href="#news">{{list.1.name}}</a>
+          <a href="#news">新闻资讯</a>
         </li>  
         <li id="mn_products" name="products">
-          <a href="#products">{{list.2.name}}</a>
+          <a href="#products">核心项目</a>
         </li>  
         <li id="mn_chanye" name="sector">
-          <a href="#sector">{{list.3.name}}</a>
+          <a href="#sector">产业板块</a>
         </li>  
         <li id="mn_about" name="famous">
-          <a href="#famous">{{list.4.name}}</a>
+          <a href="#famous">企业寄语</a>
         </li>  
         <li class="last" id="mn_contact" name="about">
-          <a href="#about">{{list.5.name}}</a>
+          <a href="#about">关于我们</a>
         </li>    
         <li class="last" id="mn_contact" name="contact">
-          <a href="#about">{{list.6.name}}</a>
+          <a href="#about">联系我们</a>
         </li>    
       </ul> 
     </div>  
@@ -46,49 +45,48 @@
     <!-- 头部导航结束 -->  
     <div id="box_main"> 
       <div id="home" style="background-position: 50% -110px;"> 
-        <div class="contents">  
-          <div class="pro_list"> 
-            <p>
-              {{ img.0.name }}<img src="/static/upload/{{ imgs.0.path }}" alt="{{ img.0.name }}">
-            </p>
-          </div>  
-        </div>
         <div class="sprite1" style="background-position: 50% 550px;"></div>  
         <div class="sprite" style="background-position: 50% 0px;"></div>  
-        <div class="screen"></div> 
+        <div class="screen">网站首页</div> 
       </div>  
+      <!-- 装饰器样式开始 -->
+      <div class="border_05">
+        <div class="border_05-topr">
+          <div class="border_05-topl"></div>
+        </div>
+        <div class="border_05-mid">
+          <div class="borderContent">
+            <div id="FrontSpecifies_show01-1367889271850" class="FrontSpecifies_show01-d3_c1">
+              <div class="comptitle_05">
+                <em><span class="extendLink"></span></em>
+              </div>
+              <div class="describe htmledit">
+                <div class="about_txt"></div>
+              </div>
+            </div>
+            <div class="clearBoth"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 装饰器样式结束 -->
       <div id="news" style="background-position: 50% -110px;"> 
         <div class="contents"> 
           <div id="box_news"> 
-            <p>
-              <li>
-              {{ img.1.name }}<img src="/static/upload/{{ imgs.1.path }}" alt="{{ img.1.name }}">
-              </li>
-            </p>
+            <p>新闻资讯</p>
           </div> 
         </div> 
       </div>  
-      <div id="products" style="background-position: 50% -110px;">
-        <div class="contents">  
-          <div class="pro_list"> 
-            <p>
-              <li>
-              {{ img.2.name }}<img src="/static/upload/{{ imgs.2.path }}" alt="{{ img.2.name }}">
-              </li>
-            </p>
-          </div>  
-        </div>
+      <div id="products" style="background-position: 50% -110px;"> 
+        <div class="pro_list"> 
+          <p>核心项目</p>
+        </div>  
         <div class="sprite" style="background-position: 50% 0px;"></div>  
         <div class="screen" style="background-position: 50% 220px;"></div> 
       </div>
       <div id="sector" style="background-position: 50% -110px;"> 
         <div class="contents"> 
           <div class="sector_img"> 
-            <p>
-              <li>
-              {{ img.3.name }}<img src="/static/upload/{{ imgs.3.path }}" alt="{{ img.3.name }}">
-              </li>
-            </p>
+            <p>产业板块</p>
           </div> 
         </div>  
         <div class="screen" style="background-position: 50% 550px;"></div>  
@@ -97,37 +95,39 @@
       <div id="famous" style="background-position: 50% -90px;"> 
         <div class="contents"> 
           <div class="famous_rim"> 
-            <p>
-              <li>
-              {{ img.4.name }}<img src="/static/upload/{{ imgs.4.path }}" alt="{{ img.4.name }}">
-              </li>
-            </p>
+            <p>企业寄语</p>
           </div> 
         </div>  
         <div class="sprite" style="background-position: 50% 450px;"></div> 
       </div>  
+      <div id="" style="background-position: 50% -110px;"> 
+        <div class="contents"> 
+          <div class="about_rim"> 
+            <div class="columnSpace" id="elem-FrontSpecifies_show01-1367889271850"></div> 
+          </div> 
+        </div>  
+        <div class="sprite" style="background-position: 50% 0px;"></div>  
+        <div class="screen" style="background-position: 50% 550px;"></div> 
+      </div>  
       <div id="about" style="background-position: 50% 0px;"> 
         <div class="contents"> 
           <div class="about_rim"> 
-            <p>
-              <li>
-              {{ img.5.name }}<img src="/static/upload/{{ imgs.5.path }}" alt="{{ img.5.name }}">
-              </li>
-            </p>
+            <p>关于我们</p>
           </div> 
         </div>  
         <div class="sprite" style="background-position: 50% 0px;"></div>  
         <div class="screen" style="background-position: 50% 550px;"></div>  
+        <div class="screen1" style="background-position: 50% 110px;"></div> 
       </div>  
       <div id="contact"> 
         <div class="contents"> 
-          <div class="about_rim">
-            <p>
-              <li>
-              {{ img.6.name }}<img src="/static/upload/{{ imgs.6.path }}" alt="{{ img.6.name }}">
-              </li>
-            </p>
-          </div>
+          <div id="box_contact"> 
+            <div class="columnSpace" id="elem-FrontSpecifies_show01-1368432548167">
+              <div id="FrontSpecifies_show01-1368432548167" class="FrontSpecifies_show01-d3_c1">
+                <div class="describe htmledit">联系我们</div>
+              </div>
+            </div>
+          </div>  
         </div>  
         <div class="sprite" style="background-position: 50% 0px;"></div>  
         <div class="screen"></div> 

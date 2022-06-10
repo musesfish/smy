@@ -1,0 +1,296 @@
+@charset "utf-8";
+body{
+   padding-bottom: 0px;
+   margin: 0px;
+   padding-left: 0px;
+   padding-right: 0px;
+   font-size: 12px;
+   padding-top: 0px;
+   background-color: rgb(241, 241, 241);
+}
+.clearfix:after{
+   display: block;
+   height: 0px;
+   visibility: hidden;
+   clear: both;
+   content: ".";
+}
+#nav a.logo_a{
+   z-index: 9999;
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 50px;
+   min-width: 100px;
+   background: transparent url(../images/logo.png) no-repeat;
+   background-size: contain;
+   margin-left: 3%;
+}
+#nav{
+   z-index: 9999;
+   position: fixed;
+   width: 100%;
+   background-color: #fff;
+   height: 50px;
+   display: flex;
+}
+#nav UL{
+   height: 50px;
+   margin: auto;
+}
+#nav UL LI{
+   text-align: center;
+   padding-bottom: 0px;
+   line-height: 50px;
+   list-style-type: none;
+   margin: 0px;
+   padding-left: 0px;
+   width: 123px;
+   padding-right: 0px;
+   float: left;
+   height: 50px;
+   font-size: 16px;
+   list-style-image: none;
+   border-right: #e4e4e4 1px solid;
+   padding-top: 0px;
+}
+#nav UL LI A{
+   width: 100%;
+   display: block;
+   height: 50px;
+   color: #000;
+   text-decoration: none;
+}
+#nav UL LI A:hover{
+   background: url(../images/menu_hover.gif) #8e273c no-repeat left top;
+   color: #fff;
+   text-decoration: none;
+}
+#nav UL LI.selected A{
+   background: url(../images/menu_hover.gif) #8e273c no-repeat left top;
+   color: #fff;
+   text-decoration: none;
+}
+.top_rim{
+   z-index: 99999;
+   position: fixed;
+   width: 55px;
+   bottom: 35px;
+   height: 55px;
+   right: 10px;
+}
+.top_rim A{
+   text-indent: -200px;
+   width: 55px;
+   display: block;
+   background: url(../images/top_ico.gif) no-repeat;
+   height: 55px;
+   overflow: hidden;
+   text-decoration: none;
+}
+.top_rim A:hover{
+   background: url(../images/top_ico.gif) no-repeat 0px bottom;
+   text-decoration: none;
+}
+#home{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#about{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#famous{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#news{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#products{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#sector{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+#contact{
+   position: relative;
+   padding-bottom: 0px;
+   margin: 0px auto;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   overflow: hidden;
+   padding-top: 0px;
+}
+.sprite{
+   z-index: 200;
+   position: absolute;
+   padding-bottom: 0px;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   top: 0px;
+   padding-top: 0px;
+}
+.screen{
+   z-index: 201;
+   position: absolute;
+   padding-bottom: 0px;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   height: 1100px;
+   top: 0px;
+   padding-top: 0px;
+}
+.contents{
+   z-index: 202;
+   position: absolute;
+   width: 1200px;
+   height: 750px;
+   margin-left: -600px;
+   overflow: hidden;
+   top: 200px;
+   left: 50%;
+}
+#home{
+   background: url(../images/home_bg.jpg) fixed no-repeat center bottom;
+}
+#home .screen{
+   background: url(../images/home_frei.png) no-repeat center 417px;
+}
+#home .sprite1{
+   z-index: 201;
+   position: absolute;
+   padding-bottom: 0px;
+   padding-left: 0px;
+   width: 100%;
+   padding-right: 0px;
+   background: url(../images/home_frei01.png) fixed no-repeat center bottom;
+   height: 1100px;
+   top: 0px;
+   padding-top: 0px;
+}
+#about{
+   background: url(../images/about_bg.jpg) fixed no-repeat center 0px;
+}
+#about .sprite{
+   background: url(../images/about_sprite_frei.png) fixed no-repeat center 211px;
+}
+#about .screen{
+   background: url(../images/about_frei.png) fixed no-repeat center bottom;
+}
+#famous{
+   background: url(../images/famous_bg.jpg) fixed no-repeat center 0px;
+}
+#famous .sprite{
+   background: url(../images/famous_sprite_frei.png) fixed no-repeat center 411px;
+}
+#famous .screen{
+   background: url(../images/famous_sprite_frei.png) no-repeat center bottom;
+}
+#famous .famous_rim{
+   width: 455px;
+   height: 450px;   
+}
+#news{
+   background: url(../images/news_bg.jpg) fixed no-repeat center bottom;
+}
+#news .sprite{
+   background: url(../images/lab_sprite_frei.png) fixed no-repeat center 211px;
+}
+#news .screen{
+   background: url(../images/lab_frei.png) fixed no-repeat center 15px;
+}
+#news #box_news{
+   z-index: 1000;
+   position: absolute;
+   width: 500px;
+   height: 500px;
+   top: 0px;
+   left: 0px;
+}
+#products{
+   background: url(../images/projekt_bg.jpg) fixed no-repeat center 0px;
+}
+#products .sprite{
+   background: url(../images/pro_sprite_frei.png) fixed no-repeat center 435px;
+}
+#products .screen{
+   background: url(../images/pro_frei.png) fixed no-repeat center 28px;
+}
+#products .pro_list{
+   z-index: 202;
+   position: absolute;
+   width: 1204px;
+   height: auto;
+   margin-left: -600px;
+   top: 150px;
+   left: 50%;
+}
+#sector{
+   background: url(../images/sector_bg.jpg) fixed no-repeat center 0px;
+}
+#sector .sprite{
+   background: url(../images/sector_sprite_frei.png) fixed no-repeat center 435px;
+}
+#sector .screen{
+   background: url(../images/sector_frei.png) fixed no-repeat center 300px;
+}
+#contact{
+   background: url(../images/technik_bg.jpg) no-repeat center top;
+}
+#contact .sprite{
+   background: url(../images/technik_sprite_frei.png) fixed no-repeat center 172px;
+}
+#contact .contents{
+   height: auto;
+}
