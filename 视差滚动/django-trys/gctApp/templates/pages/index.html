@@ -49,7 +49,7 @@
         <div class="contents">  
           <div class="pro_list"> 
             <p>
-              {{ img.0.name }}<img src="/static/upload/{{ imgs.0.path }}" alt="{{ img.0.name }}">
+              {{ imgs.0.name }}<img class="img" src="/media/{{ imgs.0.path }}" alt="{{ img.0.name }}">
             </p>
           </div>  
         </div>
@@ -61,20 +61,19 @@
         <div class="contents"> 
           <div id="box_news"> 
             <p>
-              <li>
-              {{ img.1.name }}<img src="/static/upload/{{ imgs.1.path }}" alt="{{ img.1.name }}">
-              </li>
+              {{ imgs.1.name }}<img src="/media/{{ imgs.1.path }}" alt="{{ img.1.name }}" class="img">
             </p>
           </div> 
+          <p>
+            {{ imgs.1.content }}
+          </p>
         </div> 
       </div>  
       <div id="products" style="background-position: 50% -110px;">
         <div class="contents">  
           <div class="pro_list"> 
             <p>
-              <li>
-              {{ img.2.name }}<img src="/static/upload/{{ imgs.2.path }}" alt="{{ img.2.name }}">
-              </li>
+              {{ imgs.2.name }}<img src="/media/{{ imgs.2.path }}" alt="{{ img.2.name }}" class="img">
             </p>
           </div>  
         </div>
@@ -85,9 +84,7 @@
         <div class="contents"> 
           <div class="sector_img"> 
             <p>
-              <li>
-              {{ img.3.name }}<img src="/static/upload/{{ imgs.3.path }}" alt="{{ img.3.name }}">
-              </li>
+              {{ imgs.3.name }}<img src="/media/{{ imgs.3.path }}" alt="{{ img.3.name }}" class="img">
             </p>
           </div> 
         </div>  
@@ -98,11 +95,12 @@
         <div class="contents"> 
           <div class="famous_rim"> 
             <p>
-              <li>
-              {{ img.4.name }}<img src="/static/upload/{{ imgs.4.path }}" alt="{{ img.4.name }}">
-              </li>
+              {{ imgs.4.name }}<img src="/media/{{ imgs.4.path }}" alt="{{ img.4.name }}" class="img">
             </p>
           </div> 
+          <span>
+            {{ imgs.4.content }}
+          </span>
         </div>  
         <div class="sprite" style="background-position: 50% 450px;"></div> 
       </div>  
@@ -110,9 +108,7 @@
         <div class="contents"> 
           <div class="about_rim"> 
             <p>
-              <li>
-              {{ img.5.name }}<img src="/static/upload/{{ imgs.5.path }}" alt="{{ img.5.name }}">
-              </li>
+              {{ imgs.5.name }}<img src="/media/{{ imgs.5.path }}" alt="{{ img.5.name }}" class="img">
             </p>
           </div> 
         </div>  
@@ -123,9 +119,7 @@
         <div class="contents"> 
           <div class="about_rim">
             <p>
-              <li>
-              {{ img.6.name }}<img src="/static/upload/{{ imgs.6.path }}" alt="{{ img.6.name }}">
-              </li>
+              {{ imgs.6.name }}<img src="/media/{{ imgs.6.path }}" alt="{{ img.6.name }}" class="img">
             </p>
           </div>
         </div>  
