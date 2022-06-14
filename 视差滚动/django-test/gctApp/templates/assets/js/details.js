@@ -45,7 +45,7 @@ window.addEventListener("load", function() {
                     </div>
                 </div>
                 <div class="bottom-div">
-                    <a class="like">${news.like}</a>
+                    <a class="like">${news.like||0}</a>
                     <a class="a thumbs-a"><i data-feather="thumbs-up" class="thumbs"></i></a>
                 </div>
                 `;
@@ -54,6 +54,9 @@ window.addEventListener("load", function() {
                 html = '';
                 if(news.comments){
                     comments = JSON.parse(news.comments);
+                    if(!Array.isArray(comments)){
+                        comments = [comments];
+                    }
                 }else{
                     comments = [];
                 }

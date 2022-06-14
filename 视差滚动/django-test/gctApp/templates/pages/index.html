@@ -63,7 +63,7 @@
                     <div class="bottom-div">
                         <a class="a" href="./details?id={{i.id}}&tag=comments" target="_blank">comments</a>
                         <a>|</a>
-                        <a class="like">{{i.like}}</a>
+                        <a class="like">{{ i.like|default_if_none:0 }}</a>
                         <a class="a thumbs-a" data-id="{{i.id}}"><i data-feather="thumbs-up" class="thumbs"></i></a>
                     </div>
                     <hr>
@@ -92,7 +92,7 @@
                     <div class="bottom-div">
                         <a class="a" href="./details?id={{i.id}}&tag=comments" target="_blank">comments</a>
                         <a>|</a>
-                        <a class="like">{{i.like}}</a>
+                        <a class="like">{{ i.like|default_if_none:0 }}</a>
                         <a class="a thumbs-a" data-id="{{i.id}}"><i data-feather="thumbs-up" class="thumbs"></i></a>
                     </div>
                     <hr>
@@ -114,7 +114,7 @@
                 <div class="row align-items-center justify-content-md-between pb-4">
                     <div class="col-md-6">
                         <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                            © 2022 WELEND LIMITED 版權所有
+                            © 2022 WELAB GTC 版權所有
                         </div>
                     </div>
                 </div>

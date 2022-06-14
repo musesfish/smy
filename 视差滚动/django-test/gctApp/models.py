@@ -14,5 +14,5 @@ class News(models.Model):
     content = models.CharField(max_length=1000,verbose_name=u"内容",default="")
     path = models.ImageField(upload_to='img_url/',verbose_name=u"图片地址")
     time = models.DateTimeField(default=datetime.now(),verbose_name=u"添加时间")
-    like = models.IntegerField(verbose_name=u"喜欢")
-    comments = models.CharField(max_length=1000 ,verbose_name=u"评论")
+    like = models.IntegerField(verbose_name=u"喜欢",null=True, blank=True)
+    comments = models.CharField(max_length=1000 ,verbose_name=u"评论",null=True,blank=True)
