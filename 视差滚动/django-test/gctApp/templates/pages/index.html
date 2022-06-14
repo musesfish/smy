@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <title>WeLab Bank</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="/assets/css/quick-website.css" id="stylesheet">
+</head>
+{% load templatetags %}
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+                <img alt="Image placeholder" src="/assets/img/logo.png" id="navbar-logo">
+            </a>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
+                    {% for i in themes %}
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" id="{{i.id}}">{{ i.theme }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <section class="slice slice-sm">
+        <div class="container">
+            {% for i in news %}
+                {% if i.id|my_filter:2 %}
+                <div class="py-3">
+                    <div class="row row-grid justify-content-between align-items-center">
+                        <div class="col-lg-5">
+                            <h5 class="h3">{{i.title}}</h5>
+                            <p class="lead my-4 elli-6">
+                                {{i.content}}
+                            </p>
+                            <a href="./details?id={{i.id}}" class="btn btn-primary btn-icon" target="_blank">
+                                <span class="btn-inner--text">Read more</span>
+                                <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card mb-0 ml-lg-5">
+                                <div class="card-body p-2">
+                                    <img alt="Image placeholder" src="/media/{{ i.path }}" class="img-fluid shadow rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-div">
+                        <a class="a" href="./details?id={{i.id}}&tag=comments" target="_blank">comments</a>
+                        <a>|</a>
+                        <a class="like">{{news.0.like}}</a>
+                        <a class="a thumbs-a" data-id="{{i.id}}"><i data-feather="thumbs-up" class="thumbs"></i></a>
+                    </div>
+                    <hr>
+                </div>
+                {% else %}
+                <div class="py-3">
+                    <div class="row row-grid justify-content-between align-items-center">
+                        <div class="col-lg-5 order-lg-2">
+                            <h5 class="h3">{{i.title}}</h5>
+                            <p class="lead my-4 elli-6">
+                                {{i.content}}
+                            </p>
+                            <a href="./details?id={{i.id}}" class="btn btn-primary btn-icon" target="_blank">
+                                <span class="btn-inner--text">Read more</span>
+                                <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="card mb-0 mr-lg-5">
+                                <div class="card-body p-2">
+                                    <img alt="Image placeholder" src="/media/{{ i.path }}" class="img-fluid shadow rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-div">
+                        <a class="a" href="./details?id={{i.id}}&tag=comments" target="_blank">comments</a>
+                        <a>|</a>
+                        <a class="like">{{news.0.like}}</a>
+                        <a class="a thumbs-a" data-id="{{i.id}}"><i data-feather="thumbs-up" class="thumbs"></i></a>
+                    </div>
+                    <hr>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <footer class="position-relative" id="footer-main">
+        <div class="footer pt-lg-7 footer-dark bg-dark">
+            <!-- SVG shape -->
+            <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+                <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class=" fill-section-secondary">
+                    <polygon points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+            <!-- Footer -->
+            <div class="container pt-4">
+                <div class="row align-items-center justify-content-md-between pb-4">
+                    <div class="col-md-6">
+                        <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                            © 2022 WELEND LIMITED 版權所有
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Core JS  -->
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/feather-icons/dist/feather.min.js"></script>
+</body>
+</html>
