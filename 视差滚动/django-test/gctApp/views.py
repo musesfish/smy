@@ -10,5 +10,4 @@ def index(request):
   return render(request, "index.html", {"themes":themes,"news":news})
 
 def details(request):
-  news = News.objects.all()
   return render(request, "details.html")
